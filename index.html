@@ -198,6 +198,30 @@
   .wa-float:hover { transform: scale(1.08); }
   .wa-float svg { width: 26px; height: 26px; fill: #fff; }
 
+  /* ===== AVISO DE COOKIES ===== */
+  .cookies-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 400; background: var(--gray); color: #fff;
+    padding: 18px 24px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+    transform: translateY(100%); transition: transform .4s ease; box-shadow: 0 -6px 24px rgba(0,0,0,.15);
+  }
+  .cookies-bar.open { transform: translateY(0); }
+  .cookies-bar p { font-size: 12.5px; max-width: 640px; line-height: 1.6; color: #eee; }
+  .cookies-bar a { text-decoration: underline; color: #fff; }
+  .cookies-bar-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .btn-cookies-aceptar {
+    background: var(--red); color: #fff; border: none; padding: 11px 22px; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: background .2s; white-space: nowrap;
+  }
+  .btn-cookies-aceptar:hover { background: var(--red-light); }
+  .btn-cookies-rechazar {
+    background: none; color: #ccc; border: 1px solid #555; padding: 11px 18px; font-size: 12px;
+    cursor: pointer; transition: border-color .2s, color .2s; white-space: nowrap;
+  }
+  .btn-cookies-rechazar:hover { border-color: #999; color: #fff; }
+  @media (max-width: 560px) {
+    .cookies-bar { padding: 16px; justify-content: flex-start; }
+  }
+
   /* ===== OVERLAY COMPARTIDO ===== */
   .overlay {
     position: fixed; inset: 0; z-index: 210; background: rgba(43,45,66,0.4);
@@ -608,6 +632,15 @@
 </div>
 
 <!-- ═══ WHATSAPP FLOTANTE ═══ -->
+<!-- ═══ AVISO DE COOKIES ═══ -->
+<div class="cookies-bar" id="cookiesBar">
+  <p data-i18n="cookies.mensaje">Usamos cookies propias y de terceros para mejorar tu experiencia de compra, recordar tus preferencias y analizar el uso del sitio. Puedes aceptarlas o rechazar las no esenciales.</p>
+  <div class="cookies-bar-actions">
+    <button class="btn-cookies-rechazar" id="cookiesRechazar" data-i18n="cookies.rechazar">Rechazar</button>
+    <button class="btn-cookies-aceptar" id="cookiesAceptar" data-i18n="cookies.aceptar">Aceptar</button>
+  </div>
+</div>
+
 <a href="https://wa.me/13369490279" target="_blank" class="wa-float" title="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.524 5.847L0 24l6.308-1.503A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.961 0-3.794-.534-5.364-1.46l-.385-.228-3.744.892.944-3.635-.251-.398A9.803 9.803 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182 17.43 2.182 21.818 6.57 21.818 12S17.43 21.818 12 21.818z"/></svg>
 </a>
@@ -667,6 +700,8 @@
       'account.nota': 'Al crear una cuenta podrás ver tu historial de pedidos y agilizar tus próximas compras.',
       'account.login_placeholder': 'Aquí se validará el inicio de sesión contra Shopify una vez conectada la tienda.',
       'account.registro_placeholder': 'Aquí se creará la cuenta del cliente en Shopify una vez conectada la tienda.',
+      'cookies.mensaje': 'Usamos cookies propias y de terceros para mejorar tu experiencia de compra, recordar tus preferencias y analizar el uso del sitio. Puedes aceptarlas o rechazar las no esenciales.',
+      'cookies.aceptar': 'Aceptar', 'cookies.rechazar': 'Rechazar',
       'bot.nombre': 'Asistente Yahweh', 'bot.en_linea': 'En línea',
       'bot.saludo': '¡Hola! 👋 Soy el asistente virtual de Yahweh Company. ¿En qué te puedo ayudar hoy?',
       'bot.op_productos': 'Ver productos', 'bot.op_precios': 'Precios y envíos', 'bot.op_devoluciones': 'Cambios y devoluciones',
@@ -711,6 +746,8 @@
       'account.nota': 'Creating an account lets you view your order history and check out faster next time.',
       'account.login_placeholder': 'Sign-in will be validated against Shopify once the store is connected.',
       'account.registro_placeholder': 'The customer account will be created in Shopify once the store is connected.',
+      'cookies.mensaje': 'We use our own and third-party cookies to improve your shopping experience, remember your preferences and analyze site usage. You can accept them or reject non-essential ones.',
+      'cookies.aceptar': 'Accept', 'cookies.rechazar': 'Reject',
       'bot.nombre': 'Yahweh Assistant', 'bot.en_linea': 'Online',
       'bot.saludo': "Hi! 👋 I'm Yahweh Company's virtual assistant. How can I help you today?",
       'bot.op_productos': 'See products', 'bot.op_precios': 'Prices & shipping', 'bot.op_devoluciones': 'Returns & exchanges',
@@ -762,6 +799,18 @@
   /* NAV scroll */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 30));
+
+  /* AVISO DE COOKIES */
+  const cookiesBar = document.getElementById('cookiesBar');
+  if (!localStorage.getItem('yahweh_cookies')) {
+    setTimeout(() => cookiesBar.classList.add('open'), 600);
+  }
+  function decidirCookies(valor) {
+    localStorage.setItem('yahweh_cookies', valor);
+    cookiesBar.classList.remove('open');
+  }
+  document.getElementById('cookiesAceptar').addEventListener('click', () => decidirCookies('aceptado'));
+  document.getElementById('cookiesRechazar').addEventListener('click', () => decidirCookies('rechazado'));
 
   /* MENÚ MÓVIL */
   const navMobileMenu = document.getElementById('navMobileMenu');
