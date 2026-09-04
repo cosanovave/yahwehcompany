@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yahweh Company — Tecnología, cuidado personal y moda</title>
+<meta name="description" content="Yahweh Company: tecnología, cuidado personal y moda, con envíos a Estados Unidos y Latinoamérica." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --red: #B5202A; --red-light: #D6474F;
+    --gray: #2B2D42; --gray-light: #5b6270;
+    --bg: #F2E8D8; --card: #FBF5EA; --border: #E3D5BC;
+    --text: #2B2D42; --muted: #8a7a63;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Figtree', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; }
+  .caps { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2.5px; }
+
+  /* NOTA PARA EL EQUIPO: este sitio es headless — el catálogo real se trae de Shopify vía Storefront API.
+     Los productos de abajo son EJEMPLO mientras se conecta el token real. Buscar TODO(equipo) en el código. */
+
+  /* NAVBAR */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 40px; background: rgba(242,232,216,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid transparent; transition: border-color .3s, padding .3s;
+  }
+  .nav.scrolled { border-color: var(--border); padding: 12px 40px; }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo img { height: 150px; width: auto; transition: height .35s ease; }
+  .nav.scrolled .nav-logo img { height: 42px; }
+  .nav-links { display: flex; gap: 34px; list-style: none; font-size: 11.5px; font-weight: 600; }
+  .nav-links a:hover { color: var(--red); }
+  .nav-cta.caps {
+    font-size: 11px; font-weight: 600; border-bottom: 1px solid var(--text); padding-bottom: 2px;
+    transition: border-color .2s, color .2s;
+  }
+  .nav-cta.caps:hover { color: var(--red); border-color: var(--red); }
+  .nav-mobile-toggle { display: none; background: none; border: none; color: var(--text); font-size: 22px; cursor: pointer; }
+
+  .nav-actions { display: flex; align-items: center; gap: 18px; }
+  .nav-icon-btn {
+    position: relative; background: none; border: none; color: var(--text); cursor: pointer;
+    padding: 4px; display: flex; align-items: center; justify-content: center; transition: color .2s;
+  }
+  .nav-icon-btn:hover { color: var(--red); }
+  .nav-icon-btn svg { width: 21px; height: 21px; }
+  .cart-count {
+    position: absolute; top: -6px; right: -8px; background: var(--red); color: #fff;
+    font-family: 'Figtree', sans-serif; font-size: 10px; font-weight: 700; min-width: 16px; height: 16px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0 3px;
+  }
+
+  /* HERO SPLIT (estilo Dior) */
+  .hero-split { display: grid; grid-template-columns: 1fr 1fr; margin-top: 0; }
+  .hero-panel {
+    position: relative; height: 78vh; min-height: 460px; display: flex; align-items: flex-end;
+    padding: 48px; overflow: hidden;
+  }
+  .hero-panel::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.45) 100%); }
+  .hero-panel-a { background: linear-gradient(160deg, #cbb89a, #a98f6b); }
+  .hero-panel-b { background: linear-gradient(160deg, #3a3d4d, #23252f); }
+  .hero-panel-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .hero-panel-bg img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transition: opacity 1.2s ease;
+  }
+  .hero-panel-bg img.visible { opacity: 1; }
+  .hero-panel-content { position: relative; z-index: 2; color: #fff; }
+  .hero-panel-content .eyebrow { font-size: 10.5px; letter-spacing: 3px; opacity: .85; margin-bottom: 10px; display: block; }
+  .hero-panel-content h1 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 14px; }
+  .hero-panel-content a.discover { font-size: 12px; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.6); padding-bottom: 3px; }
+  .hero-panel-content a.discover:hover { border-color: #fff; }
+
+  .hero-tagline { text-align: center; padding: 56px 24px 40px; max-width: 620px; margin: 0 auto; }
+  .hero-tagline p.slogan { font-family: 'Playfair Display', serif; font-style: italic; font-size: 19px; color: var(--gray); }
+  .hero-tagline p.sub { font-size: 13.5px; color: var(--muted); margin-top: 10px; }
+
+  /* TRUST BAR minimal */
+  .trust-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 24px; }
+  .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 16px 28px; }
+  .trust-item { font-size: 11px; color: var(--muted); text-align: center; }
+  .trust-item strong { display: block; color: var(--text); font-size: 12.5px; margin-bottom: 2px; font-weight: 700; }
+
+  /* EDITORIAL BANNER (estilo Bershka) */
+  .editorial-banner {
+    position: relative; height: 46vh; min-height: 300px; margin: 0;
+    background: linear-gradient(160deg, #1c1e26, #2B2D42);
+    display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;
+  }
+  .editorial-banner::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(181,32,42,0.25), transparent 65%); }
+  .editorial-banner-content { position: relative; z-index: 1; color: #fff; padding: 0 24px; }
+  .editorial-banner .eyebrow { font-size: 10.5px; letter-spacing: 3px; color: #e8bcae; margin-bottom: 14px; display: block; }
+  .editorial-banner h2 { color: #fff; font-size: clamp(24px, 3.4vw, 38px); max-width: 640px; }
+
+  /* SECTION BASE */
+  .section { max-width: 1200px; margin: 0 auto; padding: 96px 24px; }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-eyebrow { font-size: 10.5px; letter-spacing: 3px; color: var(--red); margin-bottom: 12px; display: block; }
+  .section-title { font-size: clamp(26px, 3.6vw, 36px); }
+  .section-sub { font-size: 13.5px; color: var(--muted); max-width: 480px; margin: 14px auto 0; }
+
+  /* CATALOGO minimal (estilo OMR) */
+  .catalogo-note {
+    background: transparent; border: 1px dashed var(--border);
+    color: var(--muted); font-size: 11.5px; text-align: center; padding: 10px 16px;
+    border-radius: 4px; margin-bottom: 40px; letter-spacing: 0.3px;
+  }
+  .productos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 34px 24px; }
+  .producto-card { cursor: pointer; }
+  .producto-img {
+    aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; font-size: 42px;
+    background: linear-gradient(150deg, #ece0c9, #ddcba8); margin-bottom: 14px; overflow: hidden;
+    transition: opacity .2s;
+  }
+  .producto-card:hover .producto-img { opacity: .85; }
+  .producto-cat { display: block; font-size: 9.5px; letter-spacing: 2px; color: var(--muted); margin-bottom: 5px; }
+  .producto-info h3 { font-family: 'Figtree', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .producto-info .precio { font-size: 13.5px; color: var(--text); font-weight: 600; margin-bottom: 10px; }
+  .btn-add-cart {
+    width: 100%; background: none; border: 1px solid var(--gray); color: var(--gray); font-family: 'Figtree', sans-serif;
+    font-size: 12px; font-weight: 600; padding: 9px 10px; cursor: pointer; transition: background .2s, color .2s;
+  }
+  .btn-add-cart:hover { background: var(--gray); color: #fff; }
+  .btn-add-cart.added { background: var(--red); border-color: var(--red); color: #fff; }
+
+  /* COMO COMPRAR */
+  .pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .paso { text-align: center; }
+  .paso-num { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--red); margin-bottom: 14px; }
+  .paso h3 { font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .paso p { font-size: 13px; color: var(--muted); }
+
+  /* FOOTER (estilo Dior) */
+  footer { border-top: 1px solid var(--border); padding: 64px 24px 28px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; }
+  .footer-brand-logo { margin-bottom: 14px; }
+  .footer-brand-logo img { height: 100px; width: auto; }
+  .footer-brand p { font-size: 12.5px; color: var(--muted); max-width: 240px; }
+  .footer-col h4.caps { font-size: 10.5px; font-weight: 700; letter-spacing: 2px; color: var(--text); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a { font-size: 13px; color: var(--muted); transition: color .2s; }
+  .footer-col ul li a:hover { color: var(--red); }
+  .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 11px; color: var(--muted); }
+
+  .footer-firma { border-top: 1px solid var(--border); margin-top: 20px; padding-top: 18px; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .footer-firma-label { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+  .footer-firma img { height: 26px; width: auto; opacity: .85; transition: opacity .2s; }
+  .footer-firma a:hover img { opacity: 1; }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed; bottom: 28px; left: 28px; z-index: 200; width: 54px; height: 54px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,.35); transition: transform .2s;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float svg { width: 26px; height: 26px; fill: #fff; }
+
+  /* ===== OVERLAY COMPARTIDO ===== */
+  .overlay {
+    position: fixed; inset: 0; z-index: 210; background: rgba(43,45,66,0.4);
+    opacity: 0; pointer-events: none; transition: opacity .3s;
+  }
+  .overlay.open { opacity: 1; pointer-events: auto; }
+
+  /* ===== CARRITO ===== */
+  .cart-drawer {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 211; width: 380px; max-width: 90vw;
+    background: var(--card); box-shadow: -10px 0 40px rgba(43,45,66,.2);
+    display: flex; flex-direction: column; transform: translateX(100%); transition: transform .35s ease;
+  }
+  .cart-drawer.open { transform: translateX(0); }
+  .cart-drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 24px; border-bottom: 1px solid var(--border); }
+  .cart-drawer-header h3 { font-size: 13px; letter-spacing: 2px; }
+  .drawer-close { background: none; border: none; font-size: 16px; cursor: pointer; color: var(--text); opacity: .6; }
+  .drawer-close:hover { opacity: 1; }
+  .cart-items { flex: 1; overflow-y: auto; padding: 12px 24px; }
+  .cart-empty { color: var(--muted); font-size: 13px; text-align: center; padding: 40px 0; }
+  .cart-item { display: flex; align-items: center; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .cart-item-img { width: 56px; height: 56px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; background: linear-gradient(150deg, #ece0c9, #ddcba8); }
+  .cart-item-info { flex: 1; }
+  .cart-item-info h4 { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+  .cart-item-info .precio { font-size: 12.5px; color: var(--muted); }
+  .cart-item-qty { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+  .cart-item-qty button { width: 20px; height: 20px; border: 1px solid var(--border); background: none; cursor: pointer; font-size: 12px; line-height: 1; }
+  .cart-item-remove { background: none; border: none; color: var(--muted); font-size: 12px; cursor: pointer; align-self: flex-start; }
+  .cart-item-remove:hover { color: var(--red); }
+  .cart-footer { padding: 20px 24px; border-top: 1px solid var(--border); }
+  .cart-subtotal { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 14px; }
+  .btn-checkout {
+    width: 100%; background: var(--red); color: #fff; border: none; padding: 14px; font-size: 12px;
+    font-weight: 600; cursor: pointer; transition: background .2s;
+  }
+  .btn-checkout:hover { background: var(--red-light); }
+  .btn-checkout:disabled { opacity: .5; cursor: not-allowed; }
+  .cart-note { font-size: 10.5px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+  /* ===== CUENTA ===== */
+  .account-modal {
+    position: fixed; top: 50%; left: 50%; z-index: 211; width: 380px; max-width: 90vw;
+    background: var(--card); box-shadow: 0 24px 60px rgba(43,45,66,.25); padding: 32px;
+    transform: translate(-50%, -50%) scale(0.95); opacity: 0; pointer-events: none; transition: transform .25s, opacity .25s;
+  }
+  .account-modal.open { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: auto; }
+  .account-modal .drawer-close { position: absolute; top: 18px; right: 18px; }
+  .account-tabs { display: flex; gap: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .account-tab { background: none; border: none; padding: 0 0 12px; font-size: 11px; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
+  .account-tab.active { color: var(--text); border-color: var(--red); }
+  .account-form { display: flex; flex-direction: column; gap: 14px; }
+  .account-form label { font-size: 11.5px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+  .account-form input {
+    font-family: 'Figtree', sans-serif; font-size: 13.5px; color: var(--text); padding: 10px 12px;
+    border: 1px solid var(--border); background: #fff;
+  }
+  .account-form input:focus { outline: none; border-color: var(--red); }
+  .btn-account {
+    background: var(--gray); color: #fff; border: none; padding: 13px; font-size: 12px; font-weight: 600;
+    cursor: pointer; margin-top: 6px; transition: background .2s;
+  }
+  .btn-account:hover { background: var(--red); }
+  .account-note { font-size: 11px; color: var(--muted); margin-top: 18px; line-height: 1.5; }
+
+  .nav-lang-btn {
+    background: none; border: 1px solid var(--border); color: var(--text); font-size: 11px; font-weight: 700;
+    padding: 7px 10px; cursor: pointer; transition: border-color .2s, color .2s;
+  }
+  .nav-lang-btn:hover { border-color: var(--red); color: var(--red); }
+
+  /* ===== SELECTOR DE IDIOMA ===== */
+  .lang-modal {
+    position: fixed; top: 50%; left: 50%; z-index: 300; width: 380px; max-width: 90vw;
+    background: var(--card); box-shadow: 0 24px 60px rgba(43,45,66,.3); padding: 40px 32px;
+    text-align: center; transform: translate(-50%, -50%) scale(0.95); opacity: 0; pointer-events: none;
+    transition: transform .25s, opacity .25s;
+  }
+  .lang-modal.open { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: auto; }
+  .lang-modal .lang-logo { height: 70px; width: auto; margin: 0 auto 20px; }
+  .lang-modal .lang-title { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+  .lang-options { display: flex; flex-direction: column; gap: 12px; }
+  .lang-btn {
+    font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 600; padding: 14px; cursor: pointer;
+    background: none; border: 1px solid var(--border); color: var(--text); transition: border-color .2s, background .2s;
+  }
+  .lang-btn:hover { border-color: var(--red); background: rgba(181,32,42,0.05); }
+
+  /* ===== BOT WIDGET ===== */
+  .bot-launcher {
+    position: fixed; bottom: 28px; right: 28px; z-index: 200; width: 56px; height: 56px; border-radius: 50%;
+    background: var(--red); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(181,32,42,.35); transition: transform .2s;
+  }
+  .bot-launcher:hover { transform: scale(1.08); }
+  .bot-launcher svg { width: 26px; height: 26px; fill: #fff; }
+  .bot-launcher .dot { position: absolute; top: 6px; right: 6px; width: 9px; height: 9px; border-radius: 50%; background: #4ade80; border: 2px solid var(--bg); }
+
+  .bot-panel {
+    position: fixed; bottom: 96px; right: 28px; z-index: 201; width: 340px; max-width: calc(100vw - 40px);
+    height: 470px; max-height: calc(100vh - 160px); background: var(--card); border: 1px solid var(--border);
+    display: none; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(43,45,66,.18);
+  }
+  .bot-panel.open { display: flex; }
+  .bot-header { background: var(--gray); color: #fff; padding: 18px; display: flex; align-items: center; gap: 10px; }
+  .bot-header .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 14px; flex-shrink: 0; }
+  .bot-header .info strong { display: block; font-size: 13.5px; color: #fff; font-weight: 600; }
+  .bot-header .info span { font-size: 10.5px; color: #a8ffcf; }
+  .bot-close { margin-left: auto; background: none; border: none; color: #fff; font-size: 17px; cursor: pointer; opacity: .7; }
+  .bot-close:hover { opacity: 1; }
+  .bot-messages { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .bot-msg { max-width: 84%; padding: 10px 13px; font-size: 13px; line-height: 1.55; }
+  .bot-msg.bot { background: #ece0c9; color: var(--text); align-self: flex-start; }
+  .bot-msg.user { background: var(--red); color: #fff; align-self: flex-end; }
+  .bot-quick { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 18px 16px; }
+  .bot-quick button {
+    background: none; border: 1px solid var(--red); color: var(--red); font-size: 11.5px; font-weight: 600;
+    padding: 7px 12px; cursor: pointer; transition: background .2s;
+  }
+  .bot-quick button:hover { background: rgba(181,32,42,0.08); }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-mobile-toggle { display: block; }
+    .hero-split { grid-template-columns: 1fr; }
+    .pasos { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .bot-panel { right: 12px; left: 12px; width: auto; }
+    .bot-launcher { right: 18px; }
+    .wa-float { left: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="nav" id="navbar">
+  <a href="#inicio" class="nav-logo"><img src="assets/logo-yahweh-nav.png" alt="Yahweh Company" /></a>
+  <ul class="nav-links caps">
+    <li><a href="#catalogo" data-i18n="nav.catalogo">Catálogo</a></li>
+    <li><a href="#como-comprar" data-i18n="nav.comprar">Cómo comprar</a></li>
+    <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-lang-btn caps" id="langToggle" title="Change language / Cambiar idioma">ES</button>
+    <button class="nav-icon-btn" id="accountBtn" title="Mi cuenta" data-i18n-title="nav.mi_cuenta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.4-3.6 4.3-5.4 7.5-5.4s6.1 1.8 7.5 5.4"/></svg>
+    </button>
+    <button class="nav-icon-btn" id="cartBtn" title="Carrito" data-i18n-title="nav.carrito">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h2l1.6 10.2A2 2 0 0 0 9.6 18h7.8a2 2 0 0 0 2-1.6L21 8H7"/><circle cx="10" cy="21" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="21" r="1.3" fill="currentColor" stroke="none"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <a href="https://wa.me/13369490279" target="_blank" class="nav-cta caps" data-i18n="nav.escribenos">Escríbenos</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO SPLIT ═══ -->
+<div id="inicio">
+  <div class="hero-split">
+    <a href="#catalogo" class="hero-panel hero-panel-a" id="heroPanelA">
+      <div class="hero-panel-bg" id="heroBgA"></div>
+      <div class="hero-panel-content">
+        <span class="caps eyebrow" data-i18n="hero.moda_eyebrow">Moda</span>
+        <h1 data-i18n="hero.moda_title">Moda y accesorios</h1>
+        <a href="#catalogo" class="caps discover" data-i18n="hero.discover">Descubrir</a>
+      </div>
+    </a>
+    <a href="#catalogo" class="hero-panel hero-panel-b" id="heroPanelB">
+      <div class="hero-panel-bg" id="heroBgB"></div>
+      <div class="hero-panel-content">
+        <span class="caps eyebrow" data-i18n="hero.tech_eyebrow">Tecnología &amp; cuidado personal</span>
+        <h1 data-i18n="hero.tech_title">Innovación diaria</h1>
+        <a href="#catalogo" class="caps discover" data-i18n="hero.discover">Descubrir</a>
+      </div>
+    </a>
+  </div>
+
+  <div class="hero-tagline">
+    <p class="slogan" data-i18n="hero.slogan">"Nunca digan que no pueden, si en la luna quedan huellas."</p>
+    <p class="sub" data-i18n="hero.sub">Productos seleccionados por calidad, con envíos a Estados Unidos y Latinoamérica.</p>
+  </div>
+</div>
+
+<!-- ═══ TRUST BAR ═══ -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><strong>4–5</strong><span data-i18n="trust.entrega">días · Entrega estimada</span></div>
+    <div class="trust-item"><strong>30</strong><span data-i18n="trust.devoluciones">días · Cambios y devoluciones</span></div>
+    <div class="trust-item"><strong data-i18n="trust.zonas_num">EE. UU. y Latam</strong><span data-i18n="trust.zonas">Zonas de envío</span></div>
+    <div class="trust-item"><strong>Tarjeta · PayPal · Zelle</strong><span data-i18n="trust.pago">Pago seguro</span></div>
+  </div>
+</div>
+
+<!-- ═══ CATÁLOGO ═══ -->
+<section class="section" id="catalogo">
+  <div class="section-header">
+    <span class="caps section-eyebrow" data-i18n="catalogo.badge">Nuestros productos</span>
+    <h2 class="section-title" data-i18n="catalogo.title">Encuentra lo que necesitas</h2>
+    <p class="section-sub" data-i18n="catalogo.sub">Tecnología, cuidado personal y moda, seleccionados por calidad.</p>
+  </div>
+
+  <!-- TODO(equipo): reemplazar este bloque de ejemplo por el catálogo real, traído
+       dinámicamente de Shopify vía Storefront API (GraphQL) usando el token una vez
+       tengamos acceso de colaborador y lo generemos desde el admin de la tienda. -->
+  <div class="catalogo-note" data-i18n="catalogo.note">Catálogo de ejemplo — se conecta al inventario real de Shopify en cuanto tengamos el acceso a la tienda</div>
+
+  <div class="productos-grid" id="productosGrid"></div>
+</section>
+
+<!-- ═══ BANNER EDITORIAL ═══ -->
+<div class="editorial-banner">
+  <div class="editorial-banner-content">
+    <span class="caps eyebrow">Yahweh Company</span>
+    <h2 data-i18n="editorial.title">Lo que buscas, sin fallas ni sorpresas</h2>
+  </div>
+</div>
+
+<!-- ═══ CÓMO COMPRAR ═══ -->
+<section class="section" id="como-comprar">
+  <div class="section-header">
+    <span class="caps section-eyebrow" data-i18n="comprar.badge">Simple y rápido</span>
+    <h2 class="section-title" data-i18n="comprar.title">¿Cómo compro?</h2>
+  </div>
+  <div class="pasos">
+    <div class="paso">
+      <div class="paso-num">01</div>
+      <h3 data-i18n="comprar.paso1_title">Elige tu producto</h3>
+      <p data-i18n="comprar.paso1_desc">Explora el catálogo o pregúntale al asistente qué tenemos disponible.</p>
+    </div>
+    <div class="paso">
+      <div class="paso-num">02</div>
+      <h3 data-i18n="comprar.paso2_title">Confirma tu pedido</h3>
+      <p data-i18n="comprar.paso2_desc">Paga con tarjeta, PayPal o Zelle de forma segura.</p>
+    </div>
+    <div class="paso">
+      <div class="paso-num">03</div>
+      <h3 data-i18n="comprar.paso3_title">Recíbelo en 4–5 días</h3>
+      <p data-i18n="comprar.paso3_desc">Enviamos a Estados Unidos y Latinoamérica.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="contacto">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="assets/logo-yahweh.png" alt="Yahweh Company" /></div>
+      <p data-i18n="footer.brand_desc">Tecnología, cuidado personal y moda — con la confianza de saber que lo que compras es justo lo que recibes.</p>
+    </div>
+    <div class="footer-col">
+      <h4 class="caps" data-i18n="footer.nav_header">Navegación</h4>
+      <ul>
+        <li><a href="#catalogo" data-i18n="nav.catalogo">Catálogo</a></li>
+        <li><a href="#como-comprar" data-i18n="nav.comprar">Cómo comprar</a></li>
+        <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="caps" data-i18n="footer.contacto_header">Contacto</h4>
+      <ul>
+        <li><a href="https://wa.me/13369490279" target="_blank">+1 (336) 949-0279</a></li>
+        <li><a href="mailto:anthonycarcamo522@gmail.com">anthonycarcamo522@gmail.com</a></li>
+        <li><a href="https://instagram.com/anthonycarcamo522" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="caps" data-i18n="footer.legal_header">Legal</h4>
+      <ul>
+        <li><a href="#" data-i18n="footer.legal_envios">Política de envíos</a></li>
+        <li><a href="#" data-i18n="footer.legal_devoluciones">Cambios y devoluciones</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 Yahweh Company · Todos los derechos reservados</span>
+  </div>
+  <div class="footer-firma">
+    <span class="footer-firma-label" data-i18n="footer.disenado_por">Diseñado por</span>
+    <a href="https://somosnovatech.com" target="_blank" rel="noopener"><img src="assets/logo-novatech.png" alt="SomosNovaTech" /></a>
+  </div>
+</footer>
+
+<!-- ═══ CARRITO DE COMPRAS ═══
+     TODO(equipo): reemplazar el estado local `cart` por el objeto Cart real de
+     Shopify Storefront API (mutaciones cartCreate / cartLinesAdd / cartLinesUpdate /
+     cartLinesRemove), y el botón "Finalizar compra" debe redirigir a cart.checkoutUrl. -->
+<div class="overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h3 class="caps" data-i18n="cart.titulo">Tu carrito</h3>
+    <button class="drawer-close" id="cartClose">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal"><span data-i18n="cart.subtotal">Subtotal</span><strong id="cartSubtotal">$0 USD</strong></div>
+    <button class="btn-checkout caps" id="btnCheckout" data-i18n="cart.finalizar">Finalizar compra</button>
+    <p class="cart-note" data-i18n="cart.nota">El pago y envío se calculan en el checkout seguro de Shopify.</p>
+  </div>
+</div>
+
+<!-- ═══ CUENTA DE CLIENTE ═══
+     TODO(equipo): conectar con Shopify — ya sea la Customer Account API nueva
+     (flujo OAuth, recomendado por Shopify) o las mutaciones clásicas
+     customerCreate / customerAccessTokenCreate si la tienda usa cuentas clásicas. -->
+<div class="overlay" id="accountOverlay"></div>
+<div class="account-modal" id="accountModal">
+  <button class="drawer-close" id="accountClose">✕</button>
+  <div class="account-tabs">
+    <button class="account-tab caps active" data-tab="login" data-i18n="account.iniciar_sesion">Iniciar sesión</button>
+    <button class="account-tab caps" data-tab="register" data-i18n="account.crear_cuenta">Crear cuenta</button>
+  </div>
+  <form class="account-form" id="formLogin">
+    <label><span data-i18n="account.correo">Correo electrónico</span><input type="email" required /></label>
+    <label><span data-i18n="account.contrasena">Contraseña</span><input type="password" required /></label>
+    <button type="submit" class="btn-account caps" data-i18n="account.entrar">Entrar</button>
+  </form>
+  <form class="account-form" id="formRegister" style="display:none;">
+    <label><span data-i18n="account.nombre">Nombre completo</span><input type="text" required /></label>
+    <label><span data-i18n="account.correo">Correo electrónico</span><input type="email" required /></label>
+    <label><span data-i18n="account.contrasena">Contraseña</span><input type="password" required minlength="6" /></label>
+    <button type="submit" class="btn-account caps" data-i18n="account.crear_cuenta">Crear cuenta</button>
+  </form>
+  <p class="account-note" data-i18n="account.nota">Al crear una cuenta podrás ver tu historial de pedidos y agilizar tus próximas compras.</p>
+</div>
+
+<!-- ═══ SELECCIÓN DE IDIOMA (primer ingreso) ═══ -->
+<div class="overlay" id="langOverlay"></div>
+<div class="lang-modal" id="langModal">
+  <img src="assets/logo-yahweh-nav.png" alt="Yahweh Company" class="lang-logo" />
+  <p class="lang-title">Choose your language / Elige tu idioma</p>
+  <div class="lang-options">
+    <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+    <button class="lang-btn" data-lang="en">🇺🇸 English</button>
+  </div>
+</div>
+
+<!-- ═══ WHATSAPP FLOTANTE ═══ -->
+<a href="https://wa.me/13369490279" target="_blank" class="wa-float" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.524 5.847L0 24l6.308-1.503A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.961 0-3.794-.534-5.364-1.46l-.385-.228-3.744.892.944-3.635-.251-.398A9.803 9.803 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182 17.43 2.182 21.818 6.57 21.818 12S17.43 21.818 12 21.818z"/></svg>
+</a>
+
+<!-- ═══ BOT WIDGET ═══ -->
+<button class="bot-launcher" id="botLauncher" title="Asistente Yahweh">
+  <span class="dot"></span>
+  <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h2a5 5 0 015 5v1a2 2 0 012 2v2a2 2 0 01-2 2v1a3 3 0 01-3 3H7a3 3 0 01-3-3v-1a2 2 0 01-2-2v-2a2 2 0 012-2v-1a5 5 0 015-5h2V5.73A2 2 0 0110 4a2 2 0 012-2zM7.5 14a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm9 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
+</button>
+
+<div class="bot-panel" id="botPanel">
+  <div class="bot-header">
+    <div class="avatar">Y</div>
+    <div class="info"><strong>Asistente Yahweh</strong><span>● En línea</span></div>
+    <button class="bot-close" id="botClose">✕</button>
+  </div>
+  <div class="bot-messages" id="botMessages"></div>
+  <div class="bot-quick" id="botQuick"></div>
+</div>
+
+<script>
+  /* ============================================================
+     IDIOMA — diccionario ES/EN + selección al primer ingreso.
+     ============================================================ */
+  const I18N = {
+    es: {
+      'nav.catalogo': 'Catálogo', 'nav.comprar': 'Cómo comprar', 'nav.contacto': 'Contacto',
+      'nav.escribenos': 'Escríbenos', 'nav.mi_cuenta': 'Mi cuenta', 'nav.carrito': 'Carrito',
+      'hero.moda_eyebrow': 'Moda', 'hero.moda_title': 'Moda y accesorios',
+      'hero.tech_eyebrow': 'Tecnología & cuidado personal', 'hero.tech_title': 'Innovación diaria',
+      'hero.discover': 'Descubrir',
+      'hero.slogan': '"Lo único imposible es lo que no se intenta — y nosotros dejamos huellas."',
+      'hero.sub': 'Productos seleccionados por calidad, con envíos a Estados Unidos y Latinoamérica.',
+      'trust.entrega': 'días · Entrega estimada', 'trust.devoluciones': 'días · Cambios y devoluciones',
+      'trust.zonas_num': 'EE. UU. y Latam', 'trust.zonas': 'Zonas de envío', 'trust.pago': 'Pago seguro',
+      'catalogo.badge': 'Nuestros productos', 'catalogo.title': 'Encuentra lo que necesitas',
+      'catalogo.sub': 'Tecnología, cuidado personal y moda, seleccionados por calidad.',
+      'catalogo.note': 'Catálogo de ejemplo — se conecta al inventario real de Shopify en cuanto tengamos el acceso a la tienda',
+      'producto.agregar': 'Agregar al carrito', 'producto.agotado': 'Agotado', 'producto.agregado': 'Agregado ✓',
+      'editorial.title': 'Lo que buscas, sin fallas ni sorpresas',
+      'comprar.badge': 'Simple y rápido', 'comprar.title': '¿Cómo compro?',
+      'comprar.paso1_title': 'Elige tu producto', 'comprar.paso1_desc': 'Explora el catálogo o pregúntale al asistente qué tenemos disponible.',
+      'comprar.paso2_title': 'Confirma tu pedido', 'comprar.paso2_desc': 'Paga con tarjeta, PayPal o Zelle de forma segura.',
+      'comprar.paso3_title': 'Recíbelo en 4–5 días', 'comprar.paso3_desc': 'Enviamos a Estados Unidos y Latinoamérica.',
+      'footer.brand_desc': 'Tecnología, cuidado personal y moda — con la confianza de saber que lo que compras es justo lo que recibes.',
+      'footer.nav_header': 'Navegación', 'footer.contacto_header': 'Contacto', 'footer.legal_header': 'Legal',
+      'footer.legal_envios': 'Política de envíos', 'footer.legal_devoluciones': 'Cambios y devoluciones',
+      'footer.copyright': '© 2026 Yahweh Company · Todos los derechos reservados', 'footer.disenado_por': 'Diseñado por',
+      'cart.titulo': 'Tu carrito', 'cart.subtotal': 'Subtotal', 'cart.finalizar': 'Finalizar compra',
+      'cart.nota': 'El pago y envío se calculan en el checkout seguro de Shopify.', 'cart.vacio': 'Tu carrito está vacío',
+      'cart.redirigiendo': 'Redirigiendo...', 'cart.error_ejemplo': 'El checkout real se activa en cuanto la tienda tenga productos publicados en Shopify (ahora mismo el carrito tiene productos de ejemplo, no reales).',
+      'cart.error_generico': 'No se pudo iniciar el checkout. Intenta de nuevo en unos segundos.',
+      'cart.error_conexion': 'Hubo un problema conectando con Shopify. Intenta de nuevo.',
+      'account.iniciar_sesion': 'Iniciar sesión', 'account.crear_cuenta': 'Crear cuenta', 'account.correo': 'Correo electrónico',
+      'account.contrasena': 'Contraseña', 'account.entrar': 'Entrar', 'account.nombre': 'Nombre completo',
+      'account.nota': 'Al crear una cuenta podrás ver tu historial de pedidos y agilizar tus próximas compras.',
+      'account.login_placeholder': 'Aquí se validará el inicio de sesión contra Shopify una vez conectada la tienda.',
+      'account.registro_placeholder': 'Aquí se creará la cuenta del cliente en Shopify una vez conectada la tienda.',
+      'bot.saludo': '¡Hola! 👋 Soy el asistente virtual de Yahweh Company. ¿En qué te puedo ayudar hoy?',
+      'bot.op_productos': 'Ver productos', 'bot.op_precios': 'Precios y envíos', 'bot.op_devoluciones': 'Cambios y devoluciones',
+      'bot.op_humano': 'Hablar con un asesor', 'bot.op_menu': 'Menú principal', 'bot.op_whatsapp': 'Escribir por WhatsApp ahora',
+      'bot.msg_productos': 'Tenemos tecnología, cuidado personal y moda — todo seleccionado por calidad. Puedes ver el catálogo completo más arriba en la página. ¿Buscas algo en particular?',
+      'bot.msg_precios': 'Todos nuestros productos son seleccionados por calidad antes de ofrecerlos — los precios reflejan justo eso, sin cargos ocultos. Hacemos envíos a Estados Unidos y Latinoamérica, con entrega estimada de 4 a 5 días hábiles, sin costo adicional al precio del producto.',
+      'bot.msg_devoluciones': 'Tienes 30 días desde que recibes tu pedido para solicitar un cambio o devolución. Solo necesitas tu número de pedido.',
+      'bot.msg_humano': 'Voy a pasar tu consulta a nuestro equipo para darte una respuesta más precisa. En breve Anthony se pondrá en contacto contigo.',
+      'lang.titulo': 'Choose your language / Elige tu idioma',
+    },
+    en: {
+      'nav.catalogo': 'Catalog', 'nav.comprar': 'How to buy', 'nav.contacto': 'Contact',
+      'nav.escribenos': 'Message us', 'nav.mi_cuenta': 'My account', 'nav.carrito': 'Cart',
+      'hero.moda_eyebrow': 'Fashion', 'hero.moda_title': 'Fashion & accessories',
+      'hero.tech_eyebrow': 'Tech & personal care', 'hero.tech_title': 'Everyday innovation',
+      'hero.discover': 'Discover',
+      'hero.slogan': '"The only impossible thing is the one you never try — and we leave footprints."',
+      'hero.sub': 'Quality-picked products, shipped to the US and Latin America.',
+      'trust.entrega': 'days · Estimated delivery', 'trust.devoluciones': 'days · Returns & exchanges',
+      'trust.zonas_num': 'US & Latam', 'trust.zonas': 'Shipping zones', 'trust.pago': 'Secure payment',
+      'catalogo.badge': 'Our products', 'catalogo.title': 'Find what you need',
+      'catalogo.sub': 'Tech, personal care and fashion, picked for quality.',
+      'catalogo.note': 'Sample catalog — will connect to real Shopify inventory once store access is granted',
+      'producto.agregar': 'Add to cart', 'producto.agotado': 'Sold out', 'producto.agregado': 'Added ✓',
+      'editorial.title': "What you're looking for, with no flaws or surprises",
+      'comprar.badge': 'Simple & fast', 'comprar.title': 'How do I order?',
+      'comprar.paso1_title': 'Pick your product', 'comprar.paso1_desc': 'Browse the catalog or ask our assistant what we have available.',
+      'comprar.paso2_title': 'Confirm your order', 'comprar.paso2_desc': 'Pay securely with card, PayPal or Zelle.',
+      'comprar.paso3_title': 'Get it in 4–5 days', 'comprar.paso3_desc': 'We ship to the US and Latin America.',
+      'footer.brand_desc': 'Tech, personal care and fashion — with the confidence of knowing you get exactly what you pay for.',
+      'footer.nav_header': 'Navigation', 'footer.contacto_header': 'Contact', 'footer.legal_header': 'Legal',
+      'footer.legal_envios': 'Shipping policy', 'footer.legal_devoluciones': 'Returns & exchanges',
+      'footer.copyright': '© 2026 Yahweh Company · All rights reserved', 'footer.disenado_por': 'Designed by',
+      'cart.titulo': 'Your cart', 'cart.subtotal': 'Subtotal', 'cart.finalizar': 'Checkout',
+      'cart.nota': 'Payment and shipping are calculated at Shopify’s secure checkout.', 'cart.vacio': 'Your cart is empty',
+      'cart.redirigiendo': 'Redirecting...', 'cart.error_ejemplo': 'Real checkout activates once the store has products published on Shopify (right now the cart has sample products, not real ones).',
+      'cart.error_generico': 'Could not start checkout. Please try again in a moment.',
+      'cart.error_conexion': 'There was a problem connecting to Shopify. Please try again.',
+      'account.iniciar_sesion': 'Sign in', 'account.crear_cuenta': 'Create account', 'account.correo': 'Email address',
+      'account.contrasena': 'Password', 'account.entrar': 'Sign in', 'account.nombre': 'Full name',
+      'account.nota': 'Creating an account lets you view your order history and check out faster next time.',
+      'account.login_placeholder': 'Sign-in will be validated against Shopify once the store is connected.',
+      'account.registro_placeholder': 'The customer account will be created in Shopify once the store is connected.',
+      'bot.saludo': "Hi! 👋 I'm Yahweh Company's virtual assistant. How can I help you today?",
+      'bot.op_productos': 'See products', 'bot.op_precios': 'Prices & shipping', 'bot.op_devoluciones': 'Returns & exchanges',
+      'bot.op_humano': 'Talk to an agent', 'bot.op_menu': 'Main menu', 'bot.op_whatsapp': 'Message us on WhatsApp now',
+      'bot.msg_productos': "We carry tech, personal care and fashion — all picked for quality. You can browse the full catalog above. Looking for something specific?",
+      'bot.msg_precios': "All our products are quality-checked before we offer them — our prices reflect that, with no hidden fees. We ship to the US and Latin America, with an estimated delivery of 4 to 5 business days, at no extra cost beyond the product price.",
+      'bot.msg_devoluciones': 'You have 30 days from delivery to request an exchange or return. You’ll just need your order number.',
+      'bot.msg_humano': "I'll pass your question to our team for a more precise answer. Anthony will reach out to you shortly.",
+      'lang.titulo': 'Choose your language / Elige tu idioma',
+    },
+  };
+
+  let currentLang = localStorage.getItem('yahweh_lang');
+
+  function t(key) {
+    const dict = I18N[currentLang || 'es'];
+    return (dict && dict[key]) || key;
+  }
+
+  function applyLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+      el.setAttribute('title', t(el.getAttribute('data-i18n-title')));
+    });
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) langToggle.textContent = lang === 'es' ? 'EN' : 'ES'; // muestra la opción contraria
+    renderProductos(PRODUCTOS); // re-renderiza para traducir botones de producto
+    renderCart(); // re-renderiza para traducir textos del carrito
+  }
+
+  function mostrarSelectorIdioma() {
+    document.getElementById('langOverlay').classList.add('open');
+    document.getElementById('langModal').classList.add('open');
+  }
+  function ocultarSelectorIdioma() {
+    document.getElementById('langOverlay').classList.remove('open');
+    document.getElementById('langModal').classList.remove('open');
+  }
+
+  /* NAV scroll */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 30));
+
+  /* ============================================================
+     CONEXIÓN REAL CON SHOPIFY — Storefront API
+     Token público (seguro de exponer en el navegador, es de solo
+     lectura de catálogo + creación de carrito, tal como Shopify
+     lo diseñó para storefronts headless).
+     ============================================================ */
+  const SHOPIFY_DOMAIN = 'yahweh-10019.myshopify.com';
+  const STOREFRONT_TOKEN = 'a033b4b71e4256a346cd83ee1114ab65';
+  const API_VERSION = '2026-07';
+  const STOREFRONT_URL = `https://${SHOPIFY_DOMAIN}/api/${API_VERSION}/graphql.json`;
+
+  async function shopifyFetch(query, variables) {
+    const res = await fetch(STOREFRONT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN,
+      },
+      body: JSON.stringify({ query, variables: variables || {} }),
+    });
+    const json = await res.json();
+    if (json.errors) console.error('Shopify Storefront API error:', json.errors);
+    return json.data;
+  }
+
+  // Catálogo de respaldo — se usa solo si la tienda aún no tiene
+  // productos publicados o si falla la conexión con Shopify.
+  const PRODUCTOS_EJEMPLO = [
+    { id: 'p1', cat: 'Tecnología', icon: '🎧', nombre: 'Audífonos inalámbricos', precio: 59 },
+    { id: 'p2', cat: 'Cuidado personal', icon: '💆', nombre: 'Masajeador cervical', precio: 52 },
+    { id: 'p3', cat: 'Moda', icon: '👟', nombre: 'Sneakers urbanos', precio: 68 },
+    { id: 'p4', cat: 'Tecnología', icon: '⌚', nombre: 'Smartwatch deportivo', precio: 75 },
+    { id: 'p5', cat: 'Cuidado personal', icon: '💇', nombre: 'Plancha de cabello', precio: 55 },
+    { id: 'p6', cat: 'Moda', icon: '🕶️', nombre: 'Lentes de sol', precio: 50 },
+  ];
+
+  let PRODUCTOS = PRODUCTOS_EJEMPLO;
+  let usandoCatalogoReal = false;
+
+  async function fetchProductosReales() {
+    const query = `
+      query Productos {
+        products(first: 24) {
+          edges {
+            node {
+              title
+              productType
+              featuredImage { url altText }
+              variants(first: 1) {
+                edges {
+                  node { id availableForSale price { amount currencyCode } }
+                }
+              }
+            }
+          }
+        }
+      }`;
+    const data = await shopifyFetch(query);
+    const edges = data && data.products ? data.products.edges : [];
+    return edges
+      .map(({ node }) => {
+        const variant = node.variants.edges[0] && node.variants.edges[0].node;
+        if (!variant) return null;
+        return {
+          id: variant.id, // Shopify variant GID — se usa tal cual para el carrito
+          cat: node.productType || 'General',
+          icon: null,
+          imagen: node.featuredImage ? node.featuredImage.url : null,
+          nombre: node.title,
+          precio: parseFloat(variant.price.amount),
+          disponible: variant.availableForSale,
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function renderProductos(lista) {
+    const grid = document.getElementById('productosGrid');
+    grid.innerHTML = '';
+    lista.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'producto-card';
+      const imagenHtml = p.imagen
+        ? `<img src="${p.imagen}" alt="${p.nombre}" style="width:100%;height:100%;object-fit:cover;" />`
+        : (p.icon || '🛍️');
+      card.innerHTML = `
+        <div class="producto-img">${imagenHtml}</div>
+        <span class="caps producto-cat">${p.cat}</span>
+        <div class="producto-info">
+          <h3>${p.nombre}</h3>
+          <div class="precio">$${p.precio.toFixed(2)} USD</div>
+          <button class="btn-add-cart" data-id="${p.id}" ${p.disponible === false ? 'disabled' : ''}>
+            ${p.disponible === false ? t('producto.agotado') : t('producto.agregar')}
+          </button>
+        </div>`;
+      grid.appendChild(card);
+    });
+    // Los botones se crean de nuevo cada vez que se renderiza el catálogo,
+    // así que hay que re-enganchar el evento de "agregar al carrito".
+    document.querySelectorAll('.btn-add-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        addToCart(btn.dataset.id);
+        if (btn.disabled) return;
+        btn.textContent = t('producto.agregado');
+        btn.classList.add('added');
+        setTimeout(() => { btn.textContent = t('producto.agregar'); btn.classList.remove('added'); }, 1400);
+      });
+    });
+  }
+
+  /* ============================================================
+     FONDO DEL HERO — rotación de fotos reales del catálogo.
+     Cada panel (Moda / Tecnología y cuidado personal) va cambiando
+     de foto cada 4.5 segundos, con crossfade suave. Si un producto
+     coincide con la categoría del panel se prioriza; si no hay
+     suficientes, se completa con cualquier foto disponible.
+     ============================================================ */
+  function iniciarFondoHero(productos) {
+    const conImagen = productos.filter(p => p.imagen);
+    if (conImagen.length === 0) return; // sin fotos reales, se deja el degradado
+
+    const esModa = p => /moda|ropa|accesor|calzado|lenc/i.test(p.cat || '');
+    const imagenesModa = conImagen.filter(esModa);
+    const imagenesOtras = conImagen.filter(p => !esModa(p));
+
+    const listaA = (imagenesModa.length ? imagenesModa : conImagen).map(p => p.imagen);
+    const listaB = (imagenesOtras.length ? imagenesOtras : conImagen).map(p => p.imagen);
+
+    montarCarruselFondo('heroBgA', listaA, 4500, 0);
+    montarCarruselFondo('heroBgB', listaB, 4500, 2250); // desfasado para que no cambien a la vez
+  }
+
+  function montarCarruselFondo(contenedorId, imagenes, intervaloMs, retrasoInicialMs) {
+    const contenedor = document.getElementById(contenedorId);
+    if (!contenedor || imagenes.length === 0) return;
+
+    let indice = 0;
+    const imgA = document.createElement('img');
+    const imgB = document.createElement('img');
+    imgA.src = imagenes[0];
+    imgA.className = 'visible';
+    contenedor.appendChild(imgA);
+    contenedor.appendChild(imgB);
+    let activa = imgA, inactiva = imgB;
+
+    if (imagenes.length === 1) return; // solo una foto, no hace falta rotar
+
+    setTimeout(() => {
+      setInterval(() => {
+        indice = (indice + 1) % imagenes.length;
+        inactiva.src = imagenes[indice];
+        inactiva.classList.add('visible');
+        activa.classList.remove('visible');
+        const temp = activa; activa = inactiva; inactiva = temp;
+      }, intervaloMs);
+    }, retrasoInicialMs);
+  }
+
+  renderProductos(PRODUCTOS); // primero muestra el catálogo de ejemplo, sin esperar la red
+
+  fetchProductosReales().then(reales => {
+    if (reales.length > 0) {
+      PRODUCTOS = reales;
+      usandoCatalogoReal = true;
+      renderProductos(PRODUCTOS);
+      const nota = document.querySelector('.catalogo-note');
+      if (nota) nota.style.display = 'none';
+      iniciarFondoHero(PRODUCTOS);
+    }
+    // Si `reales` viene vacío (tienda sin productos publicados aún),
+    // se deja el catálogo de ejemplo tal como está.
+  }).catch(err => {
+    console.error('No se pudo conectar con Shopify, usando catálogo de ejemplo:', err);
+  });
+
+  /* ============================================================
+     CARRITO — estado local de ejemplo.
+     TODO(equipo): reemplazar por el objeto Cart real de Shopify
+     (Storefront API: cartCreate, cartLinesAdd, cartLinesUpdate,
+     cartLinesRemove) y usar cart.checkoutUrl en "Finalizar compra".
+     ============================================================ */
+  let cart = []; // [{ id, nombre, icon, precio, cantidad }]
+
+  function findProducto(id) { return PRODUCTOS.find(p => p.id === id); }
+
+  function renderCart() {
+    const itemsEl = document.getElementById('cartItems');
+    const countEl = document.getElementById('cartCount');
+    const subtotalEl = document.getElementById('cartSubtotal');
+    const checkoutBtn = document.getElementById('btnCheckout');
+
+    const totalUnidades = cart.reduce((sum, i) => sum + i.cantidad, 0);
+    countEl.textContent = totalUnidades;
+    countEl.style.display = totalUnidades > 0 ? 'flex' : 'none';
+
+    if (cart.length === 0) {
+      itemsEl.innerHTML = `<p class="cart-empty">${t('cart.vacio')}</p>`;
+      checkoutBtn.disabled = true;
+    } else {
+      itemsEl.innerHTML = cart.map(item => `
+        <div class="cart-item" data-id="${item.id}">
+          <div class="cart-item-img">${item.imagen ? `<img src="${item.imagen}" alt="${item.nombre}" style="width:100%;height:100%;object-fit:cover;" />` : (item.icon || '🛍️')}</div>
+          <div class="cart-item-info">
+            <h4>${item.nombre}</h4>
+            <div class="precio">$${item.precio} USD</div>
+            <div class="cart-item-qty">
+              <button class="qty-minus">−</button>
+              <span>${item.cantidad}</span>
+              <button class="qty-plus">+</button>
+            </div>
+          </div>
+          <button class="cart-item-remove" title="Quitar">✕</button>
+        </div>`).join('');
+      checkoutBtn.disabled = false;
+    }
+
+    const subtotal = cart.reduce((sum, i) => sum + i.precio * i.cantidad, 0);
+    subtotalEl.textContent = `$${subtotal} USD`;
+  }
+
+  function addToCart(id) {
+    const producto = findProducto(id);
+    if (!producto) return;
+    const existente = cart.find(i => i.id === id);
+    if (existente) existente.cantidad += 1;
+    else cart.push({ id: producto.id, nombre: producto.nombre, icon: producto.icon, imagen: producto.imagen, precio: producto.precio, cantidad: 1 });
+    renderCart();
+  }
+
+  document.getElementById('cartItems').addEventListener('click', (e) => {
+    const itemEl = e.target.closest('.cart-item');
+    if (!itemEl) return;
+    const id = itemEl.dataset.id;
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    if (e.target.classList.contains('qty-plus')) item.cantidad += 1;
+    else if (e.target.classList.contains('qty-minus')) item.cantidad = Math.max(1, item.cantidad - 1);
+    else if (e.target.classList.contains('cart-item-remove')) cart = cart.filter(i => i.id !== id);
+    renderCart();
+  });
+
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartDrawer = document.getElementById('cartDrawer');
+  function openCart() { cartDrawer.classList.add('open'); cartOverlay.classList.add('open'); }
+  function closeCart() { cartDrawer.classList.remove('open'); cartOverlay.classList.remove('open'); }
+  document.getElementById('cartBtn').addEventListener('click', openCart);
+  document.getElementById('cartClose').addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', () => { closeCart(); closeAccount(); });
+
+  document.getElementById('btnCheckout').addEventListener('click', async () => {
+    const btn = document.getElementById('btnCheckout');
+    if (!usandoCatalogoReal) {
+      alert(t('cart.error_ejemplo'));
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = t('cart.redirigiendo');
+    try {
+      const mutation = `
+        mutation CrearCarrito($lines: [CartLineInput!]!) {
+          cartCreate(input: { lines: $lines }) {
+            cart { id checkoutUrl }
+            userErrors { field message }
+          }
+        }`;
+      const lines = cart.map(item => ({ merchandiseId: item.id, quantity: item.cantidad }));
+      const data = await shopifyFetch(mutation, { lines });
+      const result = data && data.cartCreate;
+      if (result && result.cart && result.cart.checkoutUrl) {
+        window.location.href = result.cart.checkoutUrl;
+      } else {
+        console.error('cartCreate userErrors:', result && result.userErrors);
+        alert(t('cart.error_generico'));
+        btn.disabled = false;
+        btn.textContent = t('cart.finalizar');
+      }
+    } catch (err) {
+      console.error(err);
+      alert(t('cart.error_conexion'));
+      btn.disabled = false;
+      btn.textContent = t('cart.finalizar');
+    }
+  });
+
+  renderCart();
+
+  /* ============================================================
+     CUENTA DE CLIENTE — formularios de ejemplo (sin backend aún).
+     TODO(equipo): conectar con la Customer Account API de Shopify
+     (recomendada) o customerCreate/customerAccessTokenCreate.
+     ============================================================ */
+  const accountOverlay = document.getElementById('accountOverlay');
+  const accountModal = document.getElementById('accountModal');
+  function openAccount() { accountModal.classList.add('open'); accountOverlay.classList.add('open'); }
+  function closeAccount() { accountModal.classList.remove('open'); accountOverlay.classList.remove('open'); }
+  document.getElementById('accountBtn').addEventListener('click', openAccount);
+  document.getElementById('accountClose').addEventListener('click', closeAccount);
+
+  document.querySelectorAll('.account-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.account-tab').forEach(otherTab => otherTab.classList.remove('active'));
+      tab.classList.add('active');
+      const isLogin = tab.dataset.tab === 'login';
+      document.getElementById('formLogin').style.display = isLogin ? 'flex' : 'none';
+      document.getElementById('formRegister').style.display = isLogin ? 'none' : 'flex';
+    });
+  });
+
+  document.getElementById('formLogin').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // TODO(equipo): customerAccessTokenCreate (o Customer Account API).
+    alert(t('account.login_placeholder'));
+  });
+  document.getElementById('formRegister').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // TODO(equipo): customerCreate (o Customer Account API).
+    alert(t('account.registro_placeholder'));
+  });
+
+  /* ============================================================
+     BOT — flujo de conversación acordado con el cliente.
+     TODO(equipo): reemplazar las respuestas fijas por una llamada
+     a un backend propio que use la API de Claude/OpenAI para
+     generar respuestas dinámicas, manteniendo esta misma lógica
+     de intenciones y el escalamiento a Anthony por correo.
+     ============================================================ */
+  const BOT_FLOWS = {
+    inicio: {
+      msgKey: 'bot.saludo',
+      quick: [
+        { labelKey: 'bot.op_productos', next: 'productos' },
+        { labelKey: 'bot.op_precios', next: 'precios' },
+        { labelKey: 'bot.op_devoluciones', next: 'devoluciones' },
+        { labelKey: 'bot.op_humano', next: 'humano' },
+      ],
+    },
+    productos: {
+      msgKey: 'bot.msg_productos',
+      quick: [
+        { labelKey: 'bot.op_precios', next: 'precios' },
+        { labelKey: 'bot.op_humano', next: 'humano' },
+        { labelKey: 'bot.op_menu', next: 'inicio' },
+      ],
+    },
+    precios: {
+      msgKey: 'bot.msg_precios',
+      quick: [
+        { labelKey: 'bot.op_devoluciones', next: 'devoluciones' },
+        { labelKey: 'bot.op_humano', next: 'humano' },
+        { labelKey: 'bot.op_menu', next: 'inicio' },
+      ],
+    },
+    devoluciones: {
+      msgKey: 'bot.msg_devoluciones',
+      quick: [
+        { labelKey: 'bot.op_humano', next: 'humano' },
+        { labelKey: 'bot.op_menu', next: 'inicio' },
+      ],
+    },
+    humano: {
+      msgKey: 'bot.msg_humano',
+      quick: [
+        { labelKey: 'bot.op_whatsapp', url: 'https://wa.me/13369490279' },
+        { labelKey: 'bot.op_menu', next: 'inicio' },
+      ],
+    },
+  };
+
+  const botLauncher = document.getElementById('botLauncher');
+  const botPanel = document.getElementById('botPanel');
+  const botClose = document.getElementById('botClose');
+  const botMessages = document.getElementById('botMessages');
+  const botQuick = document.getElementById('botQuick');
+
+  function addMessage(text, from) {
+    const el = document.createElement('div');
+    el.className = 'bot-msg ' + from;
+    el.textContent = text;
+    botMessages.appendChild(el);
+    botMessages.scrollTop = botMessages.scrollHeight;
+  }
+
+  function showFlow(key) {
+    const flow = BOT_FLOWS[key];
+    addMessage(t(flow.msgKey), 'bot');
+    botQuick.innerHTML = '';
+    flow.quick.forEach(q => {
+      const btn = document.createElement('button');
+      btn.textContent = t(q.labelKey);
+      btn.onclick = () => {
+        addMessage(t(q.labelKey), 'user');
+        botQuick.innerHTML = '';
+        if (q.url) { window.open(q.url, '_blank'); showFlow('inicio'); }
+        else showFlow(q.next);
+      };
+      botQuick.appendChild(btn);
+    });
+  }
+
+  let botStarted = false;
+  botLauncher.addEventListener('click', () => {
+    botPanel.classList.add('open');
+    if (!botStarted) { showFlow('inicio'); botStarted = true; }
+  });
+  botClose.addEventListener('click', () => botPanel.classList.remove('open'));
+
+  /* ============================================================
+     IDIOMA — activación (al final, porque depende de que ya existan
+     renderProductos/renderCart/PRODUCTOS definidos más arriba).
+     ============================================================ */
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      localStorage.setItem('yahweh_lang', lang);
+      applyLanguage(lang);
+      ocultarSelectorIdioma();
+    });
+  });
+
+  document.getElementById('langToggle').addEventListener('click', () => {
+    const nuevoIdioma = currentLang === 'en' ? 'es' : 'en';
+    localStorage.setItem('yahweh_lang', nuevoIdioma);
+    applyLanguage(nuevoIdioma);
+  });
+
+  if (currentLang) {
+    applyLanguage(currentLang);
+  } else {
+    applyLanguage('es'); // idioma visible por defecto mientras el usuario elige
+    mostrarSelectorIdioma();
+  }
+</script>
+
+</body>
+</html>
