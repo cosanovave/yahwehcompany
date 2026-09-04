@@ -251,6 +251,16 @@
   .cart-item-qty button { width: 20px; height: 20px; border: 1px solid var(--border); background: none; cursor: pointer; font-size: 12px; line-height: 1; }
   .cart-item-remove { background: none; border: none; color: var(--muted); font-size: 12px; cursor: pointer; align-self: flex-start; }
   .cart-item-remove:hover { color: var(--red); }
+  .cart-sugerencias { border-top: 1px solid var(--border); padding: 16px 24px; }
+  .cart-sugerencias-titulo { font-size: 10.5px; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 12px; display: block; }
+  .cart-sug-item { display: flex; align-items: center; gap: 12px; padding: 8px 0; }
+  .cart-sug-img { width: 42px; height: 42px; flex-shrink: 0; object-fit: cover; background: linear-gradient(150deg, #ece0c9, #ddcba8); }
+  .cart-sug-info { flex: 1; min-width: 0; }
+  .cart-sug-info h5 { font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cart-sug-info span { font-size: 11px; color: var(--muted); }
+  .cart-sug-add { background: none; border: 1px solid var(--gray); color: var(--gray); font-size: 11px; padding: 6px 12px; cursor: pointer; flex-shrink: 0; transition: background .2s, color .2s; }
+  .cart-sug-add:hover { background: var(--gray); color: #fff; }
+
   .cart-footer { padding: 20px 24px; border-top: 1px solid var(--border); }
   .cart-subtotal { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 14px; }
   .btn-checkout {
@@ -581,6 +591,7 @@
     <button class="drawer-close" id="cartClose">✕</button>
   </div>
   <div class="cart-items" id="cartItems"></div>
+  <div class="cart-sugerencias" id="cartSugerencias"></div>
   <div class="cart-footer">
     <div class="cart-subtotal"><span data-i18n="cart.subtotal">Subtotal</span><strong id="cartSubtotal">$0 USD</strong></div>
     <button class="btn-checkout caps" id="btnCheckout" data-i18n="cart.finalizar">Finalizar compra</button>
@@ -691,6 +702,7 @@
       'footer.legal_envios': 'Política de envíos', 'footer.legal_devoluciones': 'Cambios y devoluciones',
       'footer.copyright': '© 2026 Yahweh Company · Todos los derechos reservados', 'footer.disenado_por': 'Diseñado por',
       'cart.titulo': 'Tu carrito', 'cart.subtotal': 'Subtotal', 'cart.finalizar': 'Finalizar compra',
+      'cart.sugerencias_titulo': 'Antes de irte, no olvides esto', 'cart.sugerencias_agregar': 'Agregar',
       'cart.nota': 'El pago y envío se calculan en el checkout seguro de Shopify.', 'cart.vacio': 'Tu carrito está vacío',
       'cart.redirigiendo': 'Redirigiendo...', 'cart.error_ejemplo': 'El checkout real se activa en cuanto la tienda tenga productos publicados en Shopify (ahora mismo el carrito tiene productos de ejemplo, no reales).',
       'cart.error_generico': 'No se pudo iniciar el checkout. Intenta de nuevo en unos segundos.',
@@ -737,6 +749,7 @@
       'footer.legal_envios': 'Shipping policy', 'footer.legal_devoluciones': 'Returns & exchanges',
       'footer.copyright': '© 2026 Yahweh Company · All rights reserved', 'footer.disenado_por': 'Designed by',
       'cart.titulo': 'Your cart', 'cart.subtotal': 'Subtotal', 'cart.finalizar': 'Checkout',
+      'cart.sugerencias_titulo': "Before you go, don't forget this", 'cart.sugerencias_agregar': 'Add',
       'cart.nota': 'Payment and shipping are calculated at Shopify’s secure checkout.', 'cart.vacio': 'Your cart is empty',
       'cart.redirigiendo': 'Redirecting...', 'cart.error_ejemplo': 'Real checkout activates once the store has products published on Shopify (right now the cart has sample products, not real ones).',
       'cart.error_generico': 'Could not start checkout. Please try again in a moment.',
@@ -968,6 +981,7 @@
      según la combinación elegida, antes de agregar al carrito.
      ============================================================ */
   function abrirProductoModal(p) {
+    if (typeof registrarInteres === 'function') registrarInteres(p);
     const imgs = (p.imagenes && p.imagenes.length) ? p.imagenes : (p.imagen ? [p.imagen] : []);
     const variantePorDefecto = (p.variantes && (p.variantes.find(v => v.disponible) || p.variantes[0])) || null;
     const estado = {
@@ -1237,6 +1251,47 @@
 
   function findProducto(id) { return PRODUCTOS.find(p => p.id === id); }
 
+  /* ============================================================
+     HISTORIAL DE INTERÉS — guarda en este navegador los productos
+     que el usuario vio o agregó al carrito, para sugerírselos de
+     nuevo en el carrito si al final no los compró.
+     ============================================================ */
+  function registrarInteres(p) {
+    try {
+      let historial = JSON.parse(localStorage.getItem('yahweh_historial') || '[]');
+      historial = historial.filter(h => h.id !== p.id);
+      historial.unshift({ id: p.id, nombre: p.nombre, imagen: p.imagen, precio: p.precio });
+      localStorage.setItem('yahweh_historial', JSON.stringify(historial.slice(0, 15)));
+    } catch (e) {}
+  }
+
+  function renderSugerenciasCarrito() {
+    const cont = document.getElementById('cartSugerencias');
+    if (!cont) return;
+    let historial = [];
+    try { historial = JSON.parse(localStorage.getItem('yahweh_historial') || '[]'); } catch (e) {}
+    const sugerencias = historial.filter(h => !cart.some(c => c.id === h.id)).slice(0, 3);
+    if (sugerencias.length === 0) { cont.innerHTML = ''; return; }
+    cont.innerHTML = `
+      <span class="caps cart-sugerencias-titulo">${t('cart.sugerencias_titulo')}</span>
+      ${sugerencias.map(s => `
+        <div class="cart-sug-item">
+          <div class="cart-sug-img">${s.imagen ? `<img src="${s.imagen}" alt="${s.nombre}" style="width:100%;height:100%;object-fit:cover;" />` : ''}</div>
+          <div class="cart-sug-info"><h5>${s.nombre}</h5><span>$${s.precio} USD</span></div>
+          <button class="cart-sug-add" data-id="${s.id}">${t('cart.sugerencias_agregar')}</button>
+        </div>`).join('')}`;
+    cont.querySelectorAll('.cart-sug-add').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const s = sugerencias.find(x => x.id === btn.dataset.id);
+        if (!s) return;
+        const existente = cart.find(i => i.id === s.id);
+        if (existente) existente.cantidad += 1;
+        else cart.push({ id: s.id, nombre: s.nombre, imagen: s.imagen, precio: s.precio, cantidad: 1 });
+        renderCart();
+      });
+    });
+  }
+
   function renderCart() {
     const itemsEl = document.getElementById('cartItems');
     const countEl = document.getElementById('cartCount');
@@ -1270,11 +1325,13 @@
 
     const subtotal = cart.reduce((sum, i) => sum + i.precio * i.cantidad, 0);
     subtotalEl.textContent = `$${subtotal} USD`;
+    renderSugerenciasCarrito();
   }
 
   function addToCart(id) {
     const producto = findProducto(id);
     if (!producto) return;
+    registrarInteres(producto);
     const existente = cart.find(i => i.id === id);
     if (existente) existente.cantidad += 1;
     else cart.push({ id: producto.id, nombre: producto.nombre, icon: producto.icon, imagen: producto.imagen, precio: producto.precio, cantidad: 1 });
