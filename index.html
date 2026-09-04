@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Yahweh Company — Tecnología, cuidado personal y moda</title>
 <meta name="description" content="Yahweh Company: tecnología, cuidado personal y moda, con envíos a Estados Unidos y Latinoamérica." />
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -12,7 +18,7 @@
   :root {
     --red: #B5202A; --red-light: #D6474F;
     --gray: #2B2D42; --gray-light: #5b6270;
-    --bg: #F2E8D8; --card: #FBF5EA; --border: #E3D5BC;
+    --bg: #F7F3EC; --card: #FBF5EA; --border: #E3D5BC;
     --text: #2B2D42; --muted: #8a7a63;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,12 +35,12 @@
   .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 40px; background: rgba(242,232,216,0.92); backdrop-filter: blur(8px);
+    padding: 14px 40px; background: rgba(247,243,236,0.92); backdrop-filter: blur(8px);
     border-bottom: 1px solid transparent; transition: border-color .3s, padding .3s;
   }
   .nav.scrolled { border-color: var(--border); padding: 12px 40px; }
   .nav-logo { display: flex; align-items: center; }
-  .nav-logo img { height: 150px; width: auto; transition: height .35s ease; }
+  .nav-logo img { height: 118px; width: auto; transition: height .35s ease; }
   .nav.scrolled .nav-logo img { height: 42px; }
   .nav-links { display: flex; gap: 34px; list-style: none; font-size: 11.5px; font-weight: 600; }
   .nav-links a:hover { color: var(--red); }
@@ -43,7 +49,16 @@
     transition: border-color .2s, color .2s;
   }
   .nav-cta.caps:hover { color: var(--red); border-color: var(--red); }
-  .nav-mobile-toggle { display: none; background: none; border: none; color: var(--text); font-size: 22px; cursor: pointer; }
+  .nav-mobile-toggle { display: none; background: none; border: none; color: var(--text); font-size: 22px; cursor: pointer; padding: 4px 8px 4px 0; }
+  .nav-mobile-menu {
+    display: flex; position: fixed; top: 0; right: 0; bottom: 0; z-index: 220; width: 78vw; max-width: 320px;
+    background: var(--card); box-shadow: -10px 0 40px rgba(43,45,66,.2);
+    transform: translateX(100%); transition: transform .3s ease; flex-direction: column; padding: 90px 30px 30px;
+  }
+  .nav-mobile-menu.open { transform: translateX(0); }
+  .nav-mobile-menu a { display: block; font-size: 15px; font-weight: 600; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .nav-mobile-wa { color: var(--red) !important; margin-top: 20px; text-align: center; border: 1px solid var(--red) !important; padding: 14px !important; font-size: 12px !important; letter-spacing: 1px; }
+  .nav-mobile-close { position: absolute; top: 18px; right: 18px; background: none; border: none; font-size: 20px; color: var(--text); cursor: pointer; }
 
   .nav-actions { display: flex; align-items: center; gap: 18px; }
   .nav-icon-btn {
@@ -59,10 +74,11 @@
   }
 
   /* HERO SPLIT (estilo Dior) */
-  .hero-split { display: grid; grid-template-columns: 1fr 1fr; margin-top: 0; }
+  :root { --nav-h: 150px; }
+  .hero-split { display: grid; grid-template-columns: 1fr 1fr; margin-top: var(--nav-h); }
   .hero-panel {
-    position: relative; height: 78vh; min-height: 460px; display: flex; align-items: flex-end;
-    padding: 48px; overflow: hidden;
+    position: relative; height: calc(100vh - var(--nav-h)); min-height: 340px; max-height: 620px;
+    display: flex; align-items: flex-end; padding: 48px; overflow: hidden;
   }
   .hero-panel::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.45) 100%); }
   .hero-panel-a { background: linear-gradient(160deg, #cbb89a, #a98f6b); }
@@ -114,6 +130,24 @@
     border-radius: 4px; margin-bottom: 40px; letter-spacing: 0.3px;
   }
   .productos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 34px 24px; }
+
+  /* CATÁLOGO — tarjetas de categoría desplegables */
+  .categorias-acordeon { display: flex; flex-direction: column; gap: 14px; max-width: 900px; margin: 0 auto; }
+  .categoria-card { border: 1px solid var(--border); background: var(--card); }
+  .categoria-header {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    background: none; border: none; cursor: pointer; padding: 22px 26px; font-family: 'Figtree', sans-serif;
+    color: var(--text); text-align: left;
+  }
+  .categoria-header-left { display: flex; align-items: baseline; gap: 12px; }
+  .categoria-nombre { font-family: 'Playfair Display', serif; font-size: 19px; }
+  .categoria-count { font-size: 11.5px; color: var(--muted); letter-spacing: .5px; }
+  .categoria-chevron { font-size: 14px; color: var(--red); transition: transform .3s ease; flex-shrink: 0; }
+  .categoria-card.abierta .categoria-chevron { transform: rotate(180deg); }
+  .categoria-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .categoria-card.abierta .categoria-body { grid-template-rows: 1fr; }
+  .categoria-body-inner { overflow: hidden; }
+  .categoria-body .productos-grid { padding: 6px 26px 30px; gap: 30px 22px; }
   .producto-card { cursor: pointer; }
   .producto-img {
     aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; font-size: 42px;
@@ -228,6 +262,51 @@
   .btn-account:hover { background: var(--red); }
   .account-note { font-size: 11px; color: var(--muted); margin-top: 18px; line-height: 1.5; }
 
+  /* ===== MODAL DE PRODUCTO ===== */
+  .product-modal {
+    position: fixed; top: 50%; left: 50%; z-index: 211; width: 860px; max-width: 92vw; max-height: 88vh;
+    background: var(--card); box-shadow: 0 24px 60px rgba(43,45,66,.25);
+    transform: translate(-50%, -50%) scale(0.95); opacity: 0; pointer-events: none; transition: transform .25s, opacity .25s;
+    overflow-y: auto;
+  }
+  .product-modal.open { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: auto; }
+  .product-modal .drawer-close { position: absolute; top: 18px; right: 18px; z-index: 2; background: var(--card); }
+  .product-modal-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .pm-gallery { background: linear-gradient(150deg, #ece0c9, #ddcba8); }
+  .pm-gallery-main { aspect-ratio: 4/5; overflow: hidden; }
+  .pm-gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+  .pm-gallery-thumbs { display: flex; gap: 8px; padding: 10px; flex-wrap: wrap; }
+  .pm-gallery-thumbs img { width: 52px; height: 52px; object-fit: cover; cursor: pointer; opacity: .6; border: 1px solid transparent; }
+  .pm-gallery-thumbs img:hover, .pm-gallery-thumbs img.activa { opacity: 1; border-color: var(--red); }
+  .pm-info { padding: 40px; display: flex; flex-direction: column; }
+  .pm-cat { display: block; font-size: 10px; letter-spacing: 2.5px; color: var(--muted); margin-bottom: 8px; }
+  .pm-title { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 10px; }
+  .pm-precio { font-size: 18px; font-weight: 600; color: var(--red); margin-bottom: 18px; }
+  .pm-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 22px; max-height: 140px; overflow-y: auto; }
+  .pm-opcion { margin-bottom: 18px; }
+  .pm-opcion-label { display: block; font-size: 11px; letter-spacing: 1px; color: var(--text); font-weight: 600; margin-bottom: 8px; }
+  .pm-opcion-valores { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pm-valor-btn {
+    background: none; border: 1px solid var(--border); color: var(--text); font-size: 12px; padding: 8px 14px;
+    cursor: pointer; transition: border-color .2s, background .2s;
+  }
+  .pm-valor-btn:hover { border-color: var(--red); }
+  .pm-valor-btn.activo { border-color: var(--red); background: var(--red); color: #fff; }
+  .pm-valor-btn:disabled { opacity: .35; cursor: not-allowed; text-decoration: line-through; }
+  .pm-qty { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .pm-qty button { width: 30px; height: 30px; border: 1px solid var(--border); background: none; cursor: pointer; font-size: 14px; }
+  .pm-stock-msg { font-size: 12px; color: var(--red); margin-bottom: 14px; }
+  .btn-pm-add {
+    width: 100%; background: var(--gray); color: #fff; border: none; padding: 15px; font-size: 12px;
+    font-weight: 600; letter-spacing: .5px; cursor: pointer; transition: background .2s; margin-top: auto;
+  }
+  .btn-pm-add:hover { background: var(--red); }
+  .btn-pm-add:disabled { opacity: .5; cursor: not-allowed; }
+  @media (max-width: 700px) {
+    .product-modal-inner { grid-template-columns: 1fr; }
+    .pm-info { padding: 26px; }
+  }
+
   .nav-lang-btn {
     background: none; border: 1px solid var(--border); color: var(--text); font-size: 11px; font-weight: 700;
     padding: 7px 10px; cursor: pointer; transition: border-color .2s, color .2s;
@@ -289,10 +368,17 @@
     .nav-links { display: none; }
     .nav-mobile-toggle { display: block; }
     .hero-split { grid-template-columns: 1fr; }
+    .hero-panel { height: 48vh; max-height: none; padding: 28px; }
     .pasos { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 560px) {
+    .nav { padding: 10px 16px; }
+    .nav.scrolled { padding: 8px 16px; }
+    .nav-logo img { height: 62px; }
+    .nav.scrolled .nav-logo img { height: 34px; }
+    .nav-actions { gap: 10px; }
+    .nav-cta.caps { display: none; }
     .footer-inner { grid-template-columns: 1fr; }
     .bot-panel { right: 12px; left: 12px; width: auto; }
     .bot-launcher { right: 18px; }
@@ -311,6 +397,7 @@
     <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
   </ul>
   <div class="nav-actions">
+    <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Menú">☰</button>
     <button class="nav-lang-btn caps" id="langToggle" title="Change language / Cambiar idioma">ES</button>
     <button class="nav-icon-btn" id="accountBtn" title="Mi cuenta" data-i18n-title="nav.mi_cuenta">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.4-3.6 4.3-5.4 7.5-5.4s6.1 1.8 7.5 5.4"/></svg>
@@ -322,6 +409,16 @@
     <a href="https://wa.me/13369490279" target="_blank" class="nav-cta caps" data-i18n="nav.escribenos">Escríbenos</a>
   </div>
 </nav>
+
+<!-- ═══ MENÚ MÓVIL ═══ -->
+<div class="overlay" id="navMobileOverlay"></div>
+<div class="nav-mobile-menu" id="navMobileMenu">
+  <button class="nav-mobile-close" id="navMobileClose">✕</button>
+  <a href="#catalogo" data-i18n="nav.catalogo">Catálogo</a>
+  <a href="#como-comprar" data-i18n="nav.comprar">Cómo comprar</a>
+  <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
+  <a href="https://wa.me/13369490279" target="_blank" class="nav-mobile-wa caps" data-i18n="nav.escribenos">Escríbenos</a>
+</div>
 
 <!-- ═══ HERO SPLIT ═══ -->
 <div id="inicio">
@@ -345,7 +442,7 @@
   </div>
 
   <div class="hero-tagline">
-    <p class="slogan" data-i18n="hero.slogan">"Nunca digan que no pueden, si en la luna quedan huellas."</p>
+    <p class="slogan" data-i18n="hero.slogan">NUNCA DIGAS QUE NO PUEDES SI EN LA LUNA QUEDAN HUELLAS 👣</p>
     <p class="sub" data-i18n="hero.sub">Productos seleccionados por calidad, con envíos a Estados Unidos y Latinoamérica.</p>
   </div>
 </div>
@@ -373,7 +470,7 @@
        tengamos acceso de colaborador y lo generemos desde el admin de la tienda. -->
   <div class="catalogo-note" data-i18n="catalogo.note">Catálogo de ejemplo — se conecta al inventario real de Shopify en cuanto tengamos el acceso a la tienda</div>
 
-  <div class="productos-grid" id="productosGrid"></div>
+  <div class="categorias-acordeon" id="categoriasAcordeon"></div>
 </section>
 
 <!-- ═══ BANNER EDITORIAL ═══ -->
@@ -467,6 +564,13 @@
   </div>
 </div>
 
+<!-- ═══ MODAL DE PRODUCTO ═══ -->
+<div class="overlay" id="productOverlay"></div>
+<div class="product-modal" id="productModal">
+  <button class="drawer-close" id="productClose">✕</button>
+  <div class="product-modal-inner" id="productModalInner"></div>
+</div>
+
 <!-- ═══ CUENTA DE CLIENTE ═══
      TODO(equipo): conectar con Shopify — ya sea la Customer Account API nueva
      (flujo OAuth, recomendado por Shopify) o las mutaciones clásicas
@@ -509,7 +613,7 @@
 </a>
 
 <!-- ═══ BOT WIDGET ═══ -->
-<button class="bot-launcher" id="botLauncher" title="Asistente Yahweh">
+<button class="bot-launcher" id="botLauncher" title="Asistente Yahweh" data-i18n-title="bot.nombre">
   <span class="dot"></span>
   <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h2a5 5 0 015 5v1a2 2 0 012 2v2a2 2 0 01-2 2v1a3 3 0 01-3 3H7a3 3 0 01-3-3v-1a2 2 0 01-2-2v-2a2 2 0 012-2v-1a5 5 0 015-5h2V5.73A2 2 0 0110 4a2 2 0 012-2zM7.5 14a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm9 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
 </button>
@@ -517,7 +621,7 @@
 <div class="bot-panel" id="botPanel">
   <div class="bot-header">
     <div class="avatar">Y</div>
-    <div class="info"><strong>Asistente Yahweh</strong><span>● En línea</span></div>
+    <div class="info"><strong data-i18n="bot.nombre">Asistente Yahweh</strong><span>● <span data-i18n="bot.en_linea">En línea</span></span></div>
     <button class="bot-close" id="botClose">✕</button>
   </div>
   <div class="bot-messages" id="botMessages"></div>
@@ -535,7 +639,7 @@
       'hero.moda_eyebrow': 'Moda', 'hero.moda_title': 'Moda y accesorios',
       'hero.tech_eyebrow': 'Tecnología & cuidado personal', 'hero.tech_title': 'Innovación diaria',
       'hero.discover': 'Descubrir',
-      'hero.slogan': '"Lo único imposible es lo que no se intenta — y nosotros dejamos huellas."',
+      'hero.slogan': 'NUNCA DIGAS QUE NO PUEDES SI EN LA LUNA QUEDAN HUELLAS 👣',
       'hero.sub': 'Productos seleccionados por calidad, con envíos a Estados Unidos y Latinoamérica.',
       'trust.entrega': 'días · Entrega estimada', 'trust.devoluciones': 'días · Cambios y devoluciones',
       'trust.zonas_num': 'EE. UU. y Latam', 'trust.zonas': 'Zonas de envío', 'trust.pago': 'Pago seguro',
@@ -543,6 +647,7 @@
       'catalogo.sub': 'Tecnología, cuidado personal y moda, seleccionados por calidad.',
       'catalogo.note': 'Catálogo de ejemplo — se conecta al inventario real de Shopify en cuanto tengamos el acceso a la tienda',
       'producto.agregar': 'Agregar al carrito', 'producto.agotado': 'Agotado', 'producto.agregado': 'Agregado ✓',
+      'categoria.producto': 'producto', 'categoria.productos': 'productos',
       'editorial.title': 'Lo que buscas, sin fallas ni sorpresas',
       'comprar.badge': 'Simple y rápido', 'comprar.title': '¿Cómo compro?',
       'comprar.paso1_title': 'Elige tu producto', 'comprar.paso1_desc': 'Explora el catálogo o pregúntale al asistente qué tenemos disponible.',
@@ -562,6 +667,7 @@
       'account.nota': 'Al crear una cuenta podrás ver tu historial de pedidos y agilizar tus próximas compras.',
       'account.login_placeholder': 'Aquí se validará el inicio de sesión contra Shopify una vez conectada la tienda.',
       'account.registro_placeholder': 'Aquí se creará la cuenta del cliente en Shopify una vez conectada la tienda.',
+      'bot.nombre': 'Asistente Yahweh', 'bot.en_linea': 'En línea',
       'bot.saludo': '¡Hola! 👋 Soy el asistente virtual de Yahweh Company. ¿En qué te puedo ayudar hoy?',
       'bot.op_productos': 'Ver productos', 'bot.op_precios': 'Precios y envíos', 'bot.op_devoluciones': 'Cambios y devoluciones',
       'bot.op_humano': 'Hablar con un asesor', 'bot.op_menu': 'Menú principal', 'bot.op_whatsapp': 'Escribir por WhatsApp ahora',
@@ -585,6 +691,7 @@
       'catalogo.sub': 'Tech, personal care and fashion, picked for quality.',
       'catalogo.note': 'Sample catalog — will connect to real Shopify inventory once store access is granted',
       'producto.agregar': 'Add to cart', 'producto.agotado': 'Sold out', 'producto.agregado': 'Added ✓',
+      'categoria.producto': 'product', 'categoria.productos': 'products',
       'editorial.title': "What you're looking for, with no flaws or surprises",
       'comprar.badge': 'Simple & fast', 'comprar.title': 'How do I order?',
       'comprar.paso1_title': 'Pick your product', 'comprar.paso1_desc': 'Browse the catalog or ask our assistant what we have available.',
@@ -604,6 +711,7 @@
       'account.nota': 'Creating an account lets you view your order history and check out faster next time.',
       'account.login_placeholder': 'Sign-in will be validated against Shopify once the store is connected.',
       'account.registro_placeholder': 'The customer account will be created in Shopify once the store is connected.',
+      'bot.nombre': 'Yahweh Assistant', 'bot.en_linea': 'Online',
       'bot.saludo': "Hi! 👋 I'm Yahweh Company's virtual assistant. How can I help you today?",
       'bot.op_productos': 'See products', 'bot.op_precios': 'Prices & shipping', 'bot.op_devoluciones': 'Returns & exchanges',
       'bot.op_humano': 'Talk to an agent', 'bot.op_menu': 'Main menu', 'bot.op_whatsapp': 'Message us on WhatsApp now',
@@ -635,6 +743,11 @@
     if (langToggle) langToggle.textContent = lang === 'es' ? 'EN' : 'ES'; // muestra la opción contraria
     renderProductos(PRODUCTOS); // re-renderiza para traducir botones de producto
     renderCart(); // re-renderiza para traducir textos del carrito
+    // Si ya se conectó el catálogo real, vuelve a pedirlo en el nuevo idioma
+    // (título, descripción y opciones traducidas vía Shopify).
+    if (usandoCatalogoReal && typeof cargarCatalogoReal === 'function') {
+      cargarCatalogoReal(lang).catch(err => console.error('No se pudo recargar el catálogo en el nuevo idioma:', err));
+    }
   }
 
   function mostrarSelectorIdioma() {
@@ -649,6 +762,29 @@
   /* NAV scroll */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 30));
+
+  /* MENÚ MÓVIL */
+  const navMobileMenu = document.getElementById('navMobileMenu');
+  const navMobileOverlay = document.getElementById('navMobileOverlay');
+  function abrirMenuMobile() { navMobileMenu.classList.add('open'); navMobileOverlay.classList.add('open'); }
+  function cerrarMenuMobile() { navMobileMenu.classList.remove('open'); navMobileOverlay.classList.remove('open'); }
+  document.getElementById('navMobileToggle').addEventListener('click', abrirMenuMobile);
+  document.getElementById('navMobileClose').addEventListener('click', cerrarMenuMobile);
+  navMobileOverlay.addEventListener('click', cerrarMenuMobile);
+  navMobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', cerrarMenuMobile));
+
+  /* Altura real del nav (sin scroll), para que el hero-split quepa exacto
+     junto al nav en una sola pantalla sin necesidad de scroll. */
+  function ajustarAlturaNav() {
+    const estabaScrolled = navbar.classList.contains('scrolled');
+    navbar.classList.remove('scrolled');
+    const altura = navbar.offsetHeight;
+    navbar.classList.toggle('scrolled', estabaScrolled);
+    document.documentElement.style.setProperty('--nav-h', altura + 'px');
+  }
+  window.addEventListener('load', ajustarAlturaNav);
+  window.addEventListener('resize', ajustarAlturaNav);
+  ajustarAlturaNav();
 
   /* ============================================================
      CONEXIÓN REAL CON SHOPIFY — Storefront API
@@ -689,18 +825,34 @@
   let PRODUCTOS = PRODUCTOS_EJEMPLO;
   let usandoCatalogoReal = false;
 
-  async function fetchProductosReales() {
+  // Caché por idioma para no volver a pedirle todo el catálogo a Shopify
+  // cada vez que el visitante cambia de idioma.
+  const PRODUCTOS_CACHE = {};
+
+  async function fetchProductosReales(idioma) {
+    // @inContext le pide a Shopify el contenido ya traducido (título, descripción,
+    // nombres/valores de opciones) según lo que se haya traducido en la app
+    // "Translate & Adapt". Si un texto no está traducido, Shopify devuelve el original.
+    const codigoIdioma = (idioma || 'es').toUpperCase();
     const query = `
-      query Productos {
+      query Productos @inContext(language: ${codigoIdioma}) {
         products(first: 24) {
           edges {
             node {
               title
               productType
+              descriptionHtml
               featuredImage { url altText }
-              variants(first: 1) {
+              images(first: 6) { edges { node { url altText } } }
+              options { name values }
+              variants(first: 50) {
                 edges {
-                  node { id availableForSale price { amount currencyCode } }
+                  node {
+                    id availableForSale
+                    price { amount currencyCode }
+                    image { url }
+                    selectedOptions { name value }
+                  }
                 }
               }
             }
@@ -711,42 +863,230 @@
     const edges = data && data.products ? data.products.edges : [];
     return edges
       .map(({ node }) => {
-        const variant = node.variants.edges[0] && node.variants.edges[0].node;
-        if (!variant) return null;
+        const variantes = node.variants.edges.map(e => e.node);
+        const variantePrincipal = variantes.find(v => v.availableForSale) || variantes[0];
+        if (!variantePrincipal) return null;
+        const imagenes = (node.images.edges.length ? node.images.edges.map(e => e.node.url) : [node.featuredImage ? node.featuredImage.url : null]).filter(Boolean);
         return {
-          id: variant.id, // Shopify variant GID — se usa tal cual para el carrito
+          id: variantePrincipal.id, // Shopify variant GID — se usa tal cual para el carrito
           cat: node.productType || 'General',
           icon: null,
-          imagen: node.featuredImage ? node.featuredImage.url : null,
+          imagen: node.featuredImage ? node.featuredImage.url : imagenes[0],
+          imagenes,
           nombre: node.title,
-          precio: parseFloat(variant.price.amount),
-          disponible: variant.availableForSale,
+          descripcion: node.descriptionHtml || '',
+          opciones: node.options || [],
+          variantes: variantes.map(v => ({
+            id: v.id,
+            precio: parseFloat(v.price.amount),
+            disponible: v.availableForSale,
+            imagen: v.image ? v.image.url : null,
+            opciones: (v.selectedOptions || []).reduce((acc, o) => { acc[o.name] = o.value; return acc; }, {}),
+          })),
+          precio: parseFloat(variantePrincipal.price.amount),
+          disponible: variantePrincipal.availableForSale,
         };
       })
       .filter(Boolean);
   }
 
-  function renderProductos(lista) {
-    const grid = document.getElementById('productosGrid');
-    grid.innerHTML = '';
-    lista.forEach(p => {
-      const card = document.createElement('div');
-      card.className = 'producto-card';
-      const imagenHtml = p.imagen
-        ? `<img src="${p.imagen}" alt="${p.nombre}" style="width:100%;height:100%;object-fit:cover;" />`
-        : (p.icon || '🛍️');
-      card.innerHTML = `
-        <div class="producto-img">${imagenHtml}</div>
-        <span class="caps producto-cat">${p.cat}</span>
-        <div class="producto-info">
-          <h3>${p.nombre}</h3>
-          <div class="precio">$${p.precio.toFixed(2)} USD</div>
-          <button class="btn-add-cart" data-id="${p.id}" ${p.disponible === false ? 'disabled' : ''}>
-            ${p.disponible === false ? t('producto.agotado') : t('producto.agregar')}
-          </button>
-        </div>`;
-      grid.appendChild(card);
+  function tarjetaProducto(p) {
+    const imagenHtml = p.imagen
+      ? `<img src="${p.imagen}" alt="${p.nombre}" style="width:100%;height:100%;object-fit:cover;" />`
+      : (p.icon || '🛍️');
+    const card = document.createElement('div');
+    card.className = 'producto-card';
+    card.innerHTML = `
+      <div class="producto-img">${imagenHtml}</div>
+      <span class="caps producto-cat">${traducirCategoria(p.cat)}</span>
+      <div class="producto-info">
+        <h3>${p.nombre}</h3>
+        <div class="precio">$${p.precio.toFixed(2)} USD</div>
+        <button class="btn-add-cart" data-id="${p.id}" ${p.disponible === false ? 'disabled' : ''}>
+          ${p.disponible === false ? t('producto.agotado') : t('producto.agregar')}
+        </button>
+      </div>`;
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.btn-add-cart')) return; // el botón rápido no abre el modal
+      abrirProductoModal(p);
     });
+    return card;
+  }
+
+  /* ============================================================
+     MODAL DE PRODUCTO — descripción completa, galería de fotos y
+     selección de variantes (talla/color/etc.) con precio dinámico
+     según la combinación elegida, antes de agregar al carrito.
+     ============================================================ */
+  function abrirProductoModal(p) {
+    const imgs = (p.imagenes && p.imagenes.length) ? p.imagenes : (p.imagen ? [p.imagen] : []);
+    const variantePorDefecto = (p.variantes && (p.variantes.find(v => v.disponible) || p.variantes[0])) || null;
+    const estado = {
+      imagenActual: imgs[0] || null,
+      cantidad: 1,
+      seleccion: variantePorDefecto ? Object.assign({}, variantePorDefecto.opciones) : {},
+    };
+
+    function varianteActual() {
+      if (!p.variantes || !p.variantes.length) return null;
+      return p.variantes.find(v => Object.keys(estado.seleccion).every(k => v.opciones[k] === estado.seleccion[k])) || null;
+    }
+
+    function render() {
+      const variante = varianteActual();
+      const precio = variante ? variante.precio : p.precio;
+      const disponible = variante ? variante.disponible !== false : p.disponible !== false;
+
+      const galeriaMain = imgs.length
+        ? `<img src="${estado.imagenActual}" alt="${p.nombre}" />`
+        : `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:60px;">${p.icon || '🛍️'}</div>`;
+      const galeriaThumbs = imgs.map(url => `<img src="${url}" class="${url === estado.imagenActual ? 'activa' : ''}" data-url="${url}" />`).join('');
+
+      const opcionesHtml = (p.opciones || []).map(op => {
+        const valoresHtml = op.values.map(val => {
+          const testSel = Object.assign({}, estado.seleccion, { [op.name]: val });
+          const match = p.variantes.find(v => Object.keys(testSel).every(k => v.opciones[k] === testSel[k]));
+          const deshabilitado = !match || match.disponible === false;
+          const activo = estado.seleccion[op.name] === val;
+          return `<button type="button" class="pm-valor-btn${activo ? ' activo' : ''}" data-option="${op.name}" data-value="${val}" ${deshabilitado ? 'disabled' : ''}>${val}</button>`;
+        }).join('');
+        return `<div class="pm-opcion"><span class="pm-opcion-label">${op.name}</span><div class="pm-opcion-valores">${valoresHtml}</div></div>`;
+      }).join('');
+
+      document.getElementById('productModalInner').innerHTML = `
+        <div class="pm-gallery">
+          <div class="pm-gallery-main">${galeriaMain}</div>
+          <div class="pm-gallery-thumbs">${galeriaThumbs}</div>
+        </div>
+        <div class="pm-info">
+          <span class="caps pm-cat">${traducirCategoria(p.cat)}</span>
+          <h2 class="pm-title">${p.nombre}</h2>
+          <div class="pm-precio">$${precio.toFixed(2)} USD</div>
+          ${p.descripcion ? `<div class="pm-desc">${p.descripcion}</div>` : ''}
+          ${opcionesHtml}
+          <div class="pm-qty">
+            <button type="button" id="pmQtyMinus">−</button>
+            <span id="pmQtyValue">${estado.cantidad}</span>
+            <button type="button" id="pmQtyPlus">+</button>
+          </div>
+          ${!disponible ? `<div class="pm-stock-msg">${t('producto.agotado')}</div>` : ''}
+          <button class="btn-pm-add" id="pmAddBtn" ${!disponible ? 'disabled' : ''}>${!disponible ? t('producto.agotado') : t('producto.agregar')}</button>
+        </div>`;
+
+      document.querySelectorAll('#productModalInner .pm-gallery-thumbs img').forEach(img => {
+        img.addEventListener('click', () => { estado.imagenActual = img.dataset.url; render(); });
+      });
+      document.querySelectorAll('#productModalInner .pm-valor-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.disabled) return;
+          estado.seleccion[btn.dataset.option] = btn.dataset.value;
+          const v = varianteActual();
+          if (v && v.imagen) estado.imagenActual = v.imagen;
+          render();
+        });
+      });
+      const qtyMinus = document.getElementById('pmQtyMinus');
+      const qtyPlus = document.getElementById('pmQtyPlus');
+      if (qtyMinus) qtyMinus.addEventListener('click', () => { estado.cantidad = Math.max(1, estado.cantidad - 1); render(); });
+      if (qtyPlus) qtyPlus.addEventListener('click', () => { estado.cantidad += 1; render(); });
+      const addBtn = document.getElementById('pmAddBtn');
+      if (addBtn) addBtn.addEventListener('click', () => {
+        const v = varianteActual();
+        const idFinal = v ? v.id : p.id;
+        const precioFinal = v ? v.precio : p.precio;
+        const imagenFinal = (v && v.imagen) || estado.imagenActual || p.imagen;
+        const existente = cart.find(i => i.id === idFinal);
+        if (existente) existente.cantidad += estado.cantidad;
+        else cart.push({ id: idFinal, nombre: p.nombre, icon: p.icon, imagen: imagenFinal, precio: precioFinal, cantidad: estado.cantidad });
+        renderCart();
+        cerrarProductoModal();
+        openCart();
+      });
+    }
+
+    render();
+    document.getElementById('productModal').classList.add('open');
+    document.getElementById('productOverlay').classList.add('open');
+  }
+
+  function cerrarProductoModal() {
+    document.getElementById('productModal').classList.remove('open');
+    document.getElementById('productOverlay').classList.remove('open');
+  }
+  document.getElementById('productClose').addEventListener('click', cerrarProductoModal);
+  document.getElementById('productOverlay').addEventListener('click', cerrarProductoModal);
+
+  // El "Tipo de producto" (cat) es un campo simple de Shopify que NO se traduce
+  // con Translate & Adapt, así que el nombre visible de cada categoría se
+  // traduce aquí en el sitio. La clave es el valor tal cual está en Shopify
+  // (en español, nuestro idioma "fuente"); lo que no esté en esta lista se
+  // muestra tal cual venga (útil para detectar categorías sin curar/traducir).
+  const CATEGORIA_I18N = {
+    'Calzado masculino': { es: 'Calzado masculino', en: "Men's Shoes" },
+    'Ropa masculina': { es: 'Ropa masculina', en: "Men's Clothing" },
+    'Ropa femenina': { es: 'Ropa femenina', en: "Women's Clothing" },
+    'Relojes': { es: 'Relojes', en: 'Watches' },
+    'Perfumes masculinos': { es: 'Perfumes masculinos', en: "Men's Perfumes" },
+    'Cuidado personal': { es: 'Cuidado personal', en: 'Personal Care' },
+    'Bolsos | Mochilas': { es: 'Bolsos | Mochilas', en: 'Bags | Backpacks' },
+    'Hogar': { es: 'Hogar', en: 'Home' },
+    'Tecnología | Gadgets': { es: 'Tecnología | Gadgets', en: 'Technology | Gadgets' },
+  };
+  function traducirCategoria(catRaw) {
+    const entrada = CATEGORIA_I18N[catRaw];
+    if (!entrada) return catRaw; // categoría aún sin curar/traducir
+    return entrada[currentLang || 'es'] || entrada.es;
+  }
+
+  // Categorías que ya estaban abiertas antes de re-renderizar (ej. al cambiar idioma),
+  // para no cerrarlas de golpe encima del usuario.
+  let categoriasAbiertas = new Set();
+
+  function renderProductos(lista) {
+    const contenedor = document.getElementById('categoriasAcordeon');
+    contenedor.innerHTML = '';
+
+    const porCategoria = new Map();
+    lista.forEach(p => {
+      const cat = p.cat || '—';
+      if (!porCategoria.has(cat)) porCategoria.set(cat, []);
+      porCategoria.get(cat).push(p);
+    });
+
+    porCategoria.forEach((productos, cat) => {
+      const tarjeta = document.createElement('div');
+      tarjeta.className = 'categoria-card' + (categoriasAbiertas.has(cat) ? ' abierta' : '');
+
+      const header = document.createElement('button');
+      header.className = 'categoria-header';
+      header.type = 'button';
+      header.innerHTML = `
+        <span class="categoria-header-left">
+          <span class="categoria-nombre">${traducirCategoria(cat)}</span>
+          <span class="categoria-count">${productos.length} ${productos.length === 1 ? t('categoria.producto') : t('categoria.productos')}</span>
+        </span>
+        <span class="categoria-chevron">▾</span>`;
+      header.addEventListener('click', () => {
+        const abrir = !tarjeta.classList.contains('abierta');
+        tarjeta.classList.toggle('abierta', abrir);
+        if (abrir) categoriasAbiertas.add(cat); else categoriasAbiertas.delete(cat);
+      });
+
+      const body = document.createElement('div');
+      body.className = 'categoria-body';
+      const bodyInner = document.createElement('div');
+      bodyInner.className = 'categoria-body-inner';
+      const grid = document.createElement('div');
+      grid.className = 'productos-grid';
+      productos.forEach(p => grid.appendChild(tarjetaProducto(p)));
+      bodyInner.appendChild(grid);
+      body.appendChild(bodyInner);
+
+      tarjeta.appendChild(header);
+      tarjeta.appendChild(body);
+      contenedor.appendChild(tarjeta);
+    });
+
     // Los botones se crean de nuevo cada vez que se renderiza el catálogo,
     // así que hay que re-enganchar el evento de "agregar al carrito".
     document.querySelectorAll('.btn-add-cart').forEach(btn => {
@@ -767,19 +1107,22 @@
      coincide con la categoría del panel se prioriza; si no hay
      suficientes, se completa con cualquier foto disponible.
      ============================================================ */
+  function barajar(arr) {
+    const copia = arr.slice();
+    for (let i = copia.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copia[i], copia[j]] = [copia[j], copia[i]];
+    }
+    return copia;
+  }
+
   function iniciarFondoHero(productos) {
-    const conImagen = productos.filter(p => p.imagen);
+    const conImagen = barajar(productos.filter(p => p.imagen).map(p => p.imagen));
     if (conImagen.length === 0) return; // sin fotos reales, se deja el degradado
 
-    const esModa = p => /moda|ropa|accesor|calzado|lenc/i.test(p.cat || '');
-    const imagenesModa = conImagen.filter(esModa);
-    const imagenesOtras = conImagen.filter(p => !esModa(p));
-
-    const listaA = (imagenesModa.length ? imagenesModa : conImagen).map(p => p.imagen);
-    const listaB = (imagenesOtras.length ? imagenesOtras : conImagen).map(p => p.imagen);
-
-    montarCarruselFondo('heroBgA', listaA, 4500, 0);
-    montarCarruselFondo('heroBgB', listaB, 4500, 2250); // desfasado para que no cambien a la vez
+    // Totalmente aleatorio: ambos paneles usan el mismo pool mezclado, sin filtrar por categoría.
+    montarCarruselFondo('heroBgA', conImagen, 4500, 0);
+    montarCarruselFondo('heroBgB', barajar(conImagen), 4500, 2250); // desfasado para que no cambien a la vez
   }
 
   function montarCarruselFondo(contenedorId, imagenes, intervaloMs, retrasoInicialMs) {
@@ -810,8 +1153,16 @@
 
   renderProductos(PRODUCTOS); // primero muestra el catálogo de ejemplo, sin esperar la red
 
-  fetchProductosReales().then(reales => {
+  async function cargarCatalogoReal(idioma) {
+    if (PRODUCTOS_CACHE[idioma]) {
+      PRODUCTOS = PRODUCTOS_CACHE[idioma];
+      usandoCatalogoReal = true;
+      renderProductos(PRODUCTOS);
+      return;
+    }
+    const reales = await fetchProductosReales(idioma);
     if (reales.length > 0) {
+      PRODUCTOS_CACHE[idioma] = reales;
       PRODUCTOS = reales;
       usandoCatalogoReal = true;
       renderProductos(PRODUCTOS);
@@ -821,7 +1172,9 @@
     }
     // Si `reales` viene vacío (tienda sin productos publicados aún),
     // se deja el catálogo de ejemplo tal como está.
-  }).catch(err => {
+  }
+
+  cargarCatalogoReal(currentLang || 'es').catch(err => {
     console.error('No se pudo conectar con Shopify, usando catálogo de ejemplo:', err);
   });
 
