@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Yahweh Company — Tecnología, cuidado personal y moda</title>
+<title>Yahweh Company — Cuidado Personal</title>
 <meta name="description" content="Yahweh Company: tecnología, cuidado personal y moda, con envíos a Estados Unidos y Latinoamérica." />
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
@@ -178,7 +178,7 @@
   .hero-tagline p.sub { font-size: 13.5px; color: var(--muted); margin-top: 10px; }
 
   /* TRUST BAR minimal */
-  .trust-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 24px; }
+  .trust-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 24px; margin-top: var(--nav-h); }
   .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 16px 28px; }
   .trust-item { font-size: 11px; color: var(--muted); text-align: center; }
   .trust-item strong { display: block; color: var(--red); font-size: 12.5px; margin-bottom: 2px; font-weight: 700; }
@@ -603,33 +603,6 @@
   </div>
 </div>
 
-<!-- ═══ HERO SPLIT ═══ -->
-<div id="inicio">
-  <div class="hero-split">
-    <a href="ropa.html" class="hero-panel hero-panel-a" id="heroPanelA">
-      <div class="hero-panel-bg" id="heroBgA"></div>
-      <div class="hero-panel-content">
-        <span class="caps eyebrow" data-i18n="hero.moda_eyebrow">Moda</span>
-        <h1 data-i18n="hero.moda_title">Moda y accesorios</h1>
-        <a href="ropa.html" class="caps discover" data-i18n="hero.discover">Descubrir</a>
-      </div>
-    </a>
-    <a href="#catalogo" class="hero-panel hero-panel-b" id="heroPanelB">
-      <div class="hero-panel-bg" id="heroBgB"></div>
-      <div class="hero-panel-content">
-        <span class="caps eyebrow" data-i18n="hero.tech_eyebrow">Tecnología &amp; cuidado personal</span>
-        <h1 data-i18n="hero.tech_title">Innovación diaria</h1>
-        <a href="#catalogo" class="caps discover" data-i18n="hero.discover">Descubrir</a>
-      </div>
-    </a>
-  </div>
-
-  <div class="hero-tagline patron-rombos">
-    <p class="slogan" data-i18n="hero.slogan">NUNCA DIGAS QUE NO PUEDES SI EN LA LUNA QUEDAN HUELLAS 👣</p>
-    <p class="sub" data-i18n="hero.sub">Productos seleccionados por calidad, con envíos a Estados Unidos y Latinoamérica.</p>
-  </div>
-</div>
-
 <!-- ═══ TRUST BAR ═══ -->
 <div class="trust-bar patron-rombos">
   <div class="trust-inner">
@@ -657,39 +630,6 @@
   <div class="subcat-row" id="subcatRow" style="display:none"></div>
 
   <div class="categorias-acordeon" id="categoriasAcordeon"></div>
-</section>
-
-<!-- ═══ BANNER EDITORIAL ═══ -->
-<div class="editorial-banner">
-  <div class="editorial-banner-content">
-    <span class="caps eyebrow">Yahweh Company</span>
-    <h2 data-i18n="editorial.title">Lo que buscas, sin fallas ni sorpresas</h2>
-  </div>
-</div>
-
-<!-- ═══ CÓMO COMPRAR ═══ -->
-<section class="section patron-rombos" id="como-comprar">
-  <div class="section-header">
-    <span class="caps section-eyebrow" data-i18n="comprar.badge">Simple y rápido</span>
-    <h2 class="section-title" data-i18n="comprar.title">¿Cómo compro?</h2>
-  </div>
-  <div class="pasos">
-    <div class="paso">
-      <div class="paso-num">01</div>
-      <h3 data-i18n="comprar.paso1_title">Elige tu producto</h3>
-      <p data-i18n="comprar.paso1_desc">Explora el catálogo o pregúntale al asistente qué tenemos disponible.</p>
-    </div>
-    <div class="paso">
-      <div class="paso-num">02</div>
-      <h3 data-i18n="comprar.paso2_title">Confirma tu pedido</h3>
-      <p data-i18n="comprar.paso2_desc">Paga con tarjeta, PayPal o Zelle de forma segura.</p>
-    </div>
-    <div class="paso">
-      <div class="paso-num">03</div>
-      <h3 data-i18n="comprar.paso3_title">Recíbelo en 4–5 días</h3>
-      <p data-i18n="comprar.paso3_desc">Enviamos a Estados Unidos y Latinoamérica.</p>
-    </div>
-  </div>
 </section>
 
 <!-- ═══ FOOTER ═══ -->
@@ -834,6 +774,10 @@
   <div class="bot-quick" id="botQuick"></div>
 </div>
 
+<script>
+  window.__catFija = 'Cuidado Personal';
+  window.__subtipoInicial = new URLSearchParams(window.location.search).get('sub') || '';
+</script>
 <script>
   /* ============================================================
      IDIOMA — diccionario ES/EN + selección al primer ingreso.
