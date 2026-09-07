@@ -3,8 +3,57 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- SEO básico -->
+<!-- TODO(equipo): reemplazar "https://yahwehcompany.com" en todo este bloque
+     por el dominio real en cuanto se compre y se conecte en Shopify. -->
 <title>Yahweh Company — Relojes</title>
-<meta name="description" content="Yahweh Company: tecnología, cuidado personal y moda, con envíos a Estados Unidos y Latinoamérica." />
+<meta name="description" content="Relojes de mujer, hombre y smartwatches en Yahweh Company, con envíos a Estados Unidos y Latinoamérica." />
+<meta name="keywords" content="relojes mujer, relojes hombre, smartwatches, relojes inteligentes, yahweh company, envios estados unidos, envios latinoamerica" />
+<meta name="author" content="Yahweh Company" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#B5202A" />
+<link rel="canonical" href="https://yahwehcompany.com/relojes.html" />
+<link rel="manifest" href="site.webmanifest" />
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+<link rel="dns-prefetch" href="https://cdn.shopify.com" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yahwehcompany.com/relojes.html" />
+<meta property="og:site_name" content="Yahweh Company" />
+<meta property="og:title" content="Yahweh Company — Relojes" />
+<meta property="og:description" content="Relojes de mujer, hombre y smartwatches en Yahweh Company, con envíos a Estados Unidos y Latinoamérica." />
+<meta property="og:image" content="https://yahwehcompany.com/assets/logo-yahweh-nuevo.png" />
+<meta property="og:image:width" content="2048" />
+<meta property="og:image:height" content="2048" />
+<meta property="og:image:alt" content="Yahweh Company" />
+<meta property="og:locale" content="es_US" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Yahweh Company — Relojes" />
+<meta name="twitter:description" content="Relojes de mujer, hombre y smartwatches en Yahweh Company, con envíos a Estados Unidos y Latinoamérica." />
+<meta name="twitter:image" content="https://yahwehcompany.com/assets/logo-yahweh-nuevo.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "@id": "https://yahwehcompany.com/#store",
+  "name": "Yahweh Company",
+  "url": "https://yahwehcompany.com",
+  "logo": "https://yahwehcompany.com/assets/logo-yahweh-nuevo.png",
+  "image": "https://yahwehcompany.com/assets/logo-yahweh-nuevo.png",
+  "description": "Tienda online de tecnología, cuidado personal y moda, con envíos a Estados Unidos y Latinoamérica.",
+  "email": "anthonycarcamo522@gmail.com",
+  "areaServed": ["US", "Latam"],
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "sameAs": ["https://wa.me/13369490279"]
+}
+</script>
+
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -23,6 +72,7 @@
     --grad-panel: linear-gradient(155deg, #ffffff 0%, #e4e6eb 55%, #b7bcc7 100%);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     font-family: 'Figtree', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden;
     background-image:
@@ -567,7 +617,7 @@
   <a href="#inicio" class="nav-logo"><img src="assets/logo-yahweh-nuevo-trim.png" alt="Yahweh Company" /></a>
   <ul class="nav-links caps">
     <li><a href="#catalogo" data-i18n="nav.catalogo">Catálogo</a></li>
-    <li><a href="#como-comprar" data-i18n="nav.comprar">Cómo comprar</a></li>
+    <li><a href="index.html#como-comprar" data-i18n="nav.comprar">Cómo comprar</a></li>
     <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
   </ul>
   <div class="nav-actions">
@@ -595,7 +645,7 @@
         <button type="button" id="navMobileAbrirCatalogo">
           <span data-i18n="nav.catalogo">Catálogo</span><span class="chevron">›</span>
         </button>
-        <a href="#como-comprar"><span data-i18n="nav.comprar">Cómo comprar</span></a>
+        <a href="index.html#como-comprar"><span data-i18n="nav.comprar">Cómo comprar</span></a>
         <a href="#contacto"><span data-i18n="nav.contacto">Contacto</span></a>
       </div>
     </nav>
@@ -630,7 +680,7 @@
 <section class="section" id="catalogo">
   <div class="section-header">
     <span class="caps section-eyebrow" data-i18n="catalogo.badge">Nuestros productos</span>
-    <h2 class="section-title" data-i18n="catalogo.title">Encuentra lo que necesitas</h2>
+    <h1 class="section-title" data-i18n="catalogo.title">Encuentra lo que necesitas</h1>
     <p class="section-sub" data-i18n="catalogo.sub">Tecnología, cuidado personal y moda, seleccionados por calidad.</p>
   </div>
 
@@ -656,7 +706,7 @@
       <h4 class="caps" data-i18n="footer.nav_header">Navegación</h4>
       <ul>
         <li><a href="#catalogo" data-i18n="nav.catalogo">Catálogo</a></li>
-        <li><a href="#como-comprar" data-i18n="nav.comprar">Cómo comprar</a></li>
+        <li><a href="index.html#como-comprar" data-i18n="nav.comprar">Cómo comprar</a></li>
         <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
       </ul>
     </div>

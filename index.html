@@ -3,8 +3,63 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- SEO básico -->
+<!-- TODO(equipo): reemplazar "https://yahwehcompany.com" en todo este bloque
+     por el dominio real en cuanto se compre y se conecte en Shopify. -->
 <title>Yahweh Company — Tecnología, cuidado personal y moda</title>
 <meta name="description" content="Yahweh Company: tecnología, cuidado personal y moda, con envíos a Estados Unidos y Latinoamérica." />
+<meta name="keywords" content="yahweh company, tecnologia, cuidado personal, moda, ropa, perfumes, relojes, calzado, bolsos, envios estados unidos, envios latinoamerica" />
+<meta name="author" content="Yahweh Company" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#B5202A" />
+<link rel="canonical" href="https://yahwehcompany.com/" />
+<link rel="manifest" href="site.webmanifest" />
+
+<!-- DNS prefetch — performance -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+<link rel="dns-prefetch" href="https://cdn.shopify.com" />
+
+<!-- Open Graph (WhatsApp, Facebook, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yahwehcompany.com/" />
+<meta property="og:site_name" content="Yahweh Company" />
+<meta property="og:title" content="Yahweh Company — Tecnología, cuidado personal y moda" />
+<meta property="og:description" content="Tecnología, cuidado personal y moda, seleccionados por calidad. Envíos a Estados Unidos y Latinoamérica." />
+<meta property="og:image" content="https://yahwehcompany.com/assets/logo-yahweh-nuevo.png" />
+<meta property="og:image:width" content="2048" />
+<meta property="og:image:height" content="2048" />
+<meta property="og:image:alt" content="Yahweh Company" />
+<meta property="og:locale" content="es_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Yahweh Company — Tecnología, cuidado personal y moda" />
+<meta name="twitter:description" content="Tecnología, cuidado personal y moda, seleccionados por calidad. Envíos a Estados Unidos y Latinoamérica." />
+<meta name="twitter:image" content="https://yahwehcompany.com/assets/logo-yahweh-nuevo.png" />
+
+<!-- Structured Data — Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "@id": "https://yahwehcompany.com/#store",
+  "name": "Yahweh Company",
+  "url": "https://yahwehcompany.com",
+  "logo": "https://yahwehcompany.com/assets/logo-yahweh-nuevo.png",
+  "image": "https://yahwehcompany.com/assets/logo-yahweh-nuevo.png",
+  "description": "Tienda online de tecnología, cuidado personal y moda, con envíos a Estados Unidos y Latinoamérica.",
+  "email": "anthonycarcamo522@gmail.com",
+  "areaServed": ["US", "Latam"],
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "sameAs": [
+    "https://wa.me/13369490279"
+  ]
+}
+</script>
+
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -23,6 +78,7 @@
     --grad-panel: linear-gradient(155deg, #ffffff 0%, #e4e6eb 55%, #b7bcc7 100%);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     font-family: 'Figtree', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden;
     background-image:
