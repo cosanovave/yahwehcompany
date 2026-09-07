@@ -553,7 +553,7 @@
   <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Menú">☰</button>
   <a href="#inicio" class="nav-logo"><img src="assets/logo-yahweh-nuevo-trim.png" alt="Yahweh Company" /></a>
   <ul class="nav-links caps">
-    <li><a href="#catalogo" data-i18n="nav.catalogo">Catálogo</a></li>
+    <li><a href="ropa.html" data-i18n="nav.catalogo">Catálogo</a></li>
     <li><a href="#como-comprar" data-i18n="nav.comprar">Cómo comprar</a></li>
     <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
   </ul>
@@ -614,12 +614,12 @@
         <a href="ropa.html" class="caps discover" data-i18n="hero.discover">Descubrir</a>
       </div>
     </a>
-    <a href="#catalogo" class="hero-panel hero-panel-b" id="heroPanelB">
+    <a href="tecnologia-gadgets.html" class="hero-panel hero-panel-b" id="heroPanelB">
       <div class="hero-panel-bg" id="heroBgB"></div>
       <div class="hero-panel-content">
         <span class="caps eyebrow" data-i18n="hero.tech_eyebrow">Tecnología &amp; cuidado personal</span>
         <h1 data-i18n="hero.tech_title">Innovación diaria</h1>
-        <a href="#catalogo" class="caps discover" data-i18n="hero.discover">Descubrir</a>
+        <a href="tecnologia-gadgets.html" class="caps discover" data-i18n="hero.discover">Descubrir</a>
       </div>
     </a>
   </div>
@@ -639,25 +639,6 @@
     <div class="trust-item"><strong>Tarjeta · PayPal · Zelle</strong><span data-i18n="trust.pago">Pago seguro</span></div>
   </div>
 </div>
-
-<!-- ═══ CATÁLOGO ═══ -->
-<section class="section" id="catalogo">
-  <div class="section-header">
-    <span class="caps section-eyebrow" data-i18n="catalogo.badge">Nuestros productos</span>
-    <h2 class="section-title" data-i18n="catalogo.title">Encuentra lo que necesitas</h2>
-    <p class="section-sub" data-i18n="catalogo.sub">Tecnología, cuidado personal y moda, seleccionados por calidad.</p>
-  </div>
-
-  <!-- TODO(equipo): reemplazar este bloque de ejemplo por el catálogo real, traído
-       dinámicamente de Shopify vía Storefront API (GraphQL) usando el token una vez
-       tengamos acceso de colaborador y lo generemos desde el admin de la tienda. -->
-  <div class="catalogo-note" data-i18n="catalogo.note">Catálogo de ejemplo — se conecta al inventario real de Shopify en cuanto tengamos el acceso a la tienda</div>
-
-  <!-- Solo se llena en páginas de categoría dedicada (ropa.html, perfumes.html, etc.) -->
-  <div class="subcat-row" id="subcatRow" style="display:none"></div>
-
-  <div class="categorias-acordeon" id="categoriasAcordeon"></div>
-</section>
 
 <!-- ═══ BANNER EDITORIAL ═══ -->
 <div class="editorial-banner">
@@ -702,7 +683,7 @@
     <div class="footer-col">
       <h4 class="caps" data-i18n="footer.nav_header">Navegación</h4>
       <ul>
-        <li><a href="#catalogo" data-i18n="nav.catalogo">Catálogo</a></li>
+        <li><a href="ropa.html" data-i18n="nav.catalogo">Catálogo</a></li>
         <li><a href="#como-comprar" data-i18n="nav.comprar">Cómo comprar</a></li>
         <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
       </ul>
@@ -1044,7 +1025,7 @@
     const cont = document.getElementById('navMobileCategorias');
     if (!cont) return;
     cont.innerHTML = CATEGORIAS_MENU.map(cat =>
-      `<a href="${PAGINA_POR_CATEGORIA[cat] || '#catalogo'}">${traducirCategoria(cat)}</a>`
+      `<a href="${PAGINA_POR_CATEGORIA[cat] || 'ropa.html'}">${traducirCategoria(cat)}</a>`
     ).join('');
   }
 
