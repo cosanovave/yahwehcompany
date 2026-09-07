@@ -715,22 +715,9 @@
 <div class="overlay" id="accountOverlay"></div>
 <div class="account-modal" id="accountModal">
   <button class="drawer-close" id="accountClose">✕</button>
-  <div class="account-tabs">
-    <button class="account-tab caps active" data-tab="login" data-i18n="account.iniciar_sesion">Iniciar sesión</button>
-    <button class="account-tab caps" data-tab="register" data-i18n="account.crear_cuenta">Crear cuenta</button>
-  </div>
-  <form class="account-form" id="formLogin">
-    <label><span data-i18n="account.correo">Correo electrónico</span><input type="email" required /></label>
-    <label><span data-i18n="account.contrasena">Contraseña</span><input type="password" required /></label>
-    <button type="submit" class="btn-account caps" data-i18n="account.entrar">Entrar</button>
-  </form>
-  <form class="account-form" id="formRegister" style="display:none;">
-    <label><span data-i18n="account.nombre">Nombre completo</span><input type="text" required /></label>
-    <label><span data-i18n="account.correo">Correo electrónico</span><input type="email" required /></label>
-    <label><span data-i18n="account.contrasena">Contraseña</span><input type="password" required minlength="6" /></label>
-    <button type="submit" class="btn-account caps" data-i18n="account.crear_cuenta">Crear cuenta</button>
-  </form>
-  <p class="account-note" data-i18n="account.nota">Al crear una cuenta podrás ver tu historial de pedidos y agilizar tus próximas compras.</p>
+  <h3 class="caps" style="font-size:13px;letter-spacing:2px;margin-bottom:14px;" data-i18n="account.titulo">Mi cuenta</h3>
+  <p class="account-note" data-i18n="account.nota">Inicia sesión o crea tu cuenta de forma segura en Yahweh Company. Desde ahí podrás ver tu historial de pedidos y agilizar tus próximas compras.</p>
+  <a class="btn-account caps" id="btnIrACuenta" href="#" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;margin-top:18px;" data-i18n="account.entrar">Iniciar sesión / Crear cuenta</a>
 </div>
 
 <!-- ═══ SELECCIÓN DE IDIOMA (primer ingreso) ═══ -->
@@ -815,11 +802,8 @@
       'cart.redirigiendo': 'Redirigiendo...', 'cart.error_ejemplo': 'El checkout real se activa en cuanto la tienda tenga productos publicados en Shopify (ahora mismo el carrito tiene productos de ejemplo, no reales).',
       'cart.error_generico': 'No se pudo iniciar el checkout. Intenta de nuevo en unos segundos.',
       'cart.error_conexion': 'Hubo un problema conectando con Shopify. Intenta de nuevo.',
-      'account.iniciar_sesion': 'Iniciar sesión', 'account.crear_cuenta': 'Crear cuenta', 'account.correo': 'Correo electrónico',
-      'account.contrasena': 'Contraseña', 'account.entrar': 'Entrar', 'account.nombre': 'Nombre completo',
-      'account.nota': 'Al crear una cuenta podrás ver tu historial de pedidos y agilizar tus próximas compras.',
-      'account.login_placeholder': 'Aquí se validará el inicio de sesión contra Shopify una vez conectada la tienda.',
-      'account.registro_placeholder': 'Aquí se creará la cuenta del cliente en Shopify una vez conectada la tienda.',
+      'account.titulo': 'Mi cuenta', 'account.entrar': 'Iniciar sesión / Crear cuenta',
+      'account.nota': 'Inicia sesión o crea tu cuenta de forma segura en Yahweh Company. Desde ahí podrás ver tu historial de pedidos y agilizar tus próximas compras.',
       'cookies.mensaje': 'Usamos cookies propias y de terceros para mejorar tu experiencia de compra, recordar tus preferencias y analizar el uso del sitio. Puedes aceptarlas o rechazar las no esenciales.',
       'cookies.aceptar': 'Aceptar', 'cookies.rechazar': 'Rechazar',
       'bot.nombre': 'Asistente Yahweh', 'bot.en_linea': 'En línea',
@@ -864,11 +848,8 @@
       'cart.redirigiendo': 'Redirecting...', 'cart.error_ejemplo': 'Real checkout activates once the store has products published on Shopify (right now the cart has sample products, not real ones).',
       'cart.error_generico': 'Could not start checkout. Please try again in a moment.',
       'cart.error_conexion': 'There was a problem connecting to Shopify. Please try again.',
-      'account.iniciar_sesion': 'Sign in', 'account.crear_cuenta': 'Create account', 'account.correo': 'Email address',
-      'account.contrasena': 'Password', 'account.entrar': 'Sign in', 'account.nombre': 'Full name',
-      'account.nota': 'Creating an account lets you view your order history and check out faster next time.',
-      'account.login_placeholder': 'Sign-in will be validated against Shopify once the store is connected.',
-      'account.registro_placeholder': 'The customer account will be created in Shopify once the store is connected.',
+      'account.titulo': 'My account', 'account.entrar': 'Sign in / Create account',
+      'account.nota': 'Sign in or create your account securely with Yahweh Company. From there you can view your order history and check out faster next time.',
       'cookies.mensaje': 'We use our own and third-party cookies to improve your shopping experience, remember your preferences and analyze site usage. You can accept them or reject non-essential ones.',
       'cookies.aceptar': 'Accept', 'cookies.rechazar': 'Reject',
       'bot.nombre': 'Yahweh Assistant', 'bot.en_linea': 'Online',
@@ -1334,6 +1315,8 @@
   let subtipoActual = window.__subtipoInicial || '';
 
   function renderProductos(lista) {
+    if (typeof renderNavMobileCategorias === 'function') renderNavMobileCategorias();
+
     const contenedor = document.getElementById('categoriasAcordeon');
     if (!contenedor) return;
     contenedor.innerHTML = '';
@@ -1389,8 +1372,6 @@
       tarjeta.appendChild(body);
       contenedor.appendChild(tarjeta);
     });
-
-    if (typeof renderNavMobileCategorias === 'function') renderNavMobileCategorias();
 
     // Los botones se crean de nuevo cada vez que se renderiza el catálogo,
     // así que hay que re-enganchar el evento de "agregar al carrito".
@@ -1679,26 +1660,11 @@
   document.getElementById('accountBtn').addEventListener('click', openAccount);
   document.getElementById('accountClose').addEventListener('click', closeAccount);
 
-  document.querySelectorAll('.account-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.account-tab').forEach(otherTab => otherTab.classList.remove('active'));
-      tab.classList.add('active');
-      const isLogin = tab.dataset.tab === 'login';
-      document.getElementById('formLogin').style.display = isLogin ? 'flex' : 'none';
-      document.getElementById('formRegister').style.display = isLogin ? 'none' : 'flex';
-    });
-  });
-
-  document.getElementById('formLogin').addEventListener('submit', (e) => {
-    e.preventDefault();
-    // TODO(equipo): customerAccessTokenCreate (o Customer Account API).
-    alert(t('account.login_placeholder'));
-  });
-  document.getElementById('formRegister').addEventListener('submit', (e) => {
-    e.preventDefault();
-    // TODO(equipo): customerCreate (o Customer Account API).
-    alert(t('account.registro_placeholder'));
-  });
+  // La tienda usa "Nuevas cuentas de cliente" de Shopify (sin contraseña, alojadas
+  // por Shopify) — no se puede montar un formulario propio de login/registro.
+  // El botón lleva directo a la cuenta real de Shopify, igual que el checkout.
+  const URL_CUENTA_SHOPIFY = 'https://shopify.com/73369124911/account';
+  document.getElementById('btnIrACuenta').href = URL_CUENTA_SHOPIFY;
 
   /* ============================================================
      BOT — flujo de conversación acordado con el cliente.
