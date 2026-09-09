@@ -1216,8 +1216,9 @@
     // "Translate & Adapt". Si un texto no está traducido, Shopify devuelve el original.
     const codigoIdioma = (idioma || 'es').toUpperCase();
     const query = `
-      query Productos @inContext(language: ${codigoIdioma}) {
-        products(first: 24) {
+      query Productos($cursor: String) @inContext(language: ${codigoIdioma}) {
+        products(first: 250, after: $cursor, sortKey: CREATED_AT, reverse: true) {
+          pageInfo { hasNextPage endCursor }
           edges {
             node {
               title
@@ -1241,8 +1242,19 @@
           }
         }
       }`;
-    const data = await shopifyFetch(query);
-    const edges = data && data.products ? data.products.edges : [];
+    // Sin límite fijo: sigue pidiendo páginas de 250 en 250 (el máximo que
+    // permite Shopify por consulta) hasta traer absolutamente todos los
+    // productos activos, sin importar cuántos se vayan agregando con el tiempo.
+    let edges = [];
+    let cursor = null;
+    let hasNextPage = true;
+    while (hasNextPage) {
+      const data = await shopifyFetch(query, { cursor });
+      const pagina = data && data.products ? data.products : { edges: [], pageInfo: { hasNextPage: false } };
+      edges = edges.concat(pagina.edges);
+      hasNextPage = pagina.pageInfo.hasNextPage;
+      cursor = pagina.pageInfo.endCursor;
+    }
     return edges
       .map(({ node }) => {
         const variantes = node.variants.edges.map(e => e.node);
