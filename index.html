@@ -1105,6 +1105,7 @@
     'Relojes': 'relojes.html',
     'Calzado': 'calzado.html',
     'Tecnología | Gadgets': 'tecnologia-gadgets.html',
+    'Hogar': 'hogar.html',
   };
   function renderNavMobileCategorias() {
     const cont = document.getElementById('navMobileCategorias');
@@ -1181,7 +1182,7 @@
      hay que agregarle a cada producto una tag exacta con el nombre del
      subtipo (ej. tag "Cuidado Capilar").
      ============================================================ */
-  const CATEGORIAS_MENU = ['Ropa', 'Cuidado Personal', 'Bolsos | Mochilas', 'Perfumes', 'Relojes', 'Calzado', 'Tecnología | Gadgets'];
+  const CATEGORIAS_MENU = ['Ropa', 'Cuidado Personal', 'Bolsos | Mochilas', 'Perfumes', 'Relojes', 'Calzado', 'Tecnología | Gadgets', 'Hogar'];
   const SUBTIPOS_POR_CATEGORIA = {
     'Ropa': ['Mujer', 'Hombre'],
     'Cuidado Personal': ['Cuidado Capilar', 'Cuidado Facial', 'Cuidado Corporal', 'Aseo y Barbería'],
@@ -1190,6 +1191,7 @@
     'Relojes': ['Relojes de Mujer', 'Relojes de Hombre', 'Relojes Inteligentes (Smartwatches)'],
     'Calzado': ['Calzado de Mujer', 'Calzado de Hombre'],
     'Tecnología | Gadgets': ['Accesorios para móvil', 'Audio y Auriculares', 'Smart Home y Wearables'],
+    'Hogar': [],
   };
   // Tipos de producto de Shopify que ya traen el género incrustado.
   const TIPO_SHOPIFY_A_CATEGORIA = {
@@ -1426,7 +1428,7 @@
     'Relojes': { es: 'Relojes', en: 'Watches' },
     'Calzado': { es: 'Calzado', en: 'Shoes' },
     'Tecnología | Gadgets': { es: 'Tecnología | Gadgets', en: 'Technology | Gadgets' },
-    'Hogar': { es: 'Hogar', en: 'Home' }, // productos existentes sin categoría nueva asignada aún
+    'Hogar': { es: 'Hogar', en: 'Home' },
   };
   const SUBTIPO_I18N = {
     'Mujer': { es: 'Mujer', en: 'Women' },

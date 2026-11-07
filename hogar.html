@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-84M7MKGSJ0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-84M7MKGSJ0');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- SEO básico -->
+<!-- TODO(equipo): reemplazar "https://yahwehcompany.com" en todo este bloque
+     por el dominio real en cuanto se compre y se conecte en Shopify. -->
+<title>Yahweh Company — Hogar</title>
+<meta name="description" content="Decoración navideña, luces, velas y artículos para el hogar en Yahweh Company, con envíos a todo Estados Unidos." />
+<meta name="keywords" content="decoracion navidena, luces navidad, velas led, hogar, regalos, yahweh company, envios estados unidos" />
+<meta name="author" content="Yahweh Company" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#B5202A" />
+<link rel="canonical" href="https://yahwehcompany.com/hogar.html" />
+<link rel="manifest" href="site.webmanifest" />
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+<link rel="dns-prefetch" href="https://cdn.shopify.com" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yahwehcompany.com/hogar.html" />
+<meta property="og:site_name" content="Yahweh Company" />
+<meta property="og:title" content="Yahweh Company — Hogar" />
+<meta property="og:description" content="Decoración navideña, luces, velas y artículos para el hogar en Yahweh Company, con envíos a todo Estados Unidos." />
+<meta property="og:image" content="https://yahwehcompany.com/assets/logo-yahweh-nuevo.png" />
+<meta property="og:image:width" content="2048" />
+<meta property="og:image:height" content="2048" />
+<meta property="og:image:alt" content="Yahweh Company" />
+<meta property="og:locale" content="es_US" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Yahweh Company — Hogar" />
+<meta name="twitter:description" content="Decoración navideña, luces, velas y artículos para el hogar en Yahweh Company, con envíos a todo Estados Unidos." />
+<meta name="twitter:image" content="https://yahwehcompany.com/assets/logo-yahweh-nuevo.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "@id": "https://yahwehcompany.com/#store",
+  "name": "Yahweh Company",
+  "url": "https://yahwehcompany.com",
+  "logo": "https://yahwehcompany.com/assets/logo-yahweh-nuevo.png",
+  "image": "https://yahwehcompany.com/assets/logo-yahweh-nuevo.png",
+  "description": "Tienda online de tecnología, cuidado personal y moda, con envíos a Estados Unidos y Latinoamérica.",
+  "email": "anthonycarcamo522@gmail.com",
+  "areaServed": ["US", "Latam"],
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "sameAs": ["https://wa.me/13369490279"]
+}
+</script>
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --red: #B5202A; --red-light: #D6474F;
+    --gray: #2B2D42; --gray-light: #5b6270;
+    --bg: #F7F3EC; --card: #FBF5EA; --border: #E3D5BC;
+    --text: #2B2D42; --muted: #8a7a63;
+    --grad-panel: linear-gradient(155deg, #ffffff 0%, #e4e6eb 55%, #b7bcc7 100%);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Figtree', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden;
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 38px, rgba(43,45,66,0.11) 40px),
+      repeating-linear-gradient(-45deg, transparent, transparent 38px, rgba(43,45,66,0.11) 40px);
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; }
+  .caps { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2.5px; }
+
+  /* NOTA PARA EL EQUIPO: este sitio es headless — el catálogo real se trae de Shopify vía Storefront API.
+     Los productos de abajo son EJEMPLO mientras se conecta el token real. Buscar TODO(equipo) en el código. */
+
+  /* NAVBAR */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    padding: 14px 40px; background: rgba(247,243,236,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid transparent; transition: border-color .3s, padding .3s, transform .35s ease, opacity .35s ease;
+  }
+  .nav.scrolled { border-color: var(--border); padding: 12px 40px; }
+  /* Solo en el index: el menú se retrae al hacer scroll y solo aparece arriba del todo. */
+  .nav.nav-oculto { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+  .nav-mobile-toggle { justify-self: start; }
+  .nav-actions { justify-self: end; }
+  .nav-logo { display: flex; align-items: center; justify-self: center; grid-column: 2; }
+  .nav-logo img { height: 118px; width: auto; transition: height .35s ease; }
+  .nav.scrolled .nav-logo img { height: 42px; }
+  .nav-links { display: none; }
+  .nav-links li a {
+    display: inline-block; opacity: 1; transition: opacity .35s ease, color .3s ease, text-shadow .4s ease;
+  }
+  .nav-links:hover li a { opacity: .38; }
+  .nav-links li a:hover {
+    opacity: 1; color: var(--red);
+    animation: navLinkGlow .55s ease;
+  }
+  @keyframes navLinkGlow {
+    0% { text-shadow: 0 0 0 rgba(181,32,42,0); }
+    35% { text-shadow: 0 0 12px rgba(181,32,42,.55); }
+    100% { text-shadow: 0 0 0 rgba(181,32,42,0); }
+  }
+  .nav-cta.caps {
+    font-size: 11px; font-weight: 600; border-bottom: 1px solid var(--text); padding-bottom: 2px;
+    transition: border-color .2s, color .2s;
+  }
+  .nav-cta.caps:hover { color: var(--red); border-color: var(--red); }
+  .nav-mobile-toggle { display: flex; align-items: center; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; padding: 4px; transition: color .2s; }
+  .nav-mobile-toggle:hover { color: var(--red); }
+  .nav-mobile-menu {
+    display: flex; position: fixed; top: 0; right: 0; bottom: 0; z-index: 220; width: 92vw; max-width: 420px;
+    background: var(--card); box-shadow: -10px 0 40px rgba(43,45,66,.2);
+    transform: translateX(100%); transition: transform .35s ease; flex-direction: column; padding: 0;
+  }
+  .nav-mobile-menu.open { transform: translateX(0); }
+  .nav-mobile-close {
+    width: 34px; height: 34px; border: 1px solid var(--gray); background: none; color: var(--gray);
+    font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    margin: 24px 0 0 24px;
+  }
+  .nav-mobile-linea { height: 1px; background: var(--border); margin: 22px 26px; flex-shrink: 0; }
+
+  .nav-mobile-panels { position: relative; flex: 1; overflow: hidden; }
+  .nav-mobile-nivel {
+    position: absolute; inset: 0; background: var(--card); display: flex; flex-direction: column;
+    overflow-y: auto; transition: transform .4s ease;
+  }
+  .nav-mobile-nivel-1 { transform: translateX(0); }
+  .nav-mobile-nivel-2 { transform: translateX(100%); }
+  .nav-mobile-menu.submenu-abierto .nav-mobile-nivel-1 { transform: translateX(-100%); }
+  .nav-mobile-menu.submenu-abierto .nav-mobile-nivel-2 { transform: translateX(0); }
+
+  .nav-mobile-lista { padding: 0 26px; display: flex; flex-direction: column; }
+  .nav-mobile-lista a, .nav-mobile-lista button {
+    display: flex; align-items: center; justify-content: space-between; padding: 17px 0; width: 100%;
+    border-bottom: 1px solid var(--border); font-family: 'Playfair Display', serif; font-size: 18px;
+    font-weight: 500; color: var(--text); background: none; border-left: none; border-right: none; border-top: none;
+    cursor: pointer; text-align: left; transition: opacity .35s ease, color .3s ease, text-shadow .4s ease;
+  }
+  .nav-mobile-lista:hover a, .nav-mobile-lista:hover button { opacity: .38; }
+  .nav-mobile-lista a:hover, .nav-mobile-lista button:hover { opacity: 1; color: var(--red); animation: navLinkGlow .55s ease; }
+  .nav-mobile-lista .chevron { font-family: 'Figtree', sans-serif; font-size: 15px; color: var(--muted); }
+
+  .nav-mobile-volver {
+    display: flex; align-items: center; gap: 8px; padding: 24px 26px 6px; background: none; border: none;
+    cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted); transition: color .25s ease; flex-shrink: 0;
+  }
+  .nav-mobile-volver:hover { color: var(--red); }
+  .nav-mobile-sub-lista { padding: 6px 26px; display: flex; flex-direction: column; }
+  .nav-mobile-sub-lista a {
+    display: block; padding: 13px 0; border-bottom: 1px solid var(--border); font-family: 'Figtree', sans-serif;
+    font-size: 14.5px; color: var(--text); transition: opacity .3s ease, color .3s ease;
+  }
+  .nav-mobile-sub-lista:hover a { opacity: .4; }
+  .nav-mobile-sub-lista a:hover { opacity: 1; color: var(--red); }
+
+  .nav-mobile-secundarios { padding: 6px 26px 0; margin-top: auto; }
+  .nav-mobile-secundarios a { display: block; padding: 10px 0; font-size: 12.5px; color: var(--muted); transition: color .25s ease; }
+  .nav-mobile-secundarios a:hover { color: var(--red); }
+  .nav-mobile-idiomas { display: flex; margin-top: 18px; flex-shrink: 0; }
+  .nav-mobile-idiomas button {
+    flex: 1; padding: 17px 8px; font-family: 'Montserrat', sans-serif; font-size: 11.5px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase; border: none; cursor: pointer;
+    background: var(--gray); color: #cfd2dc; transition: background .25s ease, color .25s ease;
+  }
+  .nav-mobile-idiomas button.activo { background: var(--card); color: var(--text); }
+
+  .nav-actions { display: flex; align-items: center; gap: 18px; }
+  .nav-icon-btn {
+    position: relative; background: none; border: none; color: var(--text); cursor: pointer;
+    padding: 4px; display: flex; align-items: center; justify-content: center; transition: color .2s;
+  }
+  .nav-icon-btn:hover { color: var(--red); }
+  .nav-icon-btn svg { width: 21px; height: 21px; }
+  .cart-count {
+    position: absolute; top: -6px; right: -8px; background: var(--red); color: #fff;
+    font-family: 'Figtree', sans-serif; font-size: 10px; font-weight: 700; min-width: 16px; height: 16px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0 3px;
+  }
+
+  /* HERO SPLIT (estilo Dior) */
+  :root { --nav-h: 150px; }
+  .hero-split { display: grid; grid-template-columns: 1fr 1fr; margin-top: var(--nav-h); }
+  .hero-panel {
+    position: relative; height: calc(100vh - var(--nav-h)); min-height: 340px; max-height: 620px;
+    display: flex; align-items: flex-end; padding: 48px; overflow: hidden;
+  }
+  .hero-panel::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.45) 100%); }
+  .hero-panel-a { background: var(--grad-panel); }
+  .hero-panel-b { background: linear-gradient(160deg, #3a3d4d, #23252f); }
+  .hero-panel-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .hero-panel-bg img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transition: opacity 1.2s ease;
+  }
+  .hero-panel-bg img.visible { opacity: 1; }
+  .hero-panel-content { position: relative; z-index: 2; color: #fff; }
+  .hero-panel-content .eyebrow { font-size: 10.5px; letter-spacing: 3px; opacity: .85; margin-bottom: 10px; display: block; }
+  .hero-panel-content h1 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 14px; }
+  .hero-panel-content a.discover { font-size: 12px; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.6); padding-bottom: 3px; }
+  .hero-panel-content a.discover:hover { border-color: #fff; }
+
+  .patron-rombos {
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 38px, rgba(181,32,42,0.13) 40px),
+      repeating-linear-gradient(-45deg, transparent, transparent 38px, rgba(181,32,42,0.13) 40px);
+  }
+
+  .hero-tagline { text-align: center; padding: 56px 24px 40px; max-width: 620px; margin: 0 auto; }
+  .hero-tagline p.slogan { font-family: 'Playfair Display', serif; font-style: italic; font-size: 19px; color: var(--red); }
+  .hero-tagline p.sub { font-size: 13.5px; color: var(--muted); margin-top: 10px; }
+
+  /* TRUST BAR minimal */
+  .trust-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 24px; margin-top: var(--nav-h); }
+  .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 16px 28px; }
+  .trust-item { font-size: 11px; color: var(--muted); text-align: center; }
+  .trust-item strong { display: block; color: var(--red); font-size: 12.5px; margin-bottom: 2px; font-weight: 700; }
+
+  /* EDITORIAL BANNER (estilo Bershka) */
+  .editorial-banner {
+    position: relative; height: 46vh; min-height: 300px; margin: 0;
+    background: linear-gradient(160deg, #1c1e26, #2B2D42);
+    display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;
+  }
+  .editorial-banner::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(181,32,42,0.25), transparent 65%); }
+  .editorial-banner-content { position: relative; z-index: 1; color: #fff; padding: 0 24px; }
+  .editorial-banner .eyebrow { font-size: 10.5px; letter-spacing: 3px; color: #e8bcae; margin-bottom: 14px; display: block; }
+  .editorial-banner h2 { color: #fff; font-size: clamp(24px, 3.4vw, 38px); max-width: 640px; }
+
+
+  /* SECTION BASE */
+  .section { max-width: 1200px; margin: 0 auto; padding: 96px 24px; }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-eyebrow { font-size: 10.5px; letter-spacing: 3px; color: var(--red); margin-bottom: 12px; display: block; }
+  .section-title { font-size: clamp(26px, 3.6vw, 36px); }
+  .section-sub { font-size: 13.5px; color: var(--muted); max-width: 480px; margin: 14px auto 0; }
+
+  /* CATALOGO minimal (estilo OMR) */
+  .catalogo-note {
+    background: transparent; border: 1px dashed var(--border);
+    color: var(--muted); font-size: 11.5px; text-align: center; padding: 10px 16px;
+    border-radius: 4px; margin-bottom: 40px; letter-spacing: 0.3px;
+  }
+  .productos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 34px 24px; }
+
+  /* Píldoras de subcategoría — solo en páginas de categoría dedicada */
+  .subcat-row { flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 900px; margin: 0 auto 28px; }
+  .subcat-btn {
+    background: none; border: 1px solid var(--border); color: var(--muted); font-size: 12px;
+    letter-spacing: .5px; padding: 9px 18px; cursor: pointer; font-family: 'Figtree', sans-serif;
+    transition: border-color .2s, color .2s, background .2s;
+  }
+  .subcat-btn:hover { border-color: var(--red); color: var(--red); }
+  .subcat-btn.activo { background: var(--red); border-color: var(--red); color: #fff; }
+
+  /* CATÁLOGO — tarjetas de categoría desplegables */
+  .categorias-acordeon { display: flex; flex-direction: column; gap: 14px; max-width: 900px; margin: 0 auto; }
+  .categoria-card { border: 1px solid var(--border); background: var(--card); overflow: hidden; }
+  .categoria-header {
+    width: 100%; display: flex; align-items: center; gap: 18px;
+    background: none; border: none; cursor: pointer; padding: 16px 26px 16px 16px; font-family: 'Figtree', sans-serif;
+    color: var(--text); text-align: left;
+  }
+  .categoria-thumb {
+    width: 64px; height: 64px; flex-shrink: 0; background: var(--grad-panel); overflow: hidden;
+  }
+  .categoria-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .categoria-header-left { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+  .categoria-nombre { font-family: 'Playfair Display', serif; font-size: 19px; }
+  .categoria-count { font-size: 11px; color: var(--red); letter-spacing: .5px; text-transform: uppercase; }
+  .categoria-chevron { font-size: 14px; color: var(--red); transition: transform .3s ease; flex-shrink: 0; }
+  .categoria-card.abierta .categoria-chevron { transform: rotate(180deg); }
+  .categoria-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .categoria-card.abierta .categoria-body { grid-template-rows: 1fr; }
+  .categoria-body-inner { overflow: hidden; }
+  .categoria-body .productos-grid { padding: 6px 26px 30px; gap: 30px 22px; }
+  .producto-card { cursor: pointer; }
+  .producto-img {
+    aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; font-size: 42px;
+    background: var(--grad-panel); margin-bottom: 14px; overflow: hidden;
+    transition: opacity .2s;
+  }
+  .producto-card:hover .producto-img { opacity: .85; }
+  .producto-cat { display: block; font-size: 9.5px; letter-spacing: 2px; color: var(--red); margin-bottom: 5px; }
+  .producto-info h3 { font-family: 'Figtree', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .producto-info .precio { font-size: 13.5px; color: var(--text); font-weight: 600; margin-bottom: 10px; }
+  .btn-add-cart {
+    width: 100%; background: none; border: 1px solid var(--gray); color: var(--gray); font-family: 'Figtree', sans-serif;
+    font-size: 12px; font-weight: 600; padding: 9px 10px; cursor: pointer; transition: background .2s, color .2s;
+  }
+  .btn-add-cart:hover { background: var(--gray); color: #fff; }
+  .btn-add-cart.added { background: var(--red); border-color: var(--red); color: #fff; }
+
+  /* COMO COMPRAR */
+  .pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .paso { text-align: center; }
+  .paso-num { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--red); margin-bottom: 14px; }
+  .paso h3 { font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .paso p { font-size: 13px; color: var(--muted); }
+
+  /* FOOTER (estilo Dior) */
+  footer { border-top: 1px solid var(--border); padding: 64px 24px 28px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; }
+  .footer-brand-logo { margin-bottom: 14px; }
+  .footer-brand-logo img { height: 100px; width: auto; }
+  .footer-brand p { font-size: 12.5px; color: var(--muted); max-width: 240px; }
+  .footer-col h4.caps { font-size: 10.5px; font-weight: 700; letter-spacing: 2px; color: var(--text); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a { font-size: 13px; color: var(--muted); transition: color .2s; }
+  .footer-col ul li a:hover { color: var(--red); }
+  .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 11px; color: var(--muted); }
+
+  .footer-firma { border-top: 1px solid var(--border); margin-top: 20px; padding-top: 18px; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .footer-firma-label { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+  .footer-firma img { height: 26px; width: auto; opacity: .85; transition: opacity .2s; }
+  .footer-firma a:hover img { opacity: 1; }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed; bottom: 28px; left: 28px; z-index: 200; width: 54px; height: 54px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,.35); transition: transform .2s;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float svg { width: 26px; height: 26px; fill: #fff; }
+
+  /* VOLVER ARRIBA */
+  .back-to-top {
+    position: fixed; bottom: 94px; left: 28px; z-index: 199; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--gray); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(43,45,66,.3); transition: transform .2s, opacity .3s, visibility .3s;
+    opacity: 0; visibility: hidden; transform: translateY(8px);
+  }
+  .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  .back-to-top:hover { background: var(--red); transform: translateY(-2px); }
+  .back-to-top svg { width: 20px; height: 20px; }
+
+  /* ===== AVISO DE COOKIES ===== */
+  .cookies-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 400; background: var(--gray); color: #fff;
+    padding: 18px 24px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+    transform: translateY(100%); transition: transform .4s ease; box-shadow: 0 -6px 24px rgba(0,0,0,.15);
+  }
+  .cookies-bar.open { transform: translateY(0); }
+  .cookies-bar p { font-size: 12.5px; max-width: 640px; line-height: 1.6; color: #eee; }
+  .cookies-bar a { text-decoration: underline; color: #fff; }
+  .cookies-bar-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .btn-cookies-aceptar {
+    background: var(--red); color: #fff; border: none; padding: 11px 22px; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: background .2s; white-space: nowrap;
+  }
+  .btn-cookies-aceptar:hover { background: var(--red-light); }
+  .btn-cookies-rechazar {
+    background: none; color: #ccc; border: 1px solid #555; padding: 11px 18px; font-size: 12px;
+    cursor: pointer; transition: border-color .2s, color .2s; white-space: nowrap;
+  }
+  .btn-cookies-rechazar:hover { border-color: #999; color: #fff; }
+  @media (max-width: 560px) {
+    .cookies-bar { padding: 16px; justify-content: flex-start; }
+  }
+
+  /* ===== OVERLAY COMPARTIDO ===== */
+  .overlay {
+    position: fixed; inset: 0; z-index: 210; background: rgba(43,45,66,0.4);
+    opacity: 0; pointer-events: none; transition: opacity .3s;
+  }
+  .overlay.open { opacity: 1; pointer-events: auto; }
+
+  /* ===== CARRITO — página completa ===== */
+  .cart-drawer {
+    position: fixed; inset: 0; z-index: 211; width: 100%;
+    background: var(--bg, #fff); overflow-y: auto;
+    display: flex; flex-direction: column; transform: translateY(100%); opacity: 0;
+    transition: transform .4s ease, opacity .4s ease;
+  }
+  .cart-drawer.open { transform: translateY(0); opacity: 1; }
+  .cart-drawer-header {
+    position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 40px; border-bottom: 1px solid var(--border); background: rgba(247,243,236,0.95); backdrop-filter: blur(8px);
+  }
+  .cart-drawer-header-left { display: flex; align-items: center; gap: 18px; }
+  .cart-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text); opacity: .7; transition: opacity .2s; line-height: 1; }
+  .cart-back:hover { opacity: 1; }
+  .cart-drawer-header h3 { font-size: 13px; letter-spacing: 2px; }
+  .cart-drawer-header .cart-count-total { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+  .drawer-close { background: none; border: none; font-size: 16px; cursor: pointer; color: var(--text); opacity: .6; }
+  .drawer-close:hover { opacity: 1; }
+
+  .cart-body {
+    flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 48px 40px 80px;
+    display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: start;
+  }
+  .cart-empty { color: var(--muted); font-size: 14px; text-align: center; padding: 100px 0; grid-column: 1 / -1; }
+  .cart-empty a { color: var(--red); text-decoration: underline; }
+
+  .cart-items-col { min-width: 0; }
+  .cart-items-col-title { font-size: 10.5px; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 18px; display: block; }
+  .cart-items { display: flex; flex-direction: column; }
+  .cart-item { display: flex; align-items: center; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--border); }
+  .cart-item-img { width: 96px; height: 96px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 32px; background: var(--grad-panel); overflow: hidden; }
+  .cart-item-img img { width: 100%; height: 100%; object-fit: cover; }
+  .cart-item-info { flex: 1; min-width: 0; }
+  .cart-item-info h4 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+  .cart-item-info .precio { font-size: 13px; color: var(--muted); }
+  .cart-item-qty { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .cart-item-qty button {
+    width: 28px; height: 28px; border: 1px solid var(--border); background: none; cursor: pointer;
+    font-size: 13px; line-height: 1; transition: border-color .2s, color .2s;
+  }
+  .cart-item-qty button:hover { border-color: var(--red); color: var(--red); }
+  .cart-item-qty span { font-size: 13px; min-width: 16px; text-align: center; }
+  .cart-item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; align-self: stretch; justify-content: space-between; }
+  .cart-item-line-total { font-size: 14px; font-weight: 600; }
+  .cart-item-remove { background: none; border: none; color: var(--muted); font-size: 11px; letter-spacing: .5px; cursor: pointer; text-decoration: underline; }
+  .cart-item-remove:hover { color: var(--red); }
+
+  .cart-sugerencias { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 32px; }
+  .cart-sugerencias-titulo { font-size: 10.5px; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 18px; display: block; }
+  .cart-sug-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px; }
+  .cart-sug-item { display: flex; flex-direction: column; gap: 8px; }
+  .cart-sug-img { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: var(--grad-panel); overflow: hidden; }
+  .cart-sug-info h5 { font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cart-sug-info span { font-size: 11.5px; color: var(--muted); }
+  .cart-sug-add { background: none; border: 1px solid var(--gray); color: var(--gray); font-size: 10.5px; padding: 6px 0; width: 100%; cursor: pointer; margin-top: 4px; transition: background .2s, color .2s; }
+  .cart-sug-add:hover { background: var(--gray); color: #fff; }
+
+  .cart-footer {
+    position: sticky; top: 100px; background: var(--card); border: 1px solid var(--border); padding: 32px;
+  }
+  .cart-subtotal { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 6px; }
+  .cart-subtotal strong { font-size: 17px; }
+  .cart-shipping-note { font-size: 11.5px; color: var(--muted); margin-bottom: 22px; }
+  .btn-checkout {
+    width: 100%; background: var(--red); color: #fff; border: none; padding: 16px; font-size: 12px;
+    letter-spacing: 1.5px; font-weight: 600; cursor: pointer; transition: background .2s;
+  }
+  .btn-checkout:hover { background: var(--red-light); }
+  .btn-checkout:disabled { opacity: .5; cursor: not-allowed; }
+  .cart-note { font-size: 10.5px; color: var(--muted); text-align: center; margin-top: 14px; }
+  @media (max-width: 860px) {
+    .cart-body { grid-template-columns: 1fr; gap: 40px; padding: 32px 20px 60px; }
+    .cart-footer { position: static; }
+    .cart-drawer-header { padding: 18px 20px; }
+  }
+
+  /* ===== CUENTA ===== */
+  .account-modal {
+    position: fixed; top: 50%; left: 50%; z-index: 211; width: 380px; max-width: 90vw;
+    background: var(--card); box-shadow: 0 24px 60px rgba(43,45,66,.25); padding: 32px;
+    transform: translate(-50%, -50%) scale(0.95); opacity: 0; pointer-events: none; transition: transform .25s, opacity .25s;
+  }
+  .account-modal.open { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: auto; }
+  .account-modal .drawer-close { position: absolute; top: 18px; right: 18px; }
+  .account-tabs { display: flex; gap: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .account-tab { background: none; border: none; padding: 0 0 12px; font-size: 11px; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
+  .account-tab.active { color: var(--text); border-color: var(--red); }
+  .account-form { display: flex; flex-direction: column; gap: 14px; }
+  .account-form label { font-size: 11.5px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+  .account-form input {
+    font-family: 'Figtree', sans-serif; font-size: 13.5px; color: var(--text); padding: 10px 12px;
+    border: 1px solid var(--border); background: #fff;
+  }
+  .account-form input:focus { outline: none; border-color: var(--red); }
+  .btn-account {
+    background: var(--gray); color: #fff; border: none; padding: 13px; font-size: 12px; font-weight: 600;
+    cursor: pointer; margin-top: 6px; transition: background .2s;
+  }
+  .btn-account:hover { background: var(--red); }
+  .account-note { font-size: 11px; color: var(--muted); margin-top: 18px; line-height: 1.5; }
+
+  /* ===== MODAL DE PRODUCTO ===== */
+  .product-modal {
+    position: fixed; top: 50%; left: 50%; z-index: 211; width: 860px; max-width: 92vw; max-height: 88vh;
+    background: var(--card); box-shadow: 0 24px 60px rgba(43,45,66,.25);
+    transform: translate(-50%, -50%) scale(0.95); opacity: 0; pointer-events: none; transition: transform .25s, opacity .25s;
+    overflow-y: auto;
+  }
+  .product-modal.open { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: auto; }
+  .product-modal .drawer-close { position: absolute; top: 18px; right: 18px; z-index: 2; background: var(--card); }
+  .product-modal-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .pm-gallery { background: var(--grad-panel); }
+  .pm-gallery-main { aspect-ratio: 4/5; overflow: hidden; }
+  .pm-gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+  .pm-gallery-thumbs { display: flex; gap: 8px; padding: 10px; flex-wrap: wrap; }
+  .pm-gallery-thumbs img { width: 52px; height: 52px; object-fit: cover; cursor: pointer; opacity: .6; border: 1px solid transparent; }
+  .pm-gallery-thumbs img:hover, .pm-gallery-thumbs img.activa { opacity: 1; border-color: var(--red); }
+  .pm-info { padding: 40px; display: flex; flex-direction: column; }
+  .pm-cat { display: block; font-size: 10px; letter-spacing: 2.5px; color: var(--muted); margin-bottom: 8px; }
+  .pm-title { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 10px; }
+  .pm-precio { font-size: 18px; font-weight: 600; color: var(--red); margin-bottom: 18px; }
+  .pm-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 22px; max-height: 140px; overflow-y: auto; }
+  .pm-opcion { margin-bottom: 18px; }
+  .pm-opcion-label { display: block; font-size: 11px; letter-spacing: 1px; color: var(--text); font-weight: 600; margin-bottom: 8px; }
+  .pm-opcion-valores { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pm-valor-btn {
+    background: none; border: 1px solid var(--border); color: var(--text); font-size: 12px; padding: 8px 14px;
+    cursor: pointer; transition: border-color .2s, background .2s;
+  }
+  .pm-valor-btn:hover { border-color: var(--red); }
+  .pm-valor-btn.activo { border-color: var(--red); background: var(--red); color: #fff; }
+  .pm-valor-btn:disabled { opacity: .35; cursor: not-allowed; text-decoration: line-through; }
+  .pm-qty { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .pm-qty button { width: 30px; height: 30px; border: 1px solid var(--border); background: none; cursor: pointer; font-size: 14px; }
+  .pm-stock-msg { font-size: 12px; color: var(--red); margin-bottom: 14px; }
+  .btn-pm-add {
+    width: 100%; background: var(--gray); color: #fff; border: none; padding: 15px; font-size: 12px;
+    font-weight: 600; letter-spacing: .5px; cursor: pointer; transition: background .2s; margin-top: auto;
+  }
+  .btn-pm-add:hover { background: var(--red); }
+  .btn-pm-add:disabled { opacity: .5; cursor: not-allowed; }
+  @media (max-width: 700px) {
+    .product-modal-inner { grid-template-columns: 1fr; }
+    .pm-info { padding: 26px; }
+  }
+
+  .nav-lang-btn {
+    background: none; border: 1px solid var(--border); color: var(--text); font-size: 11px; font-weight: 700;
+    padding: 7px 10px; cursor: pointer; transition: border-color .2s, color .2s;
+  }
+  .nav-lang-btn:hover { border-color: var(--red); color: var(--red); }
+
+  /* ===== SELECTOR DE IDIOMA ===== */
+  .lang-modal {
+    position: fixed; top: 50%; left: 50%; z-index: 300; width: 380px; max-width: 90vw;
+    background: var(--card); box-shadow: 0 24px 60px rgba(43,45,66,.3); padding: 40px 32px;
+    text-align: center; transform: translate(-50%, -50%) scale(0.95); opacity: 0; pointer-events: none;
+    transition: transform .25s, opacity .25s;
+  }
+  .lang-modal.open { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: auto; }
+  .lang-modal .lang-logo { height: 70px; width: auto; margin: 0 auto 20px; }
+  .lang-modal .lang-title { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+  .lang-options { display: flex; flex-direction: column; gap: 12px; }
+  .lang-btn {
+    font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 600; padding: 14px; cursor: pointer;
+    background: none; border: 1px solid var(--border); color: var(--text); transition: border-color .2s, background .2s;
+  }
+  .lang-btn:hover { border-color: var(--red); background: rgba(181,32,42,0.05); }
+
+  /* ===== BOT WIDGET ===== */
+  .bot-launcher {
+    position: fixed; bottom: 28px; right: 28px; z-index: 200; width: 56px; height: 56px; border-radius: 50%;
+    background: var(--red); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(181,32,42,.35); transition: transform .2s;
+  }
+  .bot-launcher:hover { transform: scale(1.08); }
+  .bot-launcher svg { width: 26px; height: 26px; fill: #fff; }
+  .bot-launcher .dot { position: absolute; top: 6px; right: 6px; width: 9px; height: 9px; border-radius: 50%; background: #4ade80; border: 2px solid var(--bg); }
+
+  .bot-panel {
+    position: fixed; bottom: 96px; right: 28px; z-index: 201; width: 340px; max-width: calc(100vw - 40px);
+    height: 470px; max-height: calc(100vh - 160px); background: var(--card); border: 1px solid var(--border);
+    display: none; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(43,45,66,.18);
+  }
+  .bot-panel.open { display: flex; }
+  .bot-header { background: var(--gray); color: #fff; padding: 18px; display: flex; align-items: center; gap: 10px; }
+  .bot-header .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 14px; flex-shrink: 0; }
+  .bot-header .info strong { display: block; font-size: 13.5px; color: #fff; font-weight: 600; }
+  .bot-header .info span { font-size: 10.5px; color: #a8ffcf; }
+  .bot-close { margin-left: auto; background: none; border: none; color: #fff; font-size: 17px; cursor: pointer; opacity: .7; }
+  .bot-close:hover { opacity: 1; }
+  .bot-messages { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .bot-msg { max-width: 84%; padding: 10px 13px; font-size: 13px; line-height: 1.55; }
+  .bot-msg.bot { background: #ece0c9; color: var(--text); align-self: flex-start; }
+  .bot-msg.user { background: var(--red); color: #fff; align-self: flex-end; }
+  .bot-quick { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 18px 16px; }
+  .bot-quick button {
+    background: none; border: 1px solid var(--red); color: var(--red); font-size: 11.5px; font-weight: 600;
+    padding: 7px 12px; cursor: pointer; transition: background .2s;
+  }
+  .bot-quick button:hover { background: rgba(181,32,42,0.08); }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .hero-split { grid-template-columns: 1fr; }
+    .hero-panel { height: 48vh; max-height: none; padding: 28px; }
+    .pasos { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .nav { padding: 10px 16px; }
+    .nav.scrolled { padding: 8px 16px; }
+    .nav-logo img { height: 62px; }
+    .nav.scrolled .nav-logo img { height: 34px; }
+    .nav-actions { gap: 10px; }
+    .nav-cta.caps { display: none; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .bot-panel { right: 12px; left: 12px; width: auto; }
+    .bot-launcher { right: 18px; }
+    .wa-float { left: 18px; }
+    .cart-drawer-header { padding: 14px 16px; }
+    .cart-drawer-header h3 { font-size: 11px; }
+    .cart-body { padding: 24px 16px 48px; gap: 28px; }
+    .cart-item { gap: 14px; padding: 20px 0; }
+    .cart-item-img { width: 68px; height: 68px; }
+    .cart-item-right { gap: 8px; }
+    .cart-footer { padding: 22px; }
+    .product-modal { width: 100%; max-width: 100%; max-height: 100vh; top: 0; left: 0; transform: none; border-radius: 0; }
+    .product-modal.open { transform: none; }
+    .pm-gallery-main { aspect-ratio: 1/1; }
+    .account-modal, .lang-modal { width: calc(100vw - 32px); padding: 28px 22px; }
+    .subcat-row { gap: 8px; margin-bottom: 20px; }
+    .subcat-btn { padding: 8px 14px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="nav" id="navbar">
+  <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Menú">☰</button>
+  <a href="index.html" class="nav-logo"><img src="assets/logo-yahweh-nuevo-trim.png" alt="Yahweh Company" /></a>
+  <ul class="nav-links caps">
+    <li><a href="#catalogo" data-i18n="nav.catalogo">Catálogo</a></li>
+    <li><a href="index.html#como-comprar" data-i18n="nav.comprar">Cómo comprar</a></li>
+    <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-lang-btn caps" id="langToggle" title="Change language / Cambiar idioma">ES</button>
+    <button class="nav-icon-btn" id="accountBtn" title="Mi cuenta" data-i18n-title="nav.mi_cuenta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.4-3.6 4.3-5.4 7.5-5.4s6.1 1.8 7.5 5.4"/></svg>
+    </button>
+    <button class="nav-icon-btn" id="cartBtn" title="Carrito" data-i18n-title="nav.carrito">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h2l1.6 10.2A2 2 0 0 0 9.6 18h7.8a2 2 0 0 0 2-1.6L21 8H7"/><circle cx="10" cy="21" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="21" r="1.3" fill="currentColor" stroke="none"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <a href="https://wa.me/13369490279" target="_blank" class="nav-cta caps" data-i18n="nav.escribenos">Escríbenos</a>
+  </div>
+</nav>
+
+<!-- ═══ MENÚ MÓVIL ═══ -->
+<div class="overlay" id="navMobileOverlay"></div>
+<div class="nav-mobile-menu" id="navMobileMenu">
+  <button class="nav-mobile-close" id="navMobileClose">✕</button>
+  <div class="nav-mobile-linea"></div>
+
+  <div class="nav-mobile-panels">
+    <nav class="nav-mobile-nivel nav-mobile-nivel-1">
+      <div class="nav-mobile-lista">
+        <button type="button" id="navMobileAbrirCatalogo">
+          <span data-i18n="nav.catalogo">Catálogo</span><span class="chevron">›</span>
+        </button>
+        <a href="index.html#como-comprar"><span data-i18n="nav.comprar">Cómo comprar</span></a>
+        <a href="#contacto"><span data-i18n="nav.contacto">Contacto</span></a>
+      </div>
+    </nav>
+
+    <div class="nav-mobile-nivel nav-mobile-nivel-2">
+      <button type="button" class="nav-mobile-volver" id="navMobileVolver">‹ <span data-i18n="nav.menu_principal">Menú principal</span></button>
+      <div class="nav-mobile-sub-lista" id="navMobileCategorias"></div>
+    </div>
+  </div>
+
+  <div class="nav-mobile-secundarios">
+    <a href="https://wa.me/13369490279" target="_blank" data-i18n="nav.escribenos">Escríbenos</a>
+    <a href="mailto:anthonycarcamo522@gmail.com">anthonycarcamo522@gmail.com</a>
+  </div>
+  <div class="nav-mobile-idiomas">
+    <button class="lang-btn nav-mobile-lang-es" data-lang="es">Español</button>
+    <button class="lang-btn nav-mobile-lang-en" data-lang="en">English</button>
+  </div>
+</div>
+
+<!-- ═══ TRUST BAR ═══ -->
+<div class="trust-bar patron-rombos">
+  <div class="trust-inner">
+    <div class="trust-item"><strong>4–5</strong><span data-i18n="trust.entrega">días · Entrega estimada</span></div>
+    <div class="trust-item"><strong>30</strong><span data-i18n="trust.devoluciones">días · Cambios y devoluciones</span></div>
+    <div class="trust-item"><strong data-i18n="trust.zonas_num">EE. UU. y Latam</strong><span data-i18n="trust.zonas">Zonas de envío</span></div>
+    <div class="trust-item"><strong>Tarjeta · PayPal · Zelle</strong><span data-i18n="trust.pago">Pago seguro</span></div>
+  </div>
+</div>
+
+<!-- ═══ CATÁLOGO ═══ -->
+<section class="section" id="catalogo">
+  <div class="section-header">
+    <span class="caps section-eyebrow" data-i18n="catalogo.badge">Nuestros productos</span>
+    <h1 class="section-title" data-i18n="catalogo.title">Encuentra lo que necesitas</h1>
+    <p class="section-sub" data-i18n="catalogo.sub">Tecnología, cuidado personal y moda, seleccionados por calidad.</p>
+  </div>
+
+  <!-- TODO(equipo): reemplazar este bloque de ejemplo por el catálogo real, traído
+       dinámicamente de Shopify vía Storefront API (GraphQL) usando el token una vez
+       tengamos acceso de colaborador y lo generemos desde el admin de la tienda. -->
+  <div class="catalogo-note" data-i18n="catalogo.note">Catálogo de ejemplo — se conecta al inventario real de Shopify en cuanto tengamos el acceso a la tienda</div>
+
+  <!-- Solo se llena en páginas de categoría dedicada (ropa.html, perfumes.html, etc.) -->
+  <div class="subcat-row" id="subcatRow" style="display:none"></div>
+
+  <div class="categorias-acordeon" id="categoriasAcordeon"></div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="contacto">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="assets/logo-yahweh-nuevo-trim.png" alt="Yahweh Company" /></div>
+      <p data-i18n="footer.brand_desc">Tecnología, cuidado personal y moda — con la confianza de saber que lo que compras es justo lo que recibes.</p>
+    </div>
+    <div class="footer-col">
+      <h4 class="caps" data-i18n="footer.nav_header">Navegación</h4>
+      <ul>
+        <li><a href="#catalogo" data-i18n="nav.catalogo">Catálogo</a></li>
+        <li><a href="index.html#como-comprar" data-i18n="nav.comprar">Cómo comprar</a></li>
+        <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="caps" data-i18n="footer.contacto_header">Contacto</h4>
+      <ul>
+        <li><a href="https://wa.me/13369490279" target="_blank">+1 (336) 949-0279</a></li>
+        <li><a href="mailto:anthonycarcamo522@gmail.com">anthonycarcamo522@gmail.com</a></li>
+        <li><a href="https://instagram.com/anthonycarcamo522" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="caps" data-i18n="footer.legal_header">Legal</h4>
+      <ul>
+        <li><a href="#" data-i18n="footer.legal_envios">Política de envíos</a></li>
+        <li><a href="#" data-i18n="footer.legal_devoluciones">Cambios y devoluciones</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 Yahweh Company · Todos los derechos reservados</span>
+  </div>
+  <div class="footer-firma">
+    <span class="footer-firma-label" data-i18n="footer.disenado_por">Diseñado por</span>
+    <a href="https://somosnovatech.com" target="_blank" rel="noopener"><img src="assets/logo-novatech.png" alt="SomosNovaTech" /></a>
+  </div>
+</footer>
+
+<!-- ═══ CARRITO DE COMPRAS ═══
+     TODO(equipo): reemplazar el estado local `cart` por el objeto Cart real de
+     Shopify Storefront API (mutaciones cartCreate / cartLinesAdd / cartLinesUpdate /
+     cartLinesRemove), y el botón "Finalizar compra" debe redirigir a cart.checkoutUrl. -->
+<div class="overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <div class="cart-drawer-header-left">
+      <button class="cart-back" id="cartBack" title="Volver" aria-label="Volver">←</button>
+      <h3 class="caps" data-i18n="cart.titulo">Tu carrito</h3>
+      <span class="cart-count-total" id="cartCountTotal"></span>
+    </div>
+    <button class="drawer-close" id="cartClose">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-items-col">
+      <span class="cart-items-col-title" data-i18n="cart.productos">Productos</span>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-sugerencias" id="cartSugerencias"></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span data-i18n="cart.subtotal">Subtotal</span><strong id="cartSubtotal">$0 USD</strong></div>
+      <p class="cart-shipping-note" data-i18n="cart.envio_nota">Envío e impuestos se calculan en el checkout.</p>
+      <button class="btn-checkout caps" id="btnCheckout" data-i18n="cart.finalizar">Finalizar compra</button>
+      <p class="cart-note" data-i18n="cart.nota">El pago y envío se calculan en el checkout seguro de Shopify.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL DE PRODUCTO ═══ -->
+<div class="overlay" id="productOverlay"></div>
+<div class="product-modal" id="productModal">
+  <button class="drawer-close" id="productClose">✕</button>
+  <div class="product-modal-inner" id="productModalInner"></div>
+</div>
+
+<!-- ═══ CUENTA DE CLIENTE ═══
+     TODO(equipo): conectar con Shopify — ya sea la Customer Account API nueva
+     (flujo OAuth, recomendado por Shopify) o las mutaciones clásicas
+     customerCreate / customerAccessTokenCreate si la tienda usa cuentas clásicas. -->
+<div class="overlay" id="accountOverlay"></div>
+<div class="account-modal" id="accountModal">
+  <button class="drawer-close" id="accountClose">✕</button>
+  <h3 class="caps" style="font-size:13px;letter-spacing:2px;margin-bottom:14px;" data-i18n="account.titulo">Mi cuenta</h3>
+  <p class="account-note" data-i18n="account.nota">Inicia sesión o crea tu cuenta de forma segura en Yahweh Company. Desde ahí podrás ver tu historial de pedidos y agilizar tus próximas compras.</p>
+  <a class="btn-account caps" id="btnIrACuenta" href="#" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;margin-top:18px;" data-i18n="account.entrar">Iniciar sesión / Crear cuenta</a>
+</div>
+
+<!-- ═══ SELECCIÓN DE IDIOMA (primer ingreso) ═══ -->
+<div class="overlay" id="langOverlay"></div>
+<div class="lang-modal" id="langModal">
+  <img src="assets/logo-yahweh-nuevo-trim.png" alt="Yahweh Company" class="lang-logo" />
+  <p class="lang-title">Choose your language / Elige tu idioma</p>
+  <div class="lang-options">
+    <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+    <button class="lang-btn" data-lang="en">🇺🇸 English</button>
+  </div>
+</div>
+
+<!-- ═══ WHATSAPP FLOTANTE ═══ -->
+<!-- ═══ AVISO DE COOKIES ═══ -->
+<div class="cookies-bar" id="cookiesBar">
+  <p data-i18n="cookies.mensaje">Usamos cookies propias y de terceros para mejorar tu experiencia de compra, recordar tus preferencias y analizar el uso del sitio. Puedes aceptarlas o rechazar las no esenciales.</p>
+  <div class="cookies-bar-actions">
+    <button class="btn-cookies-rechazar" id="cookiesRechazar" data-i18n="cookies.rechazar">Rechazar</button>
+    <button class="btn-cookies-aceptar" id="cookiesAceptar" data-i18n="cookies.aceptar">Aceptar</button>
+  </div>
+</div>
+
+<a href="https://wa.me/13369490279" target="_blank" class="wa-float" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.524 5.847L0 24l6.308-1.503A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.961 0-3.794-.534-5.364-1.46l-.385-.228-3.744.892.944-3.635-.251-.398A9.803 9.803 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182 17.43 2.182 21.818 6.57 21.818 12S17.43 21.818 12 21.818z"/></svg>
+</a>
+
+<!-- ═══ VOLVER ARRIBA ═══ -->
+<button class="back-to-top" id="backToTop" title="Volver arriba" data-i18n-title="footer.arriba" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- ═══ BOT WIDGET ═══ -->
+<button class="bot-launcher" id="botLauncher" title="Asistente Yahweh" data-i18n-title="bot.nombre">
+  <span class="dot"></span>
+  <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h2a5 5 0 015 5v1a2 2 0 012 2v2a2 2 0 01-2 2v1a3 3 0 01-3 3H7a3 3 0 01-3-3v-1a2 2 0 01-2-2v-2a2 2 0 012-2v-1a5 5 0 015-5h2V5.73A2 2 0 0110 4a2 2 0 012-2zM7.5 14a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm9 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
+</button>
+
+<div class="bot-panel" id="botPanel">
+  <div class="bot-header">
+    <div class="avatar">Y</div>
+    <div class="info"><strong data-i18n="bot.nombre">Asistente Yahweh</strong><span>● <span data-i18n="bot.en_linea">En línea</span></span></div>
+    <button class="bot-close" id="botClose">✕</button>
+  </div>
+  <div class="bot-messages" id="botMessages"></div>
+  <div class="bot-quick" id="botQuick"></div>
+</div>
+
+<script>
+  window.__catFija = 'Hogar';
+  window.__subtipoInicial = new URLSearchParams(window.location.search).get('sub') || '';
+</script>
+<script>
+  /* ============================================================
+     IDIOMA — diccionario ES/EN + selección al primer ingreso.
+     ============================================================ */
+  const I18N = {
+    es: {
+      'nav.catalogo': 'Catálogo', 'nav.comprar': 'Cómo comprar', 'nav.contacto': 'Contacto', 'nav.menu_principal': 'Menú principal',
+      'nav.escribenos': 'Escríbenos', 'nav.mi_cuenta': 'Mi cuenta', 'nav.carrito': 'Carrito',
+      'hero.moda_eyebrow': 'Moda', 'hero.moda_title': 'Moda y accesorios',
+      'hero.tech_eyebrow': 'Tecnología & cuidado personal', 'hero.tech_title': 'Innovación diaria',
+      'hero.discover': 'Descubrir',
+      'hero.slogan': 'NUNCA DIGAS QUE NO PUEDES SI EN LA LUNA QUEDAN HUELLAS 👣',
+      'hero.sub': 'Productos seleccionados por calidad, con envíos a Estados Unidos y Latinoamérica.',
+      'trust.entrega': 'días · Entrega estimada', 'trust.devoluciones': 'días · Cambios y devoluciones',
+      'trust.zonas_num': 'EE. UU. y Latam', 'trust.zonas': 'Zonas de envío', 'trust.pago': 'Pago seguro',
+      'catalogo.badge': 'Nuestros productos', 'catalogo.title': 'Encuentra lo que necesitas',
+      'catalogo.sub': 'Tecnología, cuidado personal y moda, seleccionados por calidad.',
+      'subcat.todos': 'Todos',
+      'catalogo.note': 'Catálogo de ejemplo — se conecta al inventario real de Shopify en cuanto tengamos el acceso a la tienda',
+      'producto.agregar': 'Agregar al carrito', 'producto.agotado': 'Agotado', 'producto.agregado': 'Agregado ✓',
+      'categoria.producto': 'producto', 'categoria.productos': 'productos',
+      'editorial.title': 'Lo que buscas, sin fallas ni sorpresas',
+      'comprar.badge': 'Simple y rápido', 'comprar.title': '¿Cómo compro?',
+      'comprar.paso1_title': 'Elige tu producto', 'comprar.paso1_desc': 'Explora el catálogo o pregúntale al asistente qué tenemos disponible.',
+      'comprar.paso2_title': 'Confirma tu pedido', 'comprar.paso2_desc': 'Paga con tarjeta, PayPal o Zelle de forma segura.',
+      'comprar.paso3_title': 'Recíbelo en 4–5 días', 'comprar.paso3_desc': 'Enviamos a Estados Unidos y Latinoamérica.',
+      'footer.brand_desc': 'Tecnología, cuidado personal y moda — con la confianza de saber que lo que compras es justo lo que recibes.',
+      'footer.nav_header': 'Navegación', 'footer.contacto_header': 'Contacto', 'footer.legal_header': 'Legal',
+      'footer.legal_envios': 'Política de envíos', 'footer.legal_devoluciones': 'Cambios y devoluciones',
+      'footer.copyright': '© 2026 Yahweh Company · Todos los derechos reservados', 'footer.disenado_por': 'Diseñado por',
+      'cart.titulo': 'Tu carrito', 'cart.subtotal': 'Subtotal', 'cart.finalizar': 'Finalizar compra',
+      'cart.productos': 'Productos', 'cart.envio_nota': 'Envío e impuestos se calculan en el checkout.', 'cart.quitar': 'Quitar',
+      'cart.sugerencias_titulo': 'Antes de irte, no olvides esto', 'cart.sugerencias_agregar': 'Agregar',
+      'cart.nota': 'El pago y envío se calculan en el checkout seguro de Shopify.', 'cart.vacio': 'Tu carrito está vacío',
+      'cart.redirigiendo': 'Redirigiendo...', 'cart.error_ejemplo': 'El checkout real se activa en cuanto la tienda tenga productos publicados en Shopify (ahora mismo el carrito tiene productos de ejemplo, no reales).',
+      'cart.error_generico': 'No se pudo iniciar el checkout. Intenta de nuevo en unos segundos.',
+      'cart.error_conexion': 'Hubo un problema conectando con Shopify. Intenta de nuevo.',
+      'account.titulo': 'Mi cuenta', 'account.entrar': 'Iniciar sesión / Crear cuenta',
+      'account.nota': 'Inicia sesión o crea tu cuenta de forma segura en Yahweh Company. Desde ahí podrás ver tu historial de pedidos y agilizar tus próximas compras.',
+      'cookies.mensaje': 'Usamos cookies propias y de terceros para mejorar tu experiencia de compra, recordar tus preferencias y analizar el uso del sitio. Puedes aceptarlas o rechazar las no esenciales.',
+      'cookies.aceptar': 'Aceptar', 'cookies.rechazar': 'Rechazar',
+      'bot.nombre': 'Asistente Yahweh', 'bot.en_linea': 'En línea',
+      'bot.saludo': '¡Hola! 👋 Soy el asistente virtual de Yahweh Company. ¿En qué te puedo ayudar hoy?',
+      'bot.op_productos': 'Ver productos', 'bot.op_precios': 'Precios y envíos', 'bot.op_devoluciones': 'Cambios y devoluciones',
+      'bot.op_humano': 'Hablar con un asesor', 'bot.op_menu': 'Menú principal', 'bot.op_whatsapp': 'Escribir por WhatsApp ahora',
+      'bot.msg_productos': 'Tenemos tecnología, cuidado personal y moda — todo seleccionado por calidad. Puedes ver el catálogo completo más arriba en la página. ¿Buscas algo en particular?',
+      'bot.msg_precios': 'Todos nuestros productos son seleccionados por calidad antes de ofrecerlos — los precios reflejan justo eso, sin cargos ocultos. Hacemos envíos a Estados Unidos y Latinoamérica, con entrega estimada de 4 a 5 días hábiles, sin costo adicional al precio del producto.',
+      'bot.msg_devoluciones': 'Tienes 30 días desde que recibes tu pedido para solicitar un cambio o devolución. Solo necesitas tu número de pedido.',
+      'bot.msg_humano': 'Voy a pasar tu consulta a nuestro equipo para darte una respuesta más precisa. En breve Anthony se pondrá en contacto contigo.',
+      'lang.titulo': 'Choose your language / Elige tu idioma',
+    },
+    en: {
+      'nav.catalogo': 'Catalog', 'nav.comprar': 'How to buy', 'nav.contacto': 'Contact', 'nav.menu_principal': 'Main menu',
+      'nav.escribenos': 'Message us', 'nav.mi_cuenta': 'My account', 'nav.carrito': 'Cart',
+      'hero.moda_eyebrow': 'Fashion', 'hero.moda_title': 'Fashion & accessories',
+      'hero.tech_eyebrow': 'Tech & personal care', 'hero.tech_title': 'Everyday innovation',
+      'hero.discover': 'Discover',
+      'hero.slogan': 'NEVER SAY YOU CAN\'T — THERE ARE FOOTPRINTS ON THE MOON 👣',
+      'hero.sub': 'Quality-picked products, shipped to the US and Latin America.',
+      'trust.entrega': 'days · Estimated delivery', 'trust.devoluciones': 'days · Returns & exchanges',
+      'trust.zonas_num': 'US & Latam', 'trust.zonas': 'Shipping zones', 'trust.pago': 'Secure payment',
+      'catalogo.badge': 'Our products', 'catalogo.title': 'Find what you need',
+      'catalogo.sub': 'Tech, personal care and fashion, picked for quality.',
+      'subcat.todos': 'All',
+      'catalogo.note': 'Sample catalog — will connect to real Shopify inventory once store access is granted',
+      'producto.agregar': 'Add to cart', 'producto.agotado': 'Sold out', 'producto.agregado': 'Added ✓',
+      'categoria.producto': 'product', 'categoria.productos': 'products',
+      'editorial.title': "What you're looking for, with no flaws or surprises",
+      'comprar.badge': 'Simple & fast', 'comprar.title': 'How do I order?',
+      'comprar.paso1_title': 'Pick your product', 'comprar.paso1_desc': 'Browse the catalog or ask our assistant what we have available.',
+      'comprar.paso2_title': 'Confirm your order', 'comprar.paso2_desc': 'Pay securely with card, PayPal or Zelle.',
+      'comprar.paso3_title': 'Get it in 4–5 days', 'comprar.paso3_desc': 'We ship to the US and Latin America.',
+      'footer.brand_desc': 'Tech, personal care and fashion — with the confidence of knowing you get exactly what you pay for.',
+      'footer.nav_header': 'Navigation', 'footer.contacto_header': 'Contact', 'footer.legal_header': 'Legal',
+      'footer.legal_envios': 'Shipping policy', 'footer.legal_devoluciones': 'Returns & exchanges',
+      'footer.copyright': '© 2026 Yahweh Company · All rights reserved', 'footer.disenado_por': 'Designed by',
+      'cart.titulo': 'Your cart', 'cart.subtotal': 'Subtotal', 'cart.finalizar': 'Checkout',
+      'cart.productos': 'Items', 'cart.envio_nota': 'Shipping and taxes calculated at checkout.', 'cart.quitar': 'Remove',
+      'cart.sugerencias_titulo': "Before you go, don't forget this", 'cart.sugerencias_agregar': 'Add',
+      'cart.nota': 'Payment and shipping are calculated at Shopify’s secure checkout.', 'cart.vacio': 'Your cart is empty',
+      'cart.redirigiendo': 'Redirecting...', 'cart.error_ejemplo': 'Real checkout activates once the store has products published on Shopify (right now the cart has sample products, not real ones).',
+      'cart.error_generico': 'Could not start checkout. Please try again in a moment.',
+      'cart.error_conexion': 'There was a problem connecting to Shopify. Please try again.',
+      'account.titulo': 'My account', 'account.entrar': 'Sign in / Create account',
+      'account.nota': 'Sign in or create your account securely with Yahweh Company. From there you can view your order history and check out faster next time.',
+      'cookies.mensaje': 'We use our own and third-party cookies to improve your shopping experience, remember your preferences and analyze site usage. You can accept them or reject non-essential ones.',
+      'cookies.aceptar': 'Accept', 'cookies.rechazar': 'Reject',
+      'bot.nombre': 'Yahweh Assistant', 'bot.en_linea': 'Online',
+      'bot.saludo': "Hi! 👋 I'm Yahweh Company's virtual assistant. How can I help you today?",
+      'bot.op_productos': 'See products', 'bot.op_precios': 'Prices & shipping', 'bot.op_devoluciones': 'Returns & exchanges',
+      'bot.op_humano': 'Talk to an agent', 'bot.op_menu': 'Main menu', 'bot.op_whatsapp': 'Message us on WhatsApp now',
+      'bot.msg_productos': "We carry tech, personal care and fashion — all picked for quality. You can browse the full catalog above. Looking for something specific?",
+      'bot.msg_precios': "All our products are quality-checked before we offer them — our prices reflect that, with no hidden fees. We ship to the US and Latin America, with an estimated delivery of 4 to 5 business days, at no extra cost beyond the product price.",
+      'bot.msg_devoluciones': 'You have 30 days from delivery to request an exchange or return. You’ll just need your order number.',
+      'bot.msg_humano': "I'll pass your question to our team for a more precise answer. Anthony will reach out to you shortly.",
+      'lang.titulo': 'Choose your language / Elige tu idioma',
+    },
+  };
+
+  let currentLang = localStorage.getItem('yahweh_lang');
+
+  function t(key) {
+    const dict = I18N[currentLang || 'es'];
+    return (dict && dict[key]) || key;
+  }
+
+  function applyLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+      el.setAttribute('title', t(el.getAttribute('data-i18n-title')));
+    });
+    // Páginas de categoría dedicada: el título del catálogo pasa a ser el nombre
+    // de esa categoría en el idioma activo, en vez del título genérico.
+    if (window.__catFija) {
+      const tituloEl = document.querySelector('#catalogo .section-title');
+      const subEl = document.querySelector('#catalogo .section-sub');
+      if (tituloEl) tituloEl.textContent = traducirCategoria(window.__catFija);
+      if (subEl) subEl.textContent = '';
+      document.title = document.title.split('—')[0].trim() + ' — ' + traducirCategoria(window.__catFija);
+    }
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) langToggle.textContent = lang === 'es' ? 'EN' : 'ES'; // muestra la opción contraria
+    document.querySelectorAll('.nav-mobile-idiomas .lang-btn').forEach(btn => {
+      btn.classList.toggle('activo', btn.dataset.lang === lang);
+    });
+    renderProductos(PRODUCTOS); // re-renderiza para traducir botones de producto
+    renderCart(); // re-renderiza para traducir textos del carrito
+    // Si ya se conectó el catálogo real, vuelve a pedirlo en el nuevo idioma
+    // (título, descripción y opciones traducidas vía Shopify).
+    if (usandoCatalogoReal && typeof cargarCatalogoReal === 'function') {
+      cargarCatalogoReal(lang).catch(err => console.error('No se pudo recargar el catálogo en el nuevo idioma:', err));
+    }
+  }
+
+  function mostrarSelectorIdioma() {
+    document.getElementById('langOverlay').classList.add('open');
+    document.getElementById('langModal').classList.add('open');
+  }
+  function ocultarSelectorIdioma() {
+    document.getElementById('langOverlay').classList.remove('open');
+    document.getElementById('langModal').classList.remove('open');
+  }
+
+  /* NAV scroll — en el index el menú se oculta apenas se hace scroll y solo
+     vuelve a aparecer cuando se regresa arriba del todo (no en las páginas de categoría). */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  /* VOLVER ARRIBA — aparece al bajar y sube con scroll suave */
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 500);
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* AVISO DE COOKIES */
+  const cookiesBar = document.getElementById('cookiesBar');
+  if (!localStorage.getItem('yahweh_cookies')) {
+    setTimeout(() => cookiesBar.classList.add('open'), 600);
+  }
+  function decidirCookies(valor) {
+    localStorage.setItem('yahweh_cookies', valor);
+    cookiesBar.classList.remove('open');
+  }
+  document.getElementById('cookiesAceptar').addEventListener('click', () => decidirCookies('aceptado'));
+  document.getElementById('cookiesRechazar').addEventListener('click', () => decidirCookies('rechazado'));
+
+  /* MENÚ MÓVIL */
+  const navMobileMenu = document.getElementById('navMobileMenu');
+  const navMobileOverlay = document.getElementById('navMobileOverlay');
+  function abrirMenuMobile() { navMobileMenu.classList.add('open'); navMobileOverlay.classList.add('open'); }
+  function cerrarMenuMobile() {
+    navMobileMenu.classList.remove('open');
+    navMobileOverlay.classList.remove('open');
+    setTimeout(() => navMobileMenu.classList.remove('submenu-abierto'), 350); // espera a que termine el deslizado
+  }
+  document.getElementById('navMobileToggle').addEventListener('click', abrirMenuMobile);
+  document.getElementById('navMobileClose').addEventListener('click', cerrarMenuMobile);
+  navMobileOverlay.addEventListener('click', cerrarMenuMobile);
+  navMobileMenu.querySelectorAll('.nav-mobile-nivel-1 a, .nav-mobile-secundarios a').forEach(a => a.addEventListener('click', cerrarMenuMobile));
+
+  document.getElementById('navMobileAbrirCatalogo').addEventListener('click', () => {
+    navMobileMenu.classList.add('submenu-abierto');
+  });
+  document.getElementById('navMobileVolver').addEventListener('click', () => {
+    navMobileMenu.classList.remove('submenu-abierto');
+  });
+
+  /* Submenú de categorías dentro del menú móvil. Cada categoría tiene su propia
+     página dedicada (igual que en Cosa Nova), en vez de filtrar dentro de la misma página.
+     Orden y lista fijos — no depende de qué haya cargado del catálogo de ejemplo/Shopify. */
+  const PAGINA_POR_CATEGORIA = {
+    'Ropa': 'ropa.html',
+    'Cuidado Personal': 'cuidado-personal.html',
+    'Bolsos | Mochilas': 'bolsos-mochilas.html',
+    'Perfumes': 'perfumes.html',
+    'Relojes': 'relojes.html',
+    'Calzado': 'calzado.html',
+    'Tecnología | Gadgets': 'tecnologia-gadgets.html',
+    'Hogar': 'hogar.html',
+  };
+  function renderNavMobileCategorias() {
+    const cont = document.getElementById('navMobileCategorias');
+    if (!cont) return;
+    cont.innerHTML = CATEGORIAS_MENU.map(cat =>
+      `<a href="${PAGINA_POR_CATEGORIA[cat] || '#catalogo'}">${traducirCategoria(cat)}</a>`
+    ).join('');
+  }
+
+  /* Altura real del nav (sin scroll), para que el hero-split quepa exacto
+     junto al nav en una sola pantalla sin necesidad de scroll. */
+  function ajustarAlturaNav() {
+    const estabaScrolled = navbar.classList.contains('scrolled');
+    navbar.classList.remove('scrolled');
+    const altura = navbar.offsetHeight;
+    navbar.classList.toggle('scrolled', estabaScrolled);
+    document.documentElement.style.setProperty('--nav-h', altura + 'px');
+  }
+  window.addEventListener('load', ajustarAlturaNav);
+  window.addEventListener('resize', ajustarAlturaNav);
+  ajustarAlturaNav();
+
+  /* ============================================================
+     CONEXIÓN REAL CON SHOPIFY — Storefront API
+     Token público (seguro de exponer en el navegador, es de solo
+     lectura de catálogo + creación de carrito, tal como Shopify
+     lo diseñó para storefronts headless).
+     ============================================================ */
+  const SHOPIFY_DOMAIN = 'yahweh-10019.myshopify.com';
+  const STOREFRONT_TOKEN = 'a033b4b71e4256a346cd83ee1114ab65';
+  const API_VERSION = '2026-07';
+  const STOREFRONT_URL = `https://${SHOPIFY_DOMAIN}/api/${API_VERSION}/graphql.json`;
+
+  async function shopifyFetch(query, variables) {
+    const res = await fetch(STOREFRONT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN,
+      },
+      body: JSON.stringify({ query, variables: variables || {} }),
+    });
+    const json = await res.json();
+    if (json.errors) console.error('Shopify Storefront API error:', json.errors);
+    return json.data;
+  }
+
+  // Catálogo de respaldo — se usa solo si la tienda aún no tiene
+  // productos publicados o si falla la conexión con Shopify.
+  const PRODUCTOS_EJEMPLO = [
+    { id: 'p1', cat: 'Tecnología | Gadgets', subtipo: 'Audio y Auriculares', icon: '🎧', nombre: 'Audífonos inalámbricos', precio: 59 },
+    { id: 'p2', cat: 'Cuidado Personal', subtipo: 'Cuidado Capilar', icon: '💆', nombre: 'Masajeador cervical', precio: 52 },
+    { id: 'p3', cat: 'Calzado', subtipo: 'Calzado de Hombre', icon: '👟', nombre: 'Sneakers urbanos', precio: 68 },
+    { id: 'p4', cat: 'Relojes', subtipo: 'Relojes Inteligentes (Smartwatches)', icon: '⌚', nombre: 'Smartwatch deportivo', precio: 75 },
+    { id: 'p5', cat: 'Cuidado Personal', subtipo: 'Cuidado Capilar', icon: '💇', nombre: 'Plancha de cabello', precio: 55 },
+    { id: 'p6', cat: 'Ropa', subtipo: 'Mujer', icon: '🕶️', nombre: 'Lentes de sol', precio: 50 },
+  ];
+
+  let PRODUCTOS = PRODUCTOS_EJEMPLO;
+  let usandoCatalogoReal = false;
+
+  // Caché por idioma para no volver a pedirle todo el catálogo a Shopify
+  // cada vez que el visitante cambia de idioma.
+  const PRODUCTOS_CACHE = {};
+
+  /* ============================================================
+     MENÚ PRINCIPAL — estructura fija pedida por el cliente. Cada
+     categoría real de Shopify (`productType`) se traduce a una de
+     estas 7 categorías del menú; cuando el tipo de producto ya trae
+     el género incrustado (ej. "Ropa masculina") se separa aquí mismo
+     en categoría + subtipo, sin tener que tocar nada en Shopify.
+     Para Cuidado Personal / Bolsos | Mochilas / Tecnología | Gadgets
+     el subtipo se saca de las ETIQUETAS (tags) del producto en Shopify:
+     hay que agregarle a cada producto una tag exacta con el nombre del
+     subtipo (ej. tag "Cuidado Capilar").
+     ============================================================ */
+  const CATEGORIAS_MENU = ['Ropa', 'Cuidado Personal', 'Bolsos | Mochilas', 'Perfumes', 'Relojes', 'Calzado', 'Tecnología | Gadgets', 'Hogar'];
+  const SUBTIPOS_POR_CATEGORIA = {
+    'Ropa': ['Mujer', 'Hombre'],
+    'Cuidado Personal': ['Cuidado Capilar', 'Cuidado Facial', 'Cuidado Corporal', 'Aseo y Barbería'],
+    'Bolsos | Mochilas': ['Mochilas', 'Bolsos de mano', 'Billeteras y accesorios'],
+    'Perfumes': ['Perfumes de Mujer', 'Perfumes de Hombre', 'Unisex y Colonias'],
+    'Relojes': ['Relojes de Mujer', 'Relojes de Hombre', 'Relojes Inteligentes (Smartwatches)'],
+    'Calzado': ['Calzado de Mujer', 'Calzado de Hombre'],
+    'Tecnología | Gadgets': ['Accesorios para móvil', 'Audio y Auriculares', 'Smart Home y Wearables'],
+    'Hogar': [],
+  };
+  // Tipos de producto de Shopify que ya traen el género incrustado.
+  const TIPO_SHOPIFY_A_CATEGORIA = {
+    'Ropa masculina': { cat: 'Ropa', subtipo: 'Hombre' },
+    'Ropa femenina': { cat: 'Ropa', subtipo: 'Mujer' },
+    'Calzado masculino': { cat: 'Calzado', subtipo: 'Calzado de Hombre' },
+    'Calzado femenino': { cat: 'Calzado', subtipo: 'Calzado de Mujer' },
+    'Perfumes masculinos': { cat: 'Perfumes', subtipo: 'Perfumes de Hombre' },
+    'Perfumes femeninos': { cat: 'Perfumes', subtipo: 'Perfumes de Mujer' },
+  };
+  function resolverCategoria(tipoShopify, tags) {
+    tags = tags || [];
+    const directo = TIPO_SHOPIFY_A_CATEGORIA[tipoShopify];
+    if (directo) return directo;
+    const cat = CATEGORIAS_MENU.includes(tipoShopify) ? tipoShopify : (tipoShopify || 'General');
+    const posibles = SUBTIPOS_POR_CATEGORIA[cat] || [];
+    const subtipo = posibles.find(s => tags.some(tg => tg.trim().toLowerCase() === s.toLowerCase())) || '';
+    return { cat, subtipo };
+  }
+
+  async function fetchProductosReales(idioma) {
+    // @inContext le pide a Shopify el contenido ya traducido (título, descripción,
+    // nombres/valores de opciones) según lo que se haya traducido en la app
+    // "Translate & Adapt". Si un texto no está traducido, Shopify devuelve el original.
+    const codigoIdioma = (idioma || 'es').toUpperCase();
+    const query = `
+      query Productos($cursor: String) @inContext(language: ${codigoIdioma}) {
+        products(first: 250, after: $cursor, sortKey: CREATED_AT, reverse: true) {
+          pageInfo { hasNextPage endCursor }
+          edges {
+            node {
+              title
+              productType
+              tags
+              descriptionHtml
+              featuredImage { url altText }
+              images(first: 6) { edges { node { url altText } } }
+              options { name values }
+              variants(first: 50) {
+                edges {
+                  node {
+                    id availableForSale
+                    price { amount currencyCode }
+                    image { url }
+                    selectedOptions { name value }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }`;
+    // Sin límite fijo: sigue pidiendo páginas de 250 en 250 (el máximo que
+    // permite Shopify por consulta) hasta traer absolutamente todos los
+    // productos activos, sin importar cuántos se vayan agregando con el tiempo.
+    let edges = [];
+    let cursor = null;
+    let hasNextPage = true;
+    while (hasNextPage) {
+      const data = await shopifyFetch(query, { cursor });
+      const pagina = data && data.products ? data.products : { edges: [], pageInfo: { hasNextPage: false } };
+      edges = edges.concat(pagina.edges);
+      hasNextPage = pagina.pageInfo.hasNextPage;
+      cursor = pagina.pageInfo.endCursor;
+    }
+    return edges
+      .map(({ node }) => {
+        const variantes = node.variants.edges.map(e => e.node);
+        const variantePrincipal = variantes.find(v => v.availableForSale) || variantes[0];
+        if (!variantePrincipal) return null;
+        const imagenes = (node.images.edges.length ? node.images.edges.map(e => e.node.url) : [node.featuredImage ? node.featuredImage.url : null]).filter(Boolean);
+        const { cat, subtipo } = resolverCategoria(node.productType, node.tags);
+        return {
+          id: variantePrincipal.id, // Shopify variant GID — se usa tal cual para el carrito
+          cat,
+          subtipo,
+          icon: null,
+          imagen: node.featuredImage ? node.featuredImage.url : imagenes[0],
+          imagenes,
+          nombre: node.title,
+          descripcion: node.descriptionHtml || '',
+          opciones: node.options || [],
+          variantes: variantes.map(v => ({
+            id: v.id,
+            precio: parseFloat(v.price.amount),
+            disponible: v.availableForSale,
+            imagen: v.image ? v.image.url : null,
+            opciones: (v.selectedOptions || []).reduce((acc, o) => { acc[o.name] = o.value; return acc; }, {}),
+          })),
+          precio: parseFloat(variantePrincipal.price.amount),
+          disponible: variantePrincipal.availableForSale,
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function tarjetaProducto(p) {
+    const imagenHtml = p.imagen
+      ? `<img src="${p.imagen}" alt="${p.nombre}" style="width:100%;height:100%;object-fit:cover;" />`
+      : (p.icon || '🛍️');
+    const card = document.createElement('div');
+    card.className = 'producto-card';
+    card.innerHTML = `
+      <div class="producto-img">${imagenHtml}</div>
+      <span class="caps producto-cat">${traducirCategoria(p.cat)}</span>
+      <div class="producto-info">
+        <h3>${p.nombre}</h3>
+        <div class="precio">$${p.precio.toFixed(2)} USD</div>
+        <button class="btn-add-cart" data-id="${p.id}" ${p.disponible === false ? 'disabled' : ''}>
+          ${p.disponible === false ? t('producto.agotado') : t('producto.agregar')}
+        </button>
+      </div>`;
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.btn-add-cart')) return; // el botón rápido no abre el modal
+      abrirProductoModal(p);
+    });
+    return card;
+  }
+
+  /* ============================================================
+     MODAL DE PRODUCTO — descripción completa, galería de fotos y
+     selección de variantes (talla/color/etc.) con precio dinámico
+     según la combinación elegida, antes de agregar al carrito.
+     ============================================================ */
+  function abrirProductoModal(p) {
+    if (typeof registrarInteres === 'function') registrarInteres(p);
+    const imgs = (p.imagenes && p.imagenes.length) ? p.imagenes : (p.imagen ? [p.imagen] : []);
+    const variantePorDefecto = (p.variantes && (p.variantes.find(v => v.disponible) || p.variantes[0])) || null;
+    const estado = {
+      imagenActual: imgs[0] || null,
+      cantidad: 1,
+      seleccion: variantePorDefecto ? Object.assign({}, variantePorDefecto.opciones) : {},
+    };
+
+    function varianteActual() {
+      if (!p.variantes || !p.variantes.length) return null;
+      return p.variantes.find(v => Object.keys(estado.seleccion).every(k => v.opciones[k] === estado.seleccion[k])) || null;
+    }
+
+    function render() {
+      const variante = varianteActual();
+      const precio = variante ? variante.precio : p.precio;
+      const disponible = variante ? variante.disponible !== false : p.disponible !== false;
+
+      const galeriaMain = imgs.length
+        ? `<img src="${estado.imagenActual}" alt="${p.nombre}" />`
+        : `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:60px;">${p.icon || '🛍️'}</div>`;
+      const galeriaThumbs = imgs.map(url => `<img src="${url}" class="${url === estado.imagenActual ? 'activa' : ''}" data-url="${url}" />`).join('');
+
+      const opcionesHtml = (p.opciones || []).map(op => {
+        const valoresHtml = op.values.map(val => {
+          const testSel = Object.assign({}, estado.seleccion, { [op.name]: val });
+          const match = p.variantes.find(v => Object.keys(testSel).every(k => v.opciones[k] === testSel[k]));
+          const deshabilitado = !match || match.disponible === false;
+          const activo = estado.seleccion[op.name] === val;
+          return `<button type="button" class="pm-valor-btn${activo ? ' activo' : ''}" data-option="${op.name}" data-value="${val}" ${deshabilitado ? 'disabled' : ''}>${val}</button>`;
+        }).join('');
+        return `<div class="pm-opcion"><span class="pm-opcion-label">${op.name}</span><div class="pm-opcion-valores">${valoresHtml}</div></div>`;
+      }).join('');
+
+      document.getElementById('productModalInner').innerHTML = `
+        <div class="pm-gallery">
+          <div class="pm-gallery-main">${galeriaMain}</div>
+          <div class="pm-gallery-thumbs">${galeriaThumbs}</div>
+        </div>
+        <div class="pm-info">
+          <span class="caps pm-cat">${traducirCategoria(p.cat)}</span>
+          <h2 class="pm-title">${p.nombre}</h2>
+          <div class="pm-precio">$${precio.toFixed(2)} USD</div>
+          ${p.descripcion ? `<div class="pm-desc">${p.descripcion}</div>` : ''}
+          ${opcionesHtml}
+          <div class="pm-qty">
+            <button type="button" id="pmQtyMinus">−</button>
+            <span id="pmQtyValue">${estado.cantidad}</span>
+            <button type="button" id="pmQtyPlus">+</button>
+          </div>
+          ${!disponible ? `<div class="pm-stock-msg">${t('producto.agotado')}</div>` : ''}
+          <button class="btn-pm-add" id="pmAddBtn" ${!disponible ? 'disabled' : ''}>${!disponible ? t('producto.agotado') : t('producto.agregar')}</button>
+        </div>`;
+
+      document.querySelectorAll('#productModalInner .pm-gallery-thumbs img').forEach(img => {
+        img.addEventListener('click', () => { estado.imagenActual = img.dataset.url; render(); });
+      });
+      document.querySelectorAll('#productModalInner .pm-valor-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.disabled) return;
+          estado.seleccion[btn.dataset.option] = btn.dataset.value;
+          const v = varianteActual();
+          if (v && v.imagen) estado.imagenActual = v.imagen;
+          render();
+        });
+      });
+      const qtyMinus = document.getElementById('pmQtyMinus');
+      const qtyPlus = document.getElementById('pmQtyPlus');
+      if (qtyMinus) qtyMinus.addEventListener('click', () => { estado.cantidad = Math.max(1, estado.cantidad - 1); render(); });
+      if (qtyPlus) qtyPlus.addEventListener('click', () => { estado.cantidad += 1; render(); });
+      const addBtn = document.getElementById('pmAddBtn');
+      if (addBtn) addBtn.addEventListener('click', () => {
+        const v = varianteActual();
+        const idFinal = v ? v.id : p.id;
+        const precioFinal = v ? v.precio : p.precio;
+        const imagenFinal = (v && v.imagen) || estado.imagenActual || p.imagen;
+        const existente = cart.find(i => i.id === idFinal);
+        if (existente) existente.cantidad += estado.cantidad;
+        else cart.push({ id: idFinal, nombre: p.nombre, icon: p.icon, imagen: imagenFinal, precio: precioFinal, cantidad: estado.cantidad });
+        renderCart();
+        cerrarProductoModal();
+        openCart();
+      });
+    }
+
+    render();
+    document.getElementById('productModal').classList.add('open');
+    document.getElementById('productOverlay').classList.add('open');
+  }
+
+  function cerrarProductoModal() {
+    document.getElementById('productModal').classList.remove('open');
+    document.getElementById('productOverlay').classList.remove('open');
+  }
+  document.getElementById('productClose').addEventListener('click', cerrarProductoModal);
+  document.getElementById('productOverlay').addEventListener('click', cerrarProductoModal);
+
+  // El "Tipo de producto" (cat) es un campo simple de Shopify que NO se traduce
+  // con Translate & Adapt, así que el nombre visible de cada categoría se
+  // traduce aquí en el sitio. La clave es el valor tal cual está en Shopify
+  // (en español, nuestro idioma "fuente"); lo que no esté en esta lista se
+  // muestra tal cual venga (útil para detectar categorías sin curar/traducir).
+  const CATEGORIA_I18N = {
+    'Ropa': { es: 'Ropa', en: 'Clothing' },
+    'Cuidado Personal': { es: 'Cuidado Personal', en: 'Personal Care' },
+    'Bolsos | Mochilas': { es: 'Bolsos | Mochilas', en: 'Bags | Backpacks' },
+    'Perfumes': { es: 'Perfumes', en: 'Perfumes' },
+    'Relojes': { es: 'Relojes', en: 'Watches' },
+    'Calzado': { es: 'Calzado', en: 'Shoes' },
+    'Tecnología | Gadgets': { es: 'Tecnología | Gadgets', en: 'Technology | Gadgets' },
+    'Hogar': { es: 'Hogar', en: 'Home' },
+  };
+  const SUBTIPO_I18N = {
+    'Mujer': { es: 'Mujer', en: 'Women' },
+    'Hombre': { es: 'Hombre', en: 'Men' },
+    'Cuidado Capilar': { es: 'Cuidado Capilar', en: 'Hair Care' },
+    'Cuidado Facial': { es: 'Cuidado Facial', en: 'Face Care' },
+    'Cuidado Corporal': { es: 'Cuidado Corporal', en: 'Body Care' },
+    'Aseo y Barbería': { es: 'Aseo y Barbería', en: 'Grooming & Barbershop' },
+    'Mochilas': { es: 'Mochilas', en: 'Backpacks' },
+    'Bolsos de mano': { es: 'Bolsos de mano', en: 'Handbags' },
+    'Billeteras y accesorios': { es: 'Billeteras y accesorios', en: 'Wallets & Accessories' },
+    'Perfumes de Mujer': { es: 'Perfumes de Mujer', en: "Women's Perfumes" },
+    'Perfumes de Hombre': { es: 'Perfumes de Hombre', en: "Men's Perfumes" },
+    'Unisex y Colonias': { es: 'Unisex y Colonias', en: 'Unisex & Colognes' },
+    'Relojes de Mujer': { es: 'Relojes de Mujer', en: "Women's Watches" },
+    'Relojes de Hombre': { es: 'Relojes de Hombre', en: "Men's Watches" },
+    'Relojes Inteligentes (Smartwatches)': { es: 'Relojes Inteligentes (Smartwatches)', en: 'Smartwatches' },
+    'Calzado de Mujer': { es: 'Calzado de Mujer', en: "Women's Shoes" },
+    'Calzado de Hombre': { es: 'Calzado de Hombre', en: "Men's Shoes" },
+    'Accesorios para móvil': { es: 'Accesorios para móvil', en: 'Mobile Accessories' },
+    'Audio y Auriculares': { es: 'Audio y Auriculares', en: 'Audio & Headphones' },
+    'Smart Home y Wearables': { es: 'Smart Home y Wearables', en: 'Smart Home & Wearables' },
+  };
+  function traducirCategoria(catRaw) {
+    const entrada = CATEGORIA_I18N[catRaw];
+    if (!entrada) return catRaw; // categoría aún sin curar/traducir
+    return entrada[currentLang || 'es'] || entrada.es;
+  }
+  function traducirSubtipo(subRaw) {
+    const entrada = SUBTIPO_I18N[subRaw];
+    if (!entrada) return subRaw;
+    return entrada[currentLang || 'es'] || entrada.es;
+  }
+
+  // Categorías que ya estaban abiertas antes de re-renderizar (ej. al cambiar idioma),
+  // para no cerrarlas de golpe encima del usuario.
+  let categoriasAbiertas = new Set();
+  // Subtipo activo en una página de categoría dedicada (ej. "Mujer" dentro de ropa.html).
+  let subtipoActual = window.__subtipoInicial || '';
+
+  function renderProductos(lista) {
+    if (typeof renderNavMobileCategorias === 'function') renderNavMobileCategorias();
+
+    const contenedor = document.getElementById('categoriasAcordeon');
+    if (!contenedor) return;
+    contenedor.innerHTML = '';
+
+    // Páginas de categoría dedicada (ropa.html, perfumes.html, etc.) fijan
+    // window.__catFija antes de que este script corra, para mostrar solo esa categoría.
+    if (window.__catFija) {
+      lista = lista.filter(p => (p.cat || '—') === window.__catFija);
+      categoriasAbiertas.add(window.__catFija);
+      if (subtipoActual) lista = lista.filter(p => (p.subtipo || '') === subtipoActual);
+      renderSubtipos(window.__catFija);
+    }
+
+    const porCategoria = new Map();
+    lista.forEach(p => {
+      const cat = p.cat || '—';
+      if (!porCategoria.has(cat)) porCategoria.set(cat, []);
+      porCategoria.get(cat).push(p);
+    });
+
+    porCategoria.forEach((productos, cat) => {
+      const tarjeta = document.createElement('div');
+      tarjeta.className = 'categoria-card' + (categoriasAbiertas.has(cat) ? ' abierta' : '');
+
+      const fotoCategoria = productos.find(p => p.imagen);
+      const header = document.createElement('button');
+      header.className = 'categoria-header';
+      header.type = 'button';
+      header.innerHTML = `
+        <span class="categoria-thumb">${fotoCategoria ? `<img src="${fotoCategoria.imagen}" alt="${traducirCategoria(cat)}" />` : ''}</span>
+        <span class="categoria-header-left">
+          <span class="categoria-nombre">${traducirCategoria(cat)}</span>
+          <span class="caps categoria-count">${productos.length} ${productos.length === 1 ? t('categoria.producto') : t('categoria.productos')}</span>
+        </span>
+        <span class="categoria-chevron">▾</span>`;
+      header.addEventListener('click', () => {
+        const abrir = !tarjeta.classList.contains('abierta');
+        tarjeta.classList.toggle('abierta', abrir);
+        if (abrir) categoriasAbiertas.add(cat); else categoriasAbiertas.delete(cat);
+      });
+
+      const body = document.createElement('div');
+      body.className = 'categoria-body';
+      const bodyInner = document.createElement('div');
+      bodyInner.className = 'categoria-body-inner';
+      const grid = document.createElement('div');
+      grid.className = 'productos-grid';
+      productos.forEach(p => grid.appendChild(tarjetaProducto(p)));
+      bodyInner.appendChild(grid);
+      body.appendChild(bodyInner);
+
+      tarjeta.appendChild(header);
+      tarjeta.appendChild(body);
+      contenedor.appendChild(tarjeta);
+    });
+
+    // Los botones se crean de nuevo cada vez que se renderiza el catálogo,
+    // así que hay que re-enganchar el evento de "agregar al carrito".
+    document.querySelectorAll('.btn-add-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        addToCart(btn.dataset.id);
+        if (btn.disabled) return;
+        btn.textContent = t('producto.agregado');
+        btn.classList.add('added');
+        setTimeout(() => { btn.textContent = t('producto.agregar'); btn.classList.remove('added'); }, 1400);
+      });
+    });
+  }
+
+  /* Fila de píldoras de subcategoría dentro de una página de categoría dedicada
+     (ej. Mujer / Hombre en ropa.html). Solo se pinta si esa categoría tiene subtipos. */
+  function renderSubtipos(catFija) {
+    const cont = document.getElementById('subcatRow');
+    if (!cont) return;
+    const subtipos = SUBTIPOS_POR_CATEGORIA[catFija];
+    if (!subtipos || subtipos.length === 0) { cont.innerHTML = ''; cont.style.display = 'none'; return; }
+    cont.style.display = 'flex';
+    cont.innerHTML =
+      `<button type="button" class="subcat-btn${!subtipoActual ? ' activo' : ''}" data-sub="">${t('subcat.todos')}</button>` +
+      subtipos.map(s => `<button type="button" class="subcat-btn${subtipoActual === s ? ' activo' : ''}" data-sub="${s}">${traducirSubtipo(s)}</button>`).join('');
+    cont.querySelectorAll('.subcat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        subtipoActual = btn.dataset.sub;
+        const url = new URL(window.location.href);
+        if (subtipoActual) url.searchParams.set('sub', subtipoActual); else url.searchParams.delete('sub');
+        window.history.replaceState({}, '', url);
+        renderProductos(PRODUCTOS);
+      });
+    });
+  }
+
+  /* ============================================================
+     FONDO DEL HERO — rotación de fotos reales del catálogo.
+     Cada panel (Moda / Tecnología y cuidado personal) va cambiando
+     de foto cada 4.5 segundos, con crossfade suave. Si un producto
+     coincide con la categoría del panel se prioriza; si no hay
+     suficientes, se completa con cualquier foto disponible.
+     ============================================================ */
+  function barajar(arr) {
+    const copia = arr.slice();
+    for (let i = copia.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copia[i], copia[j]] = [copia[j], copia[i]];
+    }
+    return copia;
+  }
+
+  function iniciarFondoHero(productos) {
+    const conImagen = barajar(productos.filter(p => p.imagen).map(p => p.imagen));
+    if (conImagen.length === 0) return; // sin fotos reales, se deja el degradado
+
+    // Totalmente aleatorio: ambos paneles usan el mismo pool mezclado, sin filtrar por categoría.
+    montarCarruselFondo('heroBgA', conImagen, 4500, 0);
+    montarCarruselFondo('heroBgB', barajar(conImagen), 4500, 2250); // desfasado para que no cambien a la vez
+  }
+
+  function montarCarruselFondo(contenedorId, imagenes, intervaloMs, retrasoInicialMs) {
+    const contenedor = document.getElementById(contenedorId);
+    if (!contenedor || imagenes.length === 0) return;
+
+    let indice = 0;
+    const imgA = document.createElement('img');
+    const imgB = document.createElement('img');
+    imgA.src = imagenes[0];
+    imgA.className = 'visible';
+    contenedor.appendChild(imgA);
+    contenedor.appendChild(imgB);
+    let activa = imgA, inactiva = imgB;
+
+    if (imagenes.length === 1) return; // solo una foto, no hace falta rotar
+
+    setTimeout(() => {
+      setInterval(() => {
+        indice = (indice + 1) % imagenes.length;
+        inactiva.src = imagenes[indice];
+        inactiva.classList.add('visible');
+        activa.classList.remove('visible');
+        const temp = activa; activa = inactiva; inactiva = temp;
+      }, intervaloMs);
+    }, retrasoInicialMs);
+  }
+
+  renderProductos(PRODUCTOS); // primero muestra el catálogo de ejemplo, sin esperar la red
+
+  async function cargarCatalogoReal(idioma) {
+    if (PRODUCTOS_CACHE[idioma]) {
+      PRODUCTOS = PRODUCTOS_CACHE[idioma];
+      usandoCatalogoReal = true;
+      renderProductos(PRODUCTOS);
+      return;
+    }
+    const reales = await fetchProductosReales(idioma);
+    if (reales.length > 0) {
+      PRODUCTOS_CACHE[idioma] = reales;
+      PRODUCTOS = reales;
+      usandoCatalogoReal = true;
+      renderProductos(PRODUCTOS);
+      const nota = document.querySelector('.catalogo-note');
+      if (nota) nota.style.display = 'none';
+      iniciarFondoHero(PRODUCTOS);
+    }
+    // Si `reales` viene vacío (tienda sin productos publicados aún),
+    // se deja el catálogo de ejemplo tal como está.
+  }
+
+  cargarCatalogoReal(currentLang || 'es').catch(err => {
+    console.error('No se pudo conectar con Shopify, usando catálogo de ejemplo:', err);
+  });
+
+  /* ============================================================
+     CARRITO — estado local de ejemplo.
+     TODO(equipo): reemplazar por el objeto Cart real de Shopify
+     (Storefront API: cartCreate, cartLinesAdd, cartLinesUpdate,
+     cartLinesRemove) y usar cart.checkoutUrl en "Finalizar compra".
+     ============================================================ */
+  let cart = []; // [{ id, nombre, icon, precio, cantidad }]
+
+  function findProducto(id) { return PRODUCTOS.find(p => p.id === id); }
+
+  /* ============================================================
+     HISTORIAL DE INTERÉS — guarda en este navegador los productos
+     que el usuario vio o agregó al carrito, para sugerírselos de
+     nuevo en el carrito si al final no los compró.
+     ============================================================ */
+  function registrarInteres(p) {
+    try {
+      let historial = JSON.parse(localStorage.getItem('yahweh_historial') || '[]');
+      historial = historial.filter(h => h.id !== p.id);
+      historial.unshift({ id: p.id, nombre: p.nombre, imagen: p.imagen, precio: p.precio });
+      localStorage.setItem('yahweh_historial', JSON.stringify(historial.slice(0, 15)));
+    } catch (e) {}
+  }
+
+  function renderSugerenciasCarrito() {
+    const cont = document.getElementById('cartSugerencias');
+    if (!cont) return;
+    let historial = [];
+    try { historial = JSON.parse(localStorage.getItem('yahweh_historial') || '[]'); } catch (e) {}
+    const sugerencias = historial.filter(h => !cart.some(c => c.id === h.id)).slice(0, 3);
+    if (sugerencias.length === 0) { cont.innerHTML = ''; return; }
+    cont.innerHTML = `
+      <span class="caps cart-sugerencias-titulo">${t('cart.sugerencias_titulo')}</span>
+      <div class="cart-sug-grid">
+        ${sugerencias.map(s => `
+          <div class="cart-sug-item">
+            <div class="cart-sug-img">${s.imagen ? `<img src="${s.imagen}" alt="${s.nombre}" style="width:100%;height:100%;object-fit:cover;" />` : ''}</div>
+            <div class="cart-sug-info"><h5>${s.nombre}</h5><span>$${s.precio} USD</span></div>
+            <button class="cart-sug-add" data-id="${s.id}">${t('cart.sugerencias_agregar')}</button>
+          </div>`).join('')}
+      </div>`;
+    cont.querySelectorAll('.cart-sug-add').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const s = sugerencias.find(x => x.id === btn.dataset.id);
+        if (!s) return;
+        const existente = cart.find(i => i.id === s.id);
+        if (existente) existente.cantidad += 1;
+        else cart.push({ id: s.id, nombre: s.nombre, imagen: s.imagen, precio: s.precio, cantidad: 1 });
+        renderCart();
+      });
+    });
+  }
+
+  function renderCart() {
+    const itemsEl = document.getElementById('cartItems');
+    const countEl = document.getElementById('cartCount');
+    const countTotalEl = document.getElementById('cartCountTotal');
+    const subtotalEl = document.getElementById('cartSubtotal');
+    const checkoutBtn = document.getElementById('btnCheckout');
+
+    const totalUnidades = cart.reduce((sum, i) => sum + i.cantidad, 0);
+    countEl.textContent = totalUnidades;
+    countEl.style.display = totalUnidades > 0 ? 'flex' : 'none';
+    if (countTotalEl) countTotalEl.textContent = totalUnidades > 0 ? `(${totalUnidades})` : '';
+
+    if (cart.length === 0) {
+      itemsEl.innerHTML = `<p class="cart-empty">${t('cart.vacio')}</p>`;
+      checkoutBtn.disabled = true;
+    } else {
+      itemsEl.innerHTML = cart.map(item => `
+        <div class="cart-item" data-id="${item.id}">
+          <div class="cart-item-img">${item.imagen ? `<img src="${item.imagen}" alt="${item.nombre}" style="width:100%;height:100%;object-fit:cover;" />` : (item.icon || '🛍️')}</div>
+          <div class="cart-item-info">
+            <h4>${item.nombre}</h4>
+            <div class="precio">$${item.precio} USD</div>
+            <div class="cart-item-qty">
+              <button class="qty-minus">−</button>
+              <span>${item.cantidad}</span>
+              <button class="qty-plus">+</button>
+            </div>
+          </div>
+          <div class="cart-item-right">
+            <span class="cart-item-line-total">$${(item.precio * item.cantidad).toFixed(2)} USD</span>
+            <button class="cart-item-remove" title="Quitar">${t('cart.quitar')}</button>
+          </div>
+        </div>`).join('');
+      checkoutBtn.disabled = false;
+    }
+
+    const subtotal = cart.reduce((sum, i) => sum + i.precio * i.cantidad, 0);
+    subtotalEl.textContent = `$${subtotal.toFixed(2)} USD`;
+    renderSugerenciasCarrito();
+  }
+
+  function addToCart(id) {
+    const producto = findProducto(id);
+    if (!producto) return;
+    registrarInteres(producto);
+    const existente = cart.find(i => i.id === id);
+    if (existente) existente.cantidad += 1;
+    else cart.push({ id: producto.id, nombre: producto.nombre, icon: producto.icon, imagen: producto.imagen, precio: producto.precio, cantidad: 1 });
+    renderCart();
+  }
+
+  document.getElementById('cartItems').addEventListener('click', (e) => {
+    const itemEl = e.target.closest('.cart-item');
+    if (!itemEl) return;
+    const id = itemEl.dataset.id;
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    if (e.target.classList.contains('qty-plus')) item.cantidad += 1;
+    else if (e.target.classList.contains('qty-minus')) item.cantidad = Math.max(1, item.cantidad - 1);
+    else if (e.target.classList.contains('cart-item-remove')) cart = cart.filter(i => i.id !== id);
+    renderCart();
+  });
+
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartDrawer = document.getElementById('cartDrawer');
+  function openCart() { cartDrawer.classList.add('open'); cartOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeCart() { cartDrawer.classList.remove('open'); cartOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+  document.getElementById('cartBtn').addEventListener('click', openCart);
+  document.getElementById('cartClose').addEventListener('click', closeCart);
+  document.getElementById('cartBack').addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', () => { closeCart(); closeAccount(); });
+
+  document.getElementById('btnCheckout').addEventListener('click', async () => {
+    const btn = document.getElementById('btnCheckout');
+    if (!usandoCatalogoReal) {
+      alert(t('cart.error_ejemplo'));
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = t('cart.redirigiendo');
+    try {
+      const mutation = `
+        mutation CrearCarrito($lines: [CartLineInput!]!) {
+          cartCreate(input: { lines: $lines }) {
+            cart { id checkoutUrl }
+            userErrors { field message }
+          }
+        }`;
+      const lines = cart.map(item => ({ merchandiseId: item.id, quantity: item.cantidad }));
+      const data = await shopifyFetch(mutation, { lines });
+      const result = data && data.cartCreate;
+      if (result && result.cart && result.cart.checkoutUrl) {
+        window.location.href = result.cart.checkoutUrl;
+      } else {
+        console.error('cartCreate userErrors:', result && result.userErrors);
+        alert(t('cart.error_generico'));
+        btn.disabled = false;
+        btn.textContent = t('cart.finalizar');
+      }
+    } catch (err) {
+      console.error(err);
+      alert(t('cart.error_conexion'));
+      btn.disabled = false;
+      btn.textContent = t('cart.finalizar');
+    }
+  });
+
+  renderCart();
+
+  /* ============================================================
+     CUENTA DE CLIENTE — formularios de ejemplo (sin backend aún).
+     TODO(equipo): conectar con la Customer Account API de Shopify
+     (recomendada) o customerCreate/customerAccessTokenCreate.
+     ============================================================ */
+  const accountOverlay = document.getElementById('accountOverlay');
+  const accountModal = document.getElementById('accountModal');
+  function openAccount() { accountModal.classList.add('open'); accountOverlay.classList.add('open'); }
+  function closeAccount() { accountModal.classList.remove('open'); accountOverlay.classList.remove('open'); }
+  document.getElementById('accountBtn').addEventListener('click', openAccount);
+  document.getElementById('accountClose').addEventListener('click', closeAccount);
+
+  // La tienda usa "Nuevas cuentas de cliente" de Shopify (sin contraseña, alojadas
+  // por Shopify) — no se puede montar un formulario propio de login/registro.
+  // El botón lleva directo a la cuenta real de Shopify, igual que el checkout.
+  const URL_CUENTA_SHOPIFY = 'https://shopify.com/73369124911/account';
+  document.getElementById('btnIrACuenta').href = URL_CUENTA_SHOPIFY;
+
+  /* ============================================================
+     BOT — flujo de conversación acordado con el cliente.
+     TODO(equipo): reemplazar las respuestas fijas por una llamada
+     a un backend propio que use la API de Claude/OpenAI para
+     generar respuestas dinámicas, manteniendo esta misma lógica
+     de intenciones y el escalamiento a Anthony por correo.
+     ============================================================ */
+  const BOT_FLOWS = {
+    inicio: {
+      msgKey: 'bot.saludo',
+      quick: [
+        { labelKey: 'bot.op_productos', next: 'productos' },
+        { labelKey: 'bot.op_precios', next: 'precios' },
+        { labelKey: 'bot.op_devoluciones', next: 'devoluciones' },
+        { labelKey: 'bot.op_humano', next: 'humano' },
+      ],
+    },
+    productos: {
+      msgKey: 'bot.msg_productos',
+      quick: [
+        { labelKey: 'bot.op_precios', next: 'precios' },
+        { labelKey: 'bot.op_humano', next: 'humano' },
+        { labelKey: 'bot.op_menu', next: 'inicio' },
+      ],
+    },
+    precios: {
+      msgKey: 'bot.msg_precios',
+      quick: [
+        { labelKey: 'bot.op_devoluciones', next: 'devoluciones' },
+        { labelKey: 'bot.op_humano', next: 'humano' },
+        { labelKey: 'bot.op_menu', next: 'inicio' },
+      ],
+    },
+    devoluciones: {
+      msgKey: 'bot.msg_devoluciones',
+      quick: [
+        { labelKey: 'bot.op_humano', next: 'humano' },
+        { labelKey: 'bot.op_menu', next: 'inicio' },
+      ],
+    },
+    humano: {
+      msgKey: 'bot.msg_humano',
+      quick: [
+        { labelKey: 'bot.op_whatsapp', url: 'https://wa.me/13369490279' },
+        { labelKey: 'bot.op_menu', next: 'inicio' },
+      ],
+    },
+  };
+
+  const botLauncher = document.getElementById('botLauncher');
+  const botPanel = document.getElementById('botPanel');
+  const botClose = document.getElementById('botClose');
+  const botMessages = document.getElementById('botMessages');
+  const botQuick = document.getElementById('botQuick');
+
+  function addMessage(text, from) {
+    const el = document.createElement('div');
+    el.className = 'bot-msg ' + from;
+    el.textContent = text;
+    botMessages.appendChild(el);
+    botMessages.scrollTop = botMessages.scrollHeight;
+  }
+
+  function showFlow(key) {
+    const flow = BOT_FLOWS[key];
+    addMessage(t(flow.msgKey), 'bot');
+    botQuick.innerHTML = '';
+    flow.quick.forEach(q => {
+      const btn = document.createElement('button');
+      btn.textContent = t(q.labelKey);
+      btn.onclick = () => {
+        addMessage(t(q.labelKey), 'user');
+        botQuick.innerHTML = '';
+        if (q.url) { window.open(q.url, '_blank'); showFlow('inicio'); }
+        else showFlow(q.next);
+      };
+      botQuick.appendChild(btn);
+    });
+  }
+
+  let botStarted = false;
+  botLauncher.addEventListener('click', () => {
+    botPanel.classList.add('open');
+    if (!botStarted) { showFlow('inicio'); botStarted = true; }
+  });
+  botClose.addEventListener('click', () => botPanel.classList.remove('open'));
+
+  /* ============================================================
+     IDIOMA — activación (al final, porque depende de que ya existan
+     renderProductos/renderCart/PRODUCTOS definidos más arriba).
+     ============================================================ */
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      localStorage.setItem('yahweh_lang', lang);
+      applyLanguage(lang);
+      ocultarSelectorIdioma();
+    });
+  });
+
+  document.getElementById('langToggle').addEventListener('click', () => {
+    const nuevoIdioma = currentLang === 'en' ? 'es' : 'en';
+    localStorage.setItem('yahweh_lang', nuevoIdioma);
+    applyLanguage(nuevoIdioma);
+  });
+
+  if (currentLang) {
+    applyLanguage(currentLang);
+  } else {
+    applyLanguage('es'); // idioma visible por defecto mientras el usuario elige
+    mostrarSelectorIdioma();
+  }
+</script>
+
+</body>
+</html>
