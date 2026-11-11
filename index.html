@@ -635,6 +635,7 @@
     .subcat-btn { padding: 8px 14px; font-size: 11px; }
   }
 </style>
+<script src="meta-pixel.js"></script>
 </head>
 <body>
 
@@ -1318,6 +1319,7 @@
      ============================================================ */
   function abrirProductoModal(p) {
     if (typeof registrarInteres === 'function') registrarInteres(p);
+    window.yPixel && window.yPixel('ViewContent', { content_ids: [String(p.id)], content_name: p.nombre, content_type: 'product', value: Number(p.precio) || 0, currency: 'USD' });
     const imgs = (p.imagenes && p.imagenes.length) ? p.imagenes : (p.imagen ? [p.imagen] : []);
     const variantePorDefecto = (p.variantes && (p.variantes.find(v => v.disponible) || p.variantes[0])) || null;
     const estado = {
@@ -1397,6 +1399,7 @@
         const existente = cart.find(i => i.id === idFinal);
         if (existente) existente.cantidad += estado.cantidad;
         else cart.push({ id: idFinal, nombre: p.nombre, icon: p.icon, imagen: imagenFinal, precio: precioFinal, cantidad: estado.cantidad });
+        window.yPixel && window.yPixel('AddToCart', { content_ids: [String(idFinal)], content_name: p.nombre, content_type: 'product', value: (Number(precioFinal) || 0) * estado.cantidad, currency: 'USD' });
         renderCart();
         cerrarProductoModal();
         openCart();
@@ -1746,6 +1749,7 @@
     if (existente) existente.cantidad += 1;
     else cart.push({ id: producto.id, nombre: producto.nombre, icon: producto.icon, imagen: producto.imagen, precio: producto.precio, cantidad: 1 });
     renderCart();
+    window.yPixel && window.yPixel('AddToCart', { content_ids: [String(producto.id)], content_name: producto.nombre, content_type: 'product', value: Number(producto.precio) || 0, currency: 'USD' });
   }
 
   document.getElementById('cartItems').addEventListener('click', (e) => {
@@ -1770,6 +1774,7 @@
   cartOverlay.addEventListener('click', () => { closeCart(); closeAccount(); });
 
   document.getElementById('btnCheckout').addEventListener('click', async () => {
+    window.yPixel && window.yPixel('InitiateCheckout', { value: cart.reduce((t, i) => t + i.precio * i.cantidad, 0), currency: 'USD', num_items: cart.reduce((t, i) => t + i.cantidad, 0) });
     const btn = document.getElementById('btnCheckout');
     if (!usandoCatalogoReal) {
       alert(t('cart.error_ejemplo'));
