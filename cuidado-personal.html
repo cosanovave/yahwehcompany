@@ -1299,7 +1299,7 @@
         : `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:60px;">${p.icon || '🛍️'}</div>`;
       const galeriaThumbs = imgs.map(url => `<img src="${url}" class="${url === estado.imagenActual ? 'activa' : ''}" data-url="${url}" />`).join('');
 
-      const opcionesHtml = (p.opciones || []).map(op => {
+      const opcionesHtml = (p.opciones || []).filter(op => !(op.values && op.values.length === 1 && /^(default\s*title|t[ií]tulo\s+predeterminado)$/i.test(String(op.values[0]).trim()))).map(op => {
         const valoresHtml = op.values.map(val => {
           const testSel = Object.assign({}, estado.seleccion, { [op.name]: val });
           const match = p.variantes.find(v => Object.keys(testSel).every(k => v.opciones[k] === testSel[k]));
